@@ -16,10 +16,20 @@ struct ContentView: View {
         ["0", ".", ".", "="]
     ]
     
+    var buttonSize: (width: CGFloat, height: CGFloat) {
+        guard let numberOfButtonsPerRow = calculatorButtons.first?.count else {
+            return (.zero, .zero)
+        }
+        let numberOfRows = calculatorButtons.count
+        let screenWidth = UIScreen.main.bounds.width
+        let width = (screenWidth - CGFloat(numberOfButtonsPerRow * 12)) / CGFloat(numberOfRows)
+        return (width, width)
+    }
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             Color.black.edgesIgnoringSafeArea(.all)
-            VStack {
+            VStack(spacing: 12) {
                 HStack {
                     Spacer()
                     Text("42")
@@ -28,18 +38,21 @@ struct ContentView: View {
                 }.padding()
                 
                 ForEach(calculatorButtons, id: \.self) { buttons in
-                    HStack {
+                    HStack(spacing: 12) {
                         ForEach(buttons, id: \.self) { buttonText in
                             Text(buttonText)
                                 .font(.system(size: 32.0))
-                                .frame(width: 80, height: 80)
+                                .frame(width: self.buttonSize.width, height: self.buttonSize.height)
                                 .foregroundColor(.white)
+                                .background(Color.yellow)
+                                .cornerRadius(self.buttonSize.width / 2)
                         }
                     }
                 }
-            }
+            }.padding(.bottom)
         }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
