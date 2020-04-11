@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E201FAC924421A7C00AE6F4C /* GlobalEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E201FAC824421A7C00AE6F4C /* GlobalEnviroment.swift */; };
+		E201FACC24421E6200AE6F4C /* CalculatorButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E201FACB24421E6200AE6F4C /* CalculatorButtonsView.swift */; };
 		E2FBCEC42441608600147B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FBCEC32441608600147B1B /* AppDelegate.swift */; };
 		E2FBCEC62441608600147B1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FBCEC52441608600147B1B /* SceneDelegate.swift */; };
 		E2FBCEC82441608600147B1B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FBCEC72441608600147B1B /* ContentView.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E201FAC824421A7C00AE6F4C /* GlobalEnviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEnviroment.swift; sourceTree = "<group>"; };
+		E201FACB24421E6200AE6F4C /* CalculatorButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonsView.swift; sourceTree = "<group>"; };
 		E2FBCEC02441608600147B1B /* CalculatorReplicaSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculatorReplicaSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FBCEC32441608600147B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2FBCEC52441608600147B1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E201FACA24421E5600AE6F4C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E201FACB24421E6200AE6F4C /* CalculatorButtonsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E2FBCEB72441608600147B1B = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +70,7 @@
 		E2FBCEC22441608600147B1B /* CalculatorReplicaSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				E201FACA24421E5600AE6F4C /* Views */,
 				E2FBCEC32441608600147B1B /* AppDelegate.swift */,
 				E2FBCEC52441608600147B1B /* SceneDelegate.swift */,
 				E2FBCEC72441608600147B1B /* ContentView.swift */,
@@ -66,6 +79,7 @@
 				E2FBCED12441608D00147B1B /* Info.plist */,
 				E2FBCECB2441608D00147B1B /* Preview Content */,
 				E2FBCED724416D3D00147B1B /* CalculatorButton.swift */,
+				E201FAC824421A7C00AE6F4C /* GlobalEnviroment.swift */,
 			);
 			path = CalculatorReplicaSwiftUI;
 			sourceTree = "<group>";
@@ -149,6 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E201FACC24421E6200AE6F4C /* CalculatorButtonsView.swift in Sources */,
+				E201FAC924421A7C00AE6F4C /* GlobalEnviroment.swift in Sources */,
 				E2FBCEC42441608600147B1B /* AppDelegate.swift in Sources */,
 				E2FBCEC62441608600147B1B /* SceneDelegate.swift in Sources */,
 				E2FBCEC82441608600147B1B /* ContentView.swift in Sources */,
