@@ -9,20 +9,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    private let calculatorButtons = [
-        ["7", "8", "9", "x"],
-        ["4", "5", "6", "-"],
-        ["1", "2", "3", "+"],
-        ["0", ".", ".", "="]
+    private let calculatorButtons: [[CalculatorButton]] = [
+        [.ac, .plusMinus, .percent, .divide],
+        [.seven, .eight, .nine, .multiply],
+        [.four, .five, .six, .minus],
+        [.one, .two, .three, .plus],
+        [.zero, .dot, .dot, .equals]
     ]
     
     var buttonSize: (width: CGFloat, height: CGFloat) {
         guard let numberOfButtonsPerRow = calculatorButtons.first?.count else {
             return (.zero, .zero)
         }
-        let numberOfRows = calculatorButtons.count
         let screenWidth = UIScreen.main.bounds.width
-        let width = (screenWidth - CGFloat(numberOfButtonsPerRow * 12)) / CGFloat(numberOfRows)
+        let width = (screenWidth - CGFloat((numberOfButtonsPerRow + 1) * 12)) / CGFloat(numberOfButtonsPerRow)
         return (width, width)
     }
     
@@ -39,12 +39,12 @@ struct ContentView: View {
                 
                 ForEach(calculatorButtons, id: \.self) { buttons in
                     HStack(spacing: 12) {
-                        ForEach(buttons, id: \.self) { buttonText in
-                            Text(buttonText)
+                        ForEach(buttons, id: \.self) { button in
+                            Text(button.title)
                                 .font(.system(size: 32.0))
                                 .frame(width: self.buttonSize.width, height: self.buttonSize.height)
                                 .foregroundColor(.white)
-                                .background(Color.yellow)
+                                .background(button.backgroundColor)
                                 .cornerRadius(self.buttonSize.width / 2)
                         }
                     }

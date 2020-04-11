@@ -13,6 +13,7 @@
 		E2FBCECA2441608D00147B1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2FBCEC92441608D00147B1B /* Assets.xcassets */; };
 		E2FBCECD2441608D00147B1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2FBCECC2441608D00147B1B /* Preview Assets.xcassets */; };
 		E2FBCED02441608D00147B1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2FBCECE2441608D00147B1B /* LaunchScreen.storyboard */; };
+		E2FBCED824416D3D00147B1B /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FBCED724416D3D00147B1B /* CalculatorButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E2FBCECC2441608D00147B1B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E2FBCECF2441608D00147B1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2FBCED12441608D00147B1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2FBCED724416D3D00147B1B /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				E2FBCECE2441608D00147B1B /* LaunchScreen.storyboard */,
 				E2FBCED12441608D00147B1B /* Info.plist */,
 				E2FBCECB2441608D00147B1B /* Preview Content */,
+				E2FBCED724416D3D00147B1B /* CalculatorButton.swift */,
 			);
 			path = CalculatorReplicaSwiftUI;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				E2FBCEC42441608600147B1B /* AppDelegate.swift in Sources */,
 				E2FBCEC62441608600147B1B /* SceneDelegate.swift in Sources */,
 				E2FBCEC82441608600147B1B /* ContentView.swift in Sources */,
+				E2FBCED824416D3D00147B1B /* CalculatorButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
