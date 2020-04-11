@@ -11,7 +11,19 @@ import Combine
 class GlobalEnviroment: ObservableObject {
     @Published var calculatorDisplay: String = ""
     
-    func updateCalculatorDisplay(calculatorButton: CalculatorButton) {
-        calculatorDisplay = calculatorButton.title
+    let calculatorButtons: [[CalculatorOption]] = [
+        [.ac, .plusMinus, .percent, .divide],
+        [.seven, .eight, .nine, .multiply],
+        [.four, .five, .six, .minus],
+        [.one, .two, .three, .plus],
+        [.zero, .dot, .dot, .equals]
+    ]
+    
+    var numberOfButtonsPerRow: Int? {
+        return calculatorButtons.first?.count
+    }
+    
+    func updateCalculatorDisplay(calculatorOption: CalculatorOption) {
+        calculatorDisplay = calculatorOption.title
     }
 }

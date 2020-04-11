@@ -1,5 +1,5 @@
 //
-//  CalculatorButton.swift
+//  CalculatorOption.swift
 //  CalculatorReplicaSwiftUI
 //
 //  Created by Alonso on 4/10/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-enum CalculatorButton {
+enum CalculatorOption {
     case one, two, three, four, five
     case six, seven, eight, nine, zero, dot
     case equals, plus, minus, multiply, divide
