@@ -15,8 +15,10 @@ struct CalculatorResultDisplayView: View {
         HStack {
             Spacer()
             Text(env.calculatorDisplay)
-            .font(.system(size: 64))
-            .foregroundColor(.white)
+                .font(.system(size: 64))
+                .foregroundColor(.white)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
         }.padding()
     }
 }

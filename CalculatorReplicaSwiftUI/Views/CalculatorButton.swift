@@ -11,7 +11,7 @@ import SwiftUI
 struct CalculatorButton: View {
     @EnvironmentObject var env: GlobalEnviroment
     
-    let button: CalculatorOption
+    let button: CalculatorOptionProtocol
     
     var buttonSize: (width: CGFloat, height: CGFloat) {
         guard let numberOfButtonsPerRow = env.numberOfButtonsPerRow else { return (.zero, .zero) }

@@ -12,9 +12,9 @@ struct CalculatorButtonsView: View {
     @EnvironmentObject var env: GlobalEnviroment
     
     var body: some View {
-        ForEach(env.calculatorButtons, id: \.self) { buttons in
+        ForEach(0...env.calculatorButtons.count - 1, id: \.self) { index in
             HStack(spacing: 12) {
-                ForEach(buttons, id: \.self) { button in
+                ForEach(self.env.calculatorButtons[index], id: \.title) { button in
                     CalculatorButton(button: button)
                 }
             }
