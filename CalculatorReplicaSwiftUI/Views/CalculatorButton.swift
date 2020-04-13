@@ -11,14 +11,7 @@ import SwiftUI
 struct CalculatorButton: View {
     @EnvironmentObject var env: GlobalEnviroment
     
-    let button: CalculatorOption
-    
-    var buttonSize: (width: CGFloat, height: CGFloat) {
-        guard let numberOfButtonsPerRow = env.numberOfButtonsPerRow else { return (.zero, .zero) }
-        let screenWidth = UIScreen.main.bounds.width
-        let width = (screenWidth - CGFloat((numberOfButtonsPerRow + 1) * 12)) / CGFloat(numberOfButtonsPerRow)
-        return (width, width)
-    }
+    let button: CalculatorOptionProtocol
     
     var body: some View {
         Button(action: {
@@ -31,5 +24,28 @@ struct CalculatorButton: View {
             .background(button.backgroundColor)
             .cornerRadius(self.buttonSize.width / 2)
         })
+    }
+}
+
+// MARK: - Button size
+
+extension CalculatorButton {
+    var buttonSize: (width: CGFloat, height: CGFloat) {
+        guard let numberOfButtonsPerRow = env.numberOfButtonsPerRow else { return (.zero, .zero) }
+        let screenWidth = UIScreen.main.bounds.width
+        let offset = button.gridSpace - 1
+        
+        let height = (screenWidth - CGFloat((numberOfButtonsPerRow + 1) * Constant.spacing)) / CGFloat(numberOfButtonsPerRow)
+        let width = height * CGFloat(button.gridSpace) + CGFloat(Constant.spacing * offset)
+        
+        return (width, height)
+    }
+}
+
+// MARK: - Constants
+
+extension CalculatorButton {
+    struct Constant {
+        static let spacing = 12
     }
 }
