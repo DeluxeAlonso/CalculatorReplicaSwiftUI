@@ -9,7 +9,6 @@
 import Foundation
 
 enum CalculatorOperation: Equatable, Hashable {
-    case constant(Double)
     case unaryOperation((Double) -> Double)
     case binaryOperation((Double, Double) -> Double)
     case equals
@@ -20,7 +19,6 @@ enum CalculatorOperation: Equatable, Hashable {
     
     static func == (lhs: CalculatorOperation, rhs: CalculatorOperation) -> Bool {
         switch (lhs, rhs) {
-        case (constant(let lhsValue), constant(let rhsValue)): return lhsValue == rhsValue
         case (equals, equals): return true
         case (clear, clear): return true
         case (blank, blank): return true

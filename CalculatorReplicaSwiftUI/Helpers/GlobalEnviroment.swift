@@ -18,13 +18,20 @@ class GlobalEnviroment: ObservableObject {
         return numberFormatter
     }()
     
-    var calculatorDisplay: String! {
+    lazy var scientificFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .scientific
+        numberFormatter.maximumFractionDigits = 5
+        return numberFormatter
+    }()
+    
+    var calculatorDisplay: String = "0" {
         didSet {
-            guard let largeNumber = Double(calculatorDisplay),
-                let formattedNumber = numberFormatter.string(from: NSNumber(value:largeNumber)) else {
-                    return
+            guard let largeNumber = Double(calculatorDisplay) else { return }
+            let formatter = largeNumber.decimalCount() > Constants.maxLimit ? scientificFormatter : numberFormatter
+            if let formattedNumber = formatter.string(from: NSNumber(value:largeNumber)) {
+                formattedCalculatorDisplay = formattedNumber
             }
-            formattedCalculatorDisplay = formattedNumber
         }
     }
     
@@ -98,7 +105,7 @@ class GlobalEnviroment: ObservableObject {
         case .binaryOperation(let function):
             pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: resultValue)
             resultValue = 0
-        case .blank, .constant:
+        case .blank:
             break
         case .equals:
             performPendingBinaryOperation()
