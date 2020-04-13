@@ -22,7 +22,7 @@ struct CalculatorOption: CalculatorOptionProtocol {
     
     var gridSpace: Int = 1
     
-    var backgroundColor: Color = Color(.lightGray)
+    var backgroundColor: Color = Color(.darkGray)
     
     var operation: CalculatorOperation?
 }

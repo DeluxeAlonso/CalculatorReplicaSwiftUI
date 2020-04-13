@@ -14,7 +14,7 @@ struct CalculatorResultDisplayView: View {
     var body: some View {
         HStack {
             Spacer()
-            Text(env.calculatorDisplay)
+            Text(env.formattedCalculatorDisplay)
                 .font(.system(size: 64))
                 .foregroundColor(.white)
                 .lineLimit(1)
