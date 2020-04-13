@@ -18,7 +18,7 @@ class GlobalEnviroment: ObservableObject {
         return numberFormatter
     }()
     
-    var calculatorDisplay: String = "0" {
+    var calculatorDisplay: String! {
         didSet {
             guard let largeNumber = Double(calculatorDisplay),
                 let formattedNumber = numberFormatter.string(from: NSNumber(value:largeNumber)) else {
