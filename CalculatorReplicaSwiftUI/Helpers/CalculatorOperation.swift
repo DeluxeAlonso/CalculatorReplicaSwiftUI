@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CalculatorOperation: Equatable, Hashable {
+enum CalculatorOperation: Equatable {
     case unaryOperation((Double) -> Double)
     case binaryOperation((Double, Double) -> Double)
     case equals
@@ -26,9 +26,5 @@ enum CalculatorOperation: Equatable, Hashable {
         case (binaryOperation, binaryOperation): return true
         default: return false
         }
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        
     }
 }

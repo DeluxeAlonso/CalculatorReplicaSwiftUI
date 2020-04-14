@@ -21,17 +21,14 @@ class GlobalEnviroment: ObservableObject {
     lazy var scientificFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .scientific
+        numberFormatter.maximumIntegerDigits = 1
         numberFormatter.maximumFractionDigits = 5
         return numberFormatter
     }()
     
     var calculatorDisplay: String = "0" {
         didSet {
-            guard let largeNumber = Double(calculatorDisplay) else { return }
-            let formatter = largeNumber.decimalCount() > Constants.maxLimit ? scientificFormatter : numberFormatter
-            if let formattedNumber = formatter.string(from: NSNumber(value:largeNumber)) {
-                formattedCalculatorDisplay = formattedNumber
-            }
+            formatResultValue(calculatorDisplay)
         }
     }
     
@@ -60,7 +57,7 @@ class GlobalEnviroment: ObservableObject {
     // MARK: - Utils
     
     func updateDisplay() {
-        let isInteger = resultValue.truncatingRemainder(dividingBy: 1) == 0
+        let isInteger = resultValue.truncatingRemainder(dividingBy: 1) == 0 && resultValue < Double(Int.max)
         let valueToDisplay: CustomStringConvertible = isInteger ? Int(resultValue) : resultValue
         calculatorDisplay = String(valueToDisplay.description)
     }
@@ -126,6 +123,19 @@ class GlobalEnviroment: ObservableObject {
             pendingBinaryOperation.setSecondOperand(resultValue)
         }
         resultValue = pendingBinaryOperation.perform()
+    }
+    
+    // MARK: - Result formatter
+    
+    private func formatResultValue(_ calculatorDisplay: String) {
+        guard let largeNumber = Double(calculatorDisplay) else { return }
+        let exceedDecimalLimit = largeNumber.decimalCount() > Constants.maxLimit
+        let exceedNumberLimit = largeNumber >= 1_000_000_000
+        let needsScientificFormat = exceedNumberLimit || exceedDecimalLimit
+        let formatter = needsScientificFormat ? scientificFormatter : numberFormatter
+        if let formattedNumber = formatter.string(from: NSNumber(value:largeNumber)) {
+            formattedCalculatorDisplay = formattedNumber
+        }
     }
 }
 

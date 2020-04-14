@@ -10,6 +10,7 @@ import Foundation
 
 extension Double {
     func decimalCount() -> Int {
+        guard self < Double(Int.max) else { return 0 }
         if self == Double(Int(self)) {
             return 0
         }
