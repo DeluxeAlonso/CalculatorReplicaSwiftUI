@@ -25,6 +25,7 @@ struct CalculatorView: View {
 
 struct CalculatorView_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorView().environmentObject(GlobalEnviroment(calculatorButtons: CalculatorBuilder.buildCalculatorOptions()))
+        CalculatorView().environmentObject(GlobalEnviroment(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
+                                                            resultFormatter: CalculatorResultFormatter()))
     }
 }
