@@ -15,16 +15,21 @@ class GlobalEnviroment: ObservableObject {
     lazy var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 9
         return numberFormatter
     }()
     
-    var calculatorDisplay: String! {
+    lazy var scientificFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .scientific
+        numberFormatter.maximumIntegerDigits = 1
+        numberFormatter.maximumFractionDigits = 5
+        return numberFormatter
+    }()
+    
+    var calculatorDisplay: String = "0" {
         didSet {
-            guard let largeNumber = Double(calculatorDisplay),
-                let formattedNumber = numberFormatter.string(from: NSNumber(value:largeNumber)) else {
-                    return
-            }
-            formattedCalculatorDisplay = formattedNumber
+            formatResultValue(calculatorDisplay)
         }
     }
     
@@ -53,7 +58,7 @@ class GlobalEnviroment: ObservableObject {
     // MARK: - Utils
     
     func updateDisplay() {
-        let isInteger = resultValue.truncatingRemainder(dividingBy: 1) == 0
+        let isInteger = resultValue.truncatingRemainder(dividingBy: 1) == 0 && resultValue < Double(Int.max)
         let valueToDisplay: CustomStringConvertible = isInteger ? Int(resultValue) : resultValue
         calculatorDisplay = String(valueToDisplay.description)
     }
@@ -69,15 +74,15 @@ class GlobalEnviroment: ObservableObject {
         return calculatorDisplay.contains(calculatorOption.title)
     }
     
-    func updateCalculatorDisplay(calculatorOption: CalculatorOptionProtocol) {
+    func handleCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) {
         if calculatorOption.shouldShowOnResultDisplay {
-            updateDisplay(calculatorOption)
+            updateResultDisplay(calculatorOption)
         } else {
             performOperation(calculatorOption)
         }
     }
     
-    private func updateDisplay(_ calculatorOption: CalculatorOptionProtocol) {
+    private func updateResultDisplay(_ calculatorOption: CalculatorOptionProtocol) {
         if !calculatorOption.isPlainNumber, isOptionAlreadyPresent(calculatorOption) { return }
         if isEnteringNumbers, !areDisplayCharactersInRange { return }
         if resultValue == .zero && !isEnteringNumbers { calculatorDisplay = "" }
@@ -98,8 +103,8 @@ class GlobalEnviroment: ObservableObject {
         case .binaryOperation(let function):
             pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: resultValue)
             resultValue = 0
-        case .blank, .constant:
-            break
+        case .decimal:
+            handleDecimalInput(calculatorOption: calculatorOption)
         case .equals:
             performPendingBinaryOperation()
             updateDisplay()
@@ -120,6 +125,25 @@ class GlobalEnviroment: ObservableObject {
         }
         resultValue = pendingBinaryOperation.perform()
     }
+    
+    private func handleDecimalInput(calculatorOption: CalculatorOptionProtocol) {
+        guard !calculatorDisplay.contains(calculatorOption.title) else { return }
+        calculatorDisplay += calculatorOption.title
+    }
+    
+    // MARK: - Result formatter
+    
+    private func formatResultValue(_ calculatorDisplay: String) {
+        guard let largeNumber = Double(calculatorDisplay) else { return}
+        let exceedDecimalLimit = largeNumber.decimalCount() > Constants.maxLimit
+        let exceedNumberLimit = largeNumber >= 1_000_000_000
+        let needsScientificFormat = exceedNumberLimit || exceedDecimalLimit
+        let formatter = needsScientificFormat ? scientificFormatter : numberFormatter
+        if let formattedNumber = formatter.string(from: NSNumber(value:largeNumber)) {
+            formattedCalculatorDisplay = formattedNumber
+        }
+    }
+
 }
 
 // MARK: - PendingBinaryOperation

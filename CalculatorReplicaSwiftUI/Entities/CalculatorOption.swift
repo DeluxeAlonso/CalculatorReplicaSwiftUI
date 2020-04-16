@@ -17,7 +17,7 @@ struct CalculatorOption: CalculatorOptionProtocol {
     
     var shouldShowOnResultDisplay: Bool {
         guard let operation = operation else { return true }
-        return operation == .blank
+        return operation == .decimal
     }
     
     var gridSpace: Int = 1
