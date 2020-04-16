@@ -52,7 +52,7 @@ struct CalculatorBuilder {
         
         let fifthRowOptions = [
             CalculatorOption(title: "0", gridSpace: 2),
-            CalculatorOption(title: ".", operation: .blank),
+            CalculatorOption(title: ".", operation: .decimal),
             CalculatorOption(title: "=",
                              backgroundColor: Color(.orange),
                              operation: .equals)

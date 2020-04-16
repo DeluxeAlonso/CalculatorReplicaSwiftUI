@@ -15,7 +15,7 @@ struct CalculatorButton: View {
     
     var body: some View {
         Button(action: {
-            self.env.updateCalculatorDisplay(calculatorOption: self.button)
+            self.env.handleCalculatorOption(self.button)
         }, label: {
             Text(button.title)
             .font(.system(size: 32.0))

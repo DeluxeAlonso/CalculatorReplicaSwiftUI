@@ -15,6 +15,7 @@ class GlobalEnviroment: ObservableObject {
     lazy var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 9
         return numberFormatter
     }()
     
@@ -73,15 +74,15 @@ class GlobalEnviroment: ObservableObject {
         return calculatorDisplay.contains(calculatorOption.title)
     }
     
-    func updateCalculatorDisplay(calculatorOption: CalculatorOptionProtocol) {
+    func handleCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) {
         if calculatorOption.shouldShowOnResultDisplay {
-            updateDisplay(calculatorOption)
+            updateResultDisplay(calculatorOption)
         } else {
             performOperation(calculatorOption)
         }
     }
     
-    private func updateDisplay(_ calculatorOption: CalculatorOptionProtocol) {
+    private func updateResultDisplay(_ calculatorOption: CalculatorOptionProtocol) {
         if !calculatorOption.isPlainNumber, isOptionAlreadyPresent(calculatorOption) { return }
         if isEnteringNumbers, !areDisplayCharactersInRange { return }
         if resultValue == .zero && !isEnteringNumbers { calculatorDisplay = "" }
@@ -102,8 +103,8 @@ class GlobalEnviroment: ObservableObject {
         case .binaryOperation(let function):
             pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: resultValue)
             resultValue = 0
-        case .blank:
-            break
+        case .decimal:
+            handleDecimalInput(calculatorOption: calculatorOption)
         case .equals:
             performPendingBinaryOperation()
             updateDisplay()
@@ -125,10 +126,15 @@ class GlobalEnviroment: ObservableObject {
         resultValue = pendingBinaryOperation.perform()
     }
     
+    private func handleDecimalInput(calculatorOption: CalculatorOptionProtocol) {
+        guard !calculatorDisplay.contains(calculatorOption.title) else { return }
+        calculatorDisplay += calculatorOption.title
+    }
+    
     // MARK: - Result formatter
     
     private func formatResultValue(_ calculatorDisplay: String) {
-        guard let largeNumber = Double(calculatorDisplay) else { return }
+        guard let largeNumber = Double(calculatorDisplay) else { return}
         let exceedDecimalLimit = largeNumber.decimalCount() > Constants.maxLimit
         let exceedNumberLimit = largeNumber >= 1_000_000_000
         let needsScientificFormat = exceedNumberLimit || exceedDecimalLimit
@@ -137,6 +143,7 @@ class GlobalEnviroment: ObservableObject {
             formattedCalculatorDisplay = formattedNumber
         }
     }
+
 }
 
 // MARK: - PendingBinaryOperation

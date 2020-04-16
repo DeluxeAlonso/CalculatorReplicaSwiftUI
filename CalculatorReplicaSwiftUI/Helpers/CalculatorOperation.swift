@@ -13,7 +13,7 @@ enum CalculatorOperation: Equatable {
     case binaryOperation((Double, Double) -> Double)
     case equals
     case clear
-    case blank
+    case decimal
     
     // MARK: - Equatable
     
@@ -21,7 +21,7 @@ enum CalculatorOperation: Equatable {
         switch (lhs, rhs) {
         case (equals, equals): return true
         case (clear, clear): return true
-        case (blank, blank): return true
+        case (decimal, decimal): return true
         case (unaryOperation, unaryOperation): return true
         case (binaryOperation, binaryOperation): return true
         default: return false
