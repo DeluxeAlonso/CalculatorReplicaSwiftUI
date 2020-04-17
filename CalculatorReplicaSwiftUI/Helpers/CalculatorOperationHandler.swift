@@ -1,23 +1,21 @@
 //
-//  GlobalEnviroment.swift
+//  CalculatorOperationHandler.swift
 //  CalculatorReplicaSwiftUI
 //
-//  Created by Alonso on 4/11/20.
+//  Created by Alonso on 4/16/20.
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
 import Combine
+import SwiftUI
 
-class GlobalEnviroment: ObservableObject {
-    @Published var formattedCalculatorDisplay: String = "0"
-    
-    private let resultFormatter: CalculatorResultFormatterProtocol
-    let calculatorButtons: [[CalculatorOptionProtocol]]
-    
+class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
+
     private var resultValue: Double = 0
     private var pendingBinaryOperation: PendingBinaryOperation?
     private var isEnteringNumbers: Bool = false
+    
+    weak var delegate: CalculatorEnvironmentObjectProtocol?
     
     private var areDisplayCharactersInRange: Bool {
         return calculatorDisplay.filter { $0.isNumber }.count < Constants.calculatorDisplayMaxLimit
@@ -25,23 +23,11 @@ class GlobalEnviroment: ObservableObject {
     
     private var calculatorDisplay: String = "0" {
         didSet {
-            guard let formattedResult = resultFormatter.formatResult(from: calculatorDisplay) else {
-                return
-            }
-            formattedCalculatorDisplay = formattedResult
+            delegate?.updateValue(calculatorDisplay)
         }
     }
     
-    var numberOfButtonsPerRow: Int? {
-        return calculatorButtons.first?.count
-    }
-    
-    // MARK: - Initializers
-    
-    init(calculatorButtons: [[CalculatorOptionProtocol]], resultFormatter: CalculatorResultFormatterProtocol) {
-        self.calculatorButtons = calculatorButtons
-        self.resultFormatter = resultFormatter
-    }
+    init() {}
     
     // MARK: - Public
     
@@ -56,8 +42,7 @@ class GlobalEnviroment: ObservableObject {
     // MARK: - Utils
     
     private func updateDisplay() {
-        let isInteger = resultValue.truncatingRemainder(dividingBy: 1) == 0 && resultValue < Double(Int.max)
-        let valueToDisplay: CustomStringConvertible = isInteger ? Int(resultValue) : resultValue
+        let valueToDisplay: CustomStringConvertible = resultValue.hasDecimals ? resultValue : Int(resultValue)
         calculatorDisplay = String(valueToDisplay.description)
     }
     
@@ -94,7 +79,7 @@ class GlobalEnviroment: ObservableObject {
             pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: resultValue)
             resultValue = 0
         case .decimal:
-            handleDecimalInput(calculatorOption: calculatorOption)
+            break
         case .equals:
             performPendingBinaryOperation()
             updateDisplay()
@@ -114,11 +99,6 @@ class GlobalEnviroment: ObservableObject {
             pendingBinaryOperation.setSecondOperand(resultValue)
         }
         resultValue = pendingBinaryOperation.perform()
-    }
-    
-    private func handleDecimalInput(calculatorOption: CalculatorOptionProtocol) {
-        guard !calculatorDisplay.contains(calculatorOption.title) else { return }
-        calculatorDisplay += calculatorOption.title
     }
 
 }

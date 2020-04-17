@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalculatorView: View {
-    @EnvironmentObject var env: GlobalEnviroment
+    @EnvironmentObject var env: CalculatorEnviromentObject
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -25,7 +25,8 @@ struct CalculatorView: View {
 
 struct CalculatorView_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorView().environmentObject(GlobalEnviroment(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
-                                                            resultFormatter: CalculatorResultFormatter()))
+        CalculatorView().environmentObject(CalculatorEnviromentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
+                                                            resultFormatter: CalculatorResultFormatter(),
+                                                            calculatorOperationHandler: CalculatorOperationHadler()))
     }
 }

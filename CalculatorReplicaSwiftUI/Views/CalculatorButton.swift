@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalculatorButton: View {
-    @EnvironmentObject var env: GlobalEnviroment
+    @EnvironmentObject var env: CalculatorEnviromentObject
     
     let button: CalculatorOptionProtocol
     

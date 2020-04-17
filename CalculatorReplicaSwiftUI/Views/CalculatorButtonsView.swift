@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalculatorButtonsView: View {
-    @EnvironmentObject var env: GlobalEnviroment
+    @EnvironmentObject var env: CalculatorEnviromentObject
     
     var body: some View {
         ForEach(0...env.calculatorButtons.count - 1, id: \.self) { index in

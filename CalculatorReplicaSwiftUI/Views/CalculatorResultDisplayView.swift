@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalculatorResultDisplayView: View {
-    @EnvironmentObject var env: GlobalEnviroment
+    @EnvironmentObject var env: CalculatorEnviromentObject
     
     var body: some View {
         HStack {
