@@ -21,4 +21,8 @@ extension Double {
 
         return decimalCount
     }
+    
+    var hasDecimals: Bool {
+        return decimalCount() > 0
+    }
 }
