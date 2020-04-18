@@ -10,15 +10,12 @@ import Foundation
 import Combine
 
 class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironmentObjectProtocol {
+    
     @Published var formattedCalculatorDisplay: String = "0"
     
     let calculatorButtons: [[CalculatorOptionProtocol]]
     private let resultFormatter: CalculatorResultFormatterProtocol
     private var calculatorOperationHandler: CalculatorOperationHandlerProtocol
-    
-    var numberOfButtonsPerRow: Int? {
-        return calculatorButtons.first?.count
-    }
     
     // MARK: - Initializers
     
@@ -44,4 +41,9 @@ class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironmentObjectP
         formattedCalculatorDisplay = formattedResult
     }
     
+}
+
+extension CalculatorEnviromentObject {
+    static let calculatorDisplayMaxLimit = 9
+    static let numberOfButtonsPerRow = 4
 }

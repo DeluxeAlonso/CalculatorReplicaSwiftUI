@@ -6,8 +6,7 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Combine
-import SwiftUI
+import Foundation
 
 class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
@@ -18,7 +17,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     weak var delegate: CalculatorEnvironmentObjectProtocol?
     
     private var areDisplayCharactersInRange: Bool {
-        return calculatorDisplay.filter { $0.isNumber }.count < Constants.calculatorDisplayMaxLimit
+        return calculatorDisplay.filter { $0.isNumber }.count < CalculatorConstants.calculatorDisplayMaxLimit
     }
     
     private var calculatorDisplay: String = "" {
@@ -44,7 +43,8 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     // MARK: - Utils
     
     private func updateDisplay() {
-        let valueToDisplay: CustomStringConvertible = String(resultValue).fractionDigitsCount() > 0 ? resultValue : Int(resultValue)
+        let isInteger = String(resultValue).fractionDigitsCount() == 0 && resultValue < Double(Int.max)
+        let valueToDisplay: CustomStringConvertible = isInteger ? Int(resultValue) : resultValue 
         calculatorDisplay = String(valueToDisplay.description)
     }
     
@@ -55,12 +55,8 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     
     // MARK: - Calculator Operations
     
-    private func isOptionAlreadyPresent(_ calculatorOption: CalculatorOptionProtocol) -> Bool {
-        return calculatorDisplay.contains(calculatorOption.title)
-    }
-    
     private func updateResultDisplay(_ calculatorOption: CalculatorOptionProtocol) {
-        if !calculatorOption.isPlainNumber, isOptionAlreadyPresent(calculatorOption) { return }
+        if !calculatorOption.isPlainNumber, calculatorDisplay.contains(calculatorOption.title) { return }
         if isEnteringNumbers, !areDisplayCharactersInRange { return }
         if resultValue == .zero && !isEnteringNumbers { calculatorDisplay = "" }
         calculatorDisplay += calculatorOption.title
