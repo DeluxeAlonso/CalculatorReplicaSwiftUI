@@ -12,9 +12,9 @@ import Combine
 class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironmentObjectProtocol {
     @Published var formattedCalculatorDisplay: String = "0"
     
-    private let resultFormatter: CalculatorResultFormatterProtocol
     let calculatorButtons: [[CalculatorOptionProtocol]]
-    private let calculatorOperationHandler: CalculatorOperationHadler
+    private let resultFormatter: CalculatorResultFormatterProtocol
+    private var calculatorOperationHandler: CalculatorOperationHandlerProtocol
     
     var numberOfButtonsPerRow: Int? {
         return calculatorButtons.first?.count
@@ -24,7 +24,7 @@ class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironmentObjectP
     
     init(calculatorButtons: [[CalculatorOptionProtocol]],
          resultFormatter: CalculatorResultFormatterProtocol,
-         calculatorOperationHandler: CalculatorOperationHadler) {
+         calculatorOperationHandler: CalculatorOperationHandlerProtocol) {
         self.calculatorButtons = calculatorButtons
         self.resultFormatter = resultFormatter
         self.calculatorOperationHandler = calculatorOperationHandler

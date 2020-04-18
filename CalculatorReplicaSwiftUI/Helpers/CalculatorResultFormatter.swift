@@ -12,7 +12,7 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
     lazy var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 9
+        numberFormatter.maximumFractionDigits = 5
         return numberFormatter
     }()
     
