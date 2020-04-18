@@ -44,7 +44,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     // MARK: - Utils
     
     private func updateDisplay() {
-        let valueToDisplay: CustomStringConvertible = resultValue.hasDecimals ? resultValue : Int(resultValue)
+        let valueToDisplay: CustomStringConvertible = String(resultValue).fractionDigitsCount() > 0 ? resultValue : Int(resultValue)
         calculatorDisplay = String(valueToDisplay.description)
     }
     

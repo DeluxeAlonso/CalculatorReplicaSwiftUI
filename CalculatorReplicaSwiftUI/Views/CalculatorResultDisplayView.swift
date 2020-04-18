@@ -18,7 +18,7 @@ struct CalculatorResultDisplayView: View {
                 .font(.system(size: 72))
                 .foregroundColor(.white)
                 .lineLimit(1)
-                .minimumScaleFactor(0.8)
+                .minimumScaleFactor(0.6)
         }.padding()
     }
 }
