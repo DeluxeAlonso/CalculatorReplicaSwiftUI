@@ -12,8 +12,8 @@ import SwiftUI
 class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
     private var resultValue: Double = 0
-    private var pendingBinaryOperation: PendingBinaryOperation?
     private var isEnteringNumbers: Bool = false
+    private var pendingBinaryOperation: PendingBinaryOperation?
     
     weak var delegate: CalculatorEnvironmentObjectProtocol?
     
@@ -21,15 +21,17 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         return calculatorDisplay.filter { $0.isNumber }.count < Constants.calculatorDisplayMaxLimit
     }
     
-    private var calculatorDisplay: String = "0" {
+    private var calculatorDisplay: String = "" {
         didSet {
             delegate?.updateValue(calculatorDisplay)
         }
     }
     
+    // MARK: - Initializers
+    
     init() {}
     
-    // MARK: - Public
+    // MARK: - CalculatorOperationHandlerProtocol
     
     func handleCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) {
         if calculatorOption.shouldShowOnResultDisplay {
@@ -42,7 +44,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     // MARK: - Utils
     
     private func updateDisplay() {
-        let valueToDisplay: CustomStringConvertible = resultValue.hasDecimals ? resultValue : Int(resultValue)
+        let valueToDisplay: CustomStringConvertible = String(resultValue).fractionDigitsCount() > 0 ? resultValue : Int(resultValue)
         calculatorDisplay = String(valueToDisplay.description)
     }
     
