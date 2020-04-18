@@ -16,10 +16,6 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     
     weak var delegate: CalculatorEnvironmentObjectProtocol?
     
-    private var areDisplayCharactersInRange: Bool {
-        return calculatorDisplay.filter { $0.isNumber }.count < CalculatorConstants.calculatorDisplayMaxLimit
-    }
-    
     private var calculatorDisplay: String = "" {
         didSet {
             delegate?.updateValue(calculatorDisplay)
@@ -40,25 +36,11 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         }
     }
     
-    // MARK: - Utils
-    
-    private func updateDisplay() {
-        let isInteger = String(resultValue).fractionDigitsCount() == 0 && resultValue < Double(Int.max)
-        let valueToDisplay: CustomStringConvertible = isInteger ? Int(resultValue) : resultValue 
-        calculatorDisplay = String(valueToDisplay.description)
-    }
-    
-    private func updateResultValue() {
-        guard let value = Double(calculatorDisplay) else { return }
-        resultValue = value
-    }
-    
     // MARK: - Calculator Operations
     
     private func updateResultDisplay(_ calculatorOption: CalculatorOptionProtocol) {
-        if !calculatorOption.isPlainNumber, calculatorDisplay.contains(calculatorOption.title) { return }
-        if isEnteringNumbers, !areDisplayCharactersInRange { return }
-        if resultValue == .zero && !isEnteringNumbers { calculatorDisplay = "" }
+        guard shouldProcessCalculatorOption(calculatorOption), areDisplayCharactersInRange() else { return }
+        clearCalculatorDisplayIfNeeded()
         calculatorDisplay += calculatorOption.title
         isEnteringNumbers = true
     }
@@ -97,6 +79,44 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
             pendingBinaryOperation.setSecondOperand(resultValue)
         }
         resultValue = pendingBinaryOperation.perform()
+    }
+    
+    // MARK: - Utils
+    
+    private func updateDisplay() {
+        let isInteger = String(resultValue).fractionDigitsCount() == 0 && resultValue < Double(Int.max)
+        let valueToDisplay: CustomStringConvertible = isInteger ? Int(resultValue) : resultValue
+        calculatorDisplay = String(valueToDisplay.description)
+    }
+    
+    private func updateResultValue() {
+        guard let value = Double(calculatorDisplay) else { return }
+        resultValue = value
+    }
+    
+    /**
+    * Only plain numbers can be repeated on our calculator result display. Any other option should only appear once.
+    */
+    private func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) -> Bool {
+        if !calculatorOption.isPlainNumber, calculatorDisplay.contains(calculatorOption.title) {
+            return false
+        }
+        return true
+    }
+    
+    /**
+    * We only validate the digits limit if the user is currently entering non-operation options (numbers or decimal).
+    */
+    private func areDisplayCharactersInRange() -> Bool {
+        guard isEnteringNumbers else { return true }
+        return calculatorDisplay.filter { $0.isNumber }.count < CalculatorConstants.calculatorDisplayMaxLimit
+    }
+    
+    /**
+    * If we have just applied an operation, we clear the calculator display string.
+    */
+    private func clearCalculatorDisplayIfNeeded() {
+        if resultValue == .zero && !isEnteringNumbers { calculatorDisplay = "" }
     }
 
 }
