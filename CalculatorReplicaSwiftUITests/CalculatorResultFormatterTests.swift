@@ -197,5 +197,14 @@ class CalculatorResultFormatterTests: XCTestCase {
         //Assert
         XCTAssertEqual(formmattedNumber, "123,456.234")
     }
+    
+    func testDecimalNumberMaximumFractionDigits() {
+        //Arrange
+        let calculatorDisplay = "9.88888888888889"
+        //Act
+        let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
+        //Assert
+        XCTAssertEqual(formmattedNumber, "9.88888889")
+    }
 
 }

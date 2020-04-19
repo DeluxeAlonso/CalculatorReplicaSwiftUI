@@ -9,10 +9,18 @@
 import Foundation
 
 class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
+    
+    lazy var defaultFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .none
+        numberFormatter.maximumFractionDigits = 100
+        return numberFormatter
+    }()
+    
     lazy var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 9
+        numberFormatter.maximumFractionDigits = 8
         return numberFormatter
     }()
     
@@ -20,21 +28,35 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .scientific
         numberFormatter.maximumIntegerDigits = 1
-        numberFormatter.maximumFractionDigits = 6
+        numberFormatter.maximumFractionDigits = Constants.scientificMaximumFractionDigits
         return numberFormatter
     }()
     
     func formatResult(from calculatorDisplay: String) -> String? {
         guard let number = Double(calculatorDisplay) else { return nil }
-        let formatter = needsScientificFormat(calculatorDisplay: calculatorDisplay) ? scientificFormatter : numberFormatter
+        if calculatorDisplay.hasExponent() {
+            return handleCalculatorDisplayWithExponent(number)
+        } else {
+            return handleCalculatorDisplayWithoutExponent(number)
+        }
+    }
+    
+    private func handleCalculatorDisplayWithExponent(_ number: Double) -> String? {
+        guard let formattedNumber = formatNumber(number, with: scientificFormatter) else { return nil }
+        return formattedNumber
+    }
+    
+    private func handleCalculatorDisplayWithoutExponent(_ number: Double) -> String? {
+        guard let preFormattedNumber = defaultFormatter.string(from: NSNumber(value:number)) else { return nil }
+        let formatter = needsScientificFormat(calculatorDisplay: preFormattedNumber) ? scientificFormatter : numberFormatter
         guard let formattedNumber = formatNumber(number, with: formatter) else { return nil }
         return formattedNumber
     }
     
     private func needsScientificFormat(calculatorDisplay: String) -> Bool {
-        let exceedFractionDigitsLimit = calculatorDisplay.fractionDigitsCount() > CalculatorConstants.calculatorDisplayMaxLimit
-        let exceedIntegerDigitsLimit = calculatorDisplay.integerDigitsCount() > CalculatorConstants.calculatorDisplayMaxLimit
-        return exceedIntegerDigitsLimit || exceedFractionDigitsLimit
+        let fractionDigitsCount = min(calculatorDisplay.fractionDigitsCount(), Constants.scientificMaximumFractionDigits)
+        let integerDigitsCount = calculatorDisplay.integerDigitsCount()
+        return fractionDigitsCount + integerDigitsCount > CalculatorConstants.calculatorDisplayMaxLimit
     }
     
     private func formatNumber(_ number: Double, with formatter: NumberFormatter) -> String? {
@@ -42,5 +64,11 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
             return nil
         }
         return formattedNumber.removeNonSignificantExponents()
+    }
+}
+
+extension CalculatorResultFormatter {
+    struct Constants {
+        static let scientificMaximumFractionDigits = 5
     }
 }
