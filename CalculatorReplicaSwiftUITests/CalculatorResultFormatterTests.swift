@@ -67,7 +67,7 @@ class CalculatorResultFormatterTests: XCTestCase {
         //Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
         //Assert
-        XCTAssertEqual(formmattedNumber, "1E9")
+        XCTAssertEqual(formmattedNumber, "1e9")
     }
     
     func testIntegerNumberOffLimitNegative() {
@@ -76,7 +76,7 @@ class CalculatorResultFormatterTests: XCTestCase {
         //Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
         //Assert
-        XCTAssertEqual(formmattedNumber, "-1E9")
+        XCTAssertEqual(formmattedNumber, "-1e9")
     }
     
     // MARK: - Decimals

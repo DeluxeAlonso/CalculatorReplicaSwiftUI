@@ -29,6 +29,7 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
         numberFormatter.numberStyle = .scientific
         numberFormatter.maximumIntegerDigits = 1
         numberFormatter.maximumFractionDigits = Constants.scientificMaximumFractionDigits
+        numberFormatter.exponentSymbol = CalculatorConstants.exponentStringRepresentation
         return numberFormatter
     }()
     
