@@ -10,4 +10,5 @@ import Foundation
 
 struct CalculatorConstants {
     static let calculatorDisplayMaxLimit = 9
+    static let exponentStringRepresentation = "\u{0065}"
 }

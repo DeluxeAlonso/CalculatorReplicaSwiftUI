@@ -20,8 +20,6 @@ extension String {
     }
     
     func hasExponent() -> Bool {
-        return self.lowercased().contains("e")
-        //guard let decimal = Decimal(string: self) else { return true }
-        //return decimal.exponent != 0
+        return self.lowercased().contains(CalculatorConstants.exponentStringRepresentation)
     }
 }
