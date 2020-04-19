@@ -16,6 +16,6 @@ extension Decimal {
     var integerDigitsCount: Int {
         let decimalSignificand = NSDecimalNumber(decimal: significand)
         let decimalSignificandCount = String(decimalSignificand.intValue).count
-        return max(decimalSignificandCount + exponent, 0)
+        return max(decimalSignificandCount + exponent, 1)
     }
 }

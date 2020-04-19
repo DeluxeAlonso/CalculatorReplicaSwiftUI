@@ -10,12 +10,18 @@ import Foundation
 
 extension String {
     func fractionDigitsCount() -> Int {
-        guard let decimal = Decimal(string: self) else { return 0 }
+        guard let decimal = Decimal(string: self) else { return CalculatorConstants.calculatorDisplayMaxLimit }
         return decimal.fractionalDigitsCount
     }
     
     func integerDigitsCount() -> Int {
-        guard let decimal = Decimal(string: self) else { return 0 }
+        guard let decimal = Decimal(string: self) else { return 1 }
         return decimal.integerDigitsCount
+    }
+    
+    func hasExponent() -> Bool {
+        return self.lowercased().contains("e")
+        //guard let decimal = Decimal(string: self) else { return true }
+        //return decimal.exponent != 0
     }
 }
