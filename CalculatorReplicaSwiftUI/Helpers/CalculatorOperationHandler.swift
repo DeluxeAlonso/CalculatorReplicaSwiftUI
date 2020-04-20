@@ -8,17 +8,17 @@
 
 import Foundation
 
-class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
+class CalculatorOperationHadler: CalculatorOperationHandlerProtocol, CalculatorOperationValidatorProtocol {
 
     private var resultValue: Double = 0
-    private var isEnteringNumbers: Bool = false
     private var pendingBinaryOperation: PendingBinaryOperation?
     
     weak var delegate: CalculatorEnvironmentObjectProtocol?
     
-    private var calculatorDisplay: String = "" {
+    var isEnteringNumbers: Bool = false
+    var calculatorDisplay: String = "" {
         didSet {
-            delegate?.updateValue(calculatorDisplay)
+            delegate?.updateValue(calculatorDisplay, isEnteringNumbers: isEnteringNumbers)
         }
     }
     
@@ -39,15 +39,20 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     // MARK: - Calculator Operations
     
     private func updateResultDisplay(_ calculatorOption: CalculatorOptionProtocol) {
-        guard shouldProcessCalculatorOption(calculatorOption), areDisplayCharactersInRange() else { return }
         clearCalculatorDisplayIfNeeded()
-        calculatorDisplay += calculatorOption.title
+        guard shouldProcessCalculatorOption(calculatorOption),
+            isEnteringSignificantNumber(calculatorOption),
+            areDisplayCharactersInRange() else {
+                return
+        }
         isEnteringNumbers = true
+        calculatorDisplay = getTrimmedCalculatorDisplay(with: calculatorOption)
     }
     
     private func performOperation(_ calculatorOption: CalculatorOptionProtocol) {
         guard let operation = calculatorOption.operation else { return }
-        isEnteringNumbers = false
+        // We set isEnteringNumbers to false when performing any operation except decimal.
+        isEnteringNumbers = operation == .decimal
         updateResultValue()
         switch operation {
         case .clear:
@@ -84,7 +89,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     // MARK: - Utils
     
     private func updateDisplay() {
-        let isInteger = String(resultValue).fractionDigitsCount() == 0 && resultValue < Double(Int.max)
+        let isInteger = !String(resultValue).hasDecimal() && resultValue < Double(Int.max)
         let valueToDisplay: CustomStringConvertible = isInteger ? Int(resultValue) : resultValue
         calculatorDisplay = String(valueToDisplay.description)
     }
@@ -95,28 +100,20 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     }
     
     /**
-    * Only plain numbers can be repeated on our calculator result display. Any other option should only appear once.
-    */
-    private func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) -> Bool {
-        if !calculatorOption.isPlainNumber, calculatorDisplay.contains(calculatorOption.title) {
-            return false
-        }
-        return true
-    }
-    
-    /**
-    * We only validate the digits limit if the user is currently entering non-operation options (numbers or decimal).
-    */
-    private func areDisplayCharactersInRange() -> Bool {
-        guard isEnteringNumbers else { return true }
-        return calculatorDisplay.filter { $0.isNumber }.count < CalculatorConstants.calculatorDisplayMaxLimit
-    }
-    
-    /**
     * If we have just applied an operation, we clear the calculator display string.
     */
     private func clearCalculatorDisplayIfNeeded() {
-        if resultValue == .zero && !isEnteringNumbers { calculatorDisplay = "" }
+        if resultValue == .zero && !isEnteringNumbers {
+            calculatorDisplay = ""
+        }
     }
-
+    
+    private func getTrimmedCalculatorDisplay(with calculatorOption: CalculatorOptionProtocol) -> String {
+        let newCalculatorDisplay = calculatorDisplay + calculatorOption.title
+        var trimmedCalculatorDisplay = newCalculatorDisplay.trimLeadingOcurrencesOf("0")
+        if trimmedCalculatorDisplay == "." { trimmedCalculatorDisplay.insert("0", at: trimmedCalculatorDisplay.startIndex) }
+        
+        return trimmedCalculatorDisplay
+    }
+    
 }

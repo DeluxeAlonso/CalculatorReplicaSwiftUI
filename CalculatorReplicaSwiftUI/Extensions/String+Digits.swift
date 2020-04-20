@@ -11,6 +11,7 @@ import Foundation
 extension String {
     func fractionDigitsCount() -> Int {
         guard let decimal = Decimal(string: self) else { return CalculatorConstants.calculatorDisplayMaxLimit }
+        guard !decimal.isZero else { return 0 }
         return decimal.fractionalDigitsCount
     }
     
@@ -21,5 +22,36 @@ extension String {
     
     func hasExponent() -> Bool {
         return self.lowercased().contains(CalculatorConstants.exponentStringRepresentation)
+    }
+    
+    func hasDecimal(checkForDecimalCharacter: Bool = false) -> Bool {
+        if checkForDecimalCharacter {
+            return fractionDigitsCount() > 0 || contains(".")
+        } else {
+            return fractionDigitsCount() > 0
+        }
+    }
+    
+    func extractLastCharactersOf(_ character: Character) -> Self {
+        var array: [String] = []
+        var mutableString = self
+        while let lastCharacter = mutableString.popLast(), lastCharacter == character {
+            array.insert(String(lastCharacter), at: 0)
+        }
+        return array.joined()
+    }
+    
+    func extractLastCharactersOf(_ characters: [Character]) -> Self {
+        var array: [String] = []
+        var mutableString = self
+        while let lastCharacter = mutableString.popLast(), characters.contains(lastCharacter) {
+            guard !mutableString.isEmpty else { continue }
+            array.insert(String(lastCharacter), at: 0)
+        }
+        return array.joined()
+    }
+    
+    func trimLeadingOcurrencesOf(_ character: Character) -> Self {
+        return String(drop { $0 == character })
     }
 }

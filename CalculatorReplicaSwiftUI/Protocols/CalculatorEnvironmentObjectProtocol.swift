@@ -9,5 +9,5 @@
 import Foundation
 
 protocol CalculatorEnvironmentObjectProtocol: class {
-    func updateValue(_ value: String)
+    func updateValue(_ value: String, isEnteringNumbers: Bool)
 }

@@ -36,9 +36,14 @@ class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironmentObjectP
     
     // MARK: - CalculatorEnvironmentObjectProtocol
     
-    func updateValue(_ value: String) {
-        guard let formattedResult = resultFormatter.formatResult(from: value) else { return }
-        formattedCalculatorDisplay = formattedResult
+    func updateValue(_ value: String, isEnteringNumbers: Bool) {
+        if isEnteringNumbers {
+            guard let formattedResult = resultFormatter.formatEnteredNumber(from: value) else { return }
+            formattedCalculatorDisplay = formattedResult
+        } else {
+            guard let formattedResult = resultFormatter.formatResult(from: value) else { return }
+            formattedCalculatorDisplay = formattedResult
+        }
     }
     
 }
