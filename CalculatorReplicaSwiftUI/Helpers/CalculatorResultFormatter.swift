@@ -13,14 +13,15 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
     lazy var defaultFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .none
-        numberFormatter.maximumFractionDigits = 100
+        numberFormatter.maximumFractionDigits = Constants.defaultMaximumFractionDigits
         return numberFormatter
     }()
     
-    lazy var numberFormatter: NumberFormatter = {
+    lazy var decimalFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 8
+        numberFormatter.maximumFractionDigits = Constants.decimalMaximumFractionDigits
+        numberFormatter.decimalSeparator = CalculatorConstants.decimal
         return numberFormatter
     }()
     
@@ -29,18 +30,12 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
         numberFormatter.numberStyle = .scientific
         numberFormatter.maximumIntegerDigits = 1
         numberFormatter.maximumFractionDigits = Constants.scientificMaximumFractionDigits
+        numberFormatter.decimalSeparator = CalculatorConstants.decimal
         numberFormatter.exponentSymbol = CalculatorConstants.exponentStringRepresentation
         return numberFormatter
     }()
     
-    func formatResult(from calculatorDisplay: String) -> String? {
-        guard let number = Double(calculatorDisplay) else { return nil }
-        if calculatorDisplay.hasExponent() {
-            return handleCalculatorDisplayWithExponent(number)
-        } else {
-            return handleCalculatorDisplayWithoutExponent(number)
-        }
-    }
+    // MARK: - Private
     
     private func handleCalculatorDisplayWithExponent(_ number: Double) -> String? {
         guard let formattedNumber = formatNumber(number, with: scientificFormatter) else { return nil }
@@ -49,7 +44,7 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
     
     private func handleCalculatorDisplayWithoutExponent(_ number: Double) -> String? {
         guard let preFormattedNumber = defaultFormatter.string(from: NSNumber(value:number)) else { return nil }
-        let formatter = needsScientificFormat(calculatorDisplay: preFormattedNumber) ? scientificFormatter : numberFormatter
+        let formatter = needsScientificFormat(calculatorDisplay: preFormattedNumber) ? scientificFormatter : decimalFormatter
         guard let formattedNumber = formatNumber(number, with: formatter) else { return nil }
         return formattedNumber
     }
@@ -66,10 +61,36 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
         }
         return formattedNumber.removeNonSignificantExponents()
     }
+    
+    // MARK: - CalculatorResultFormatterProtocol
+    
+    func formatResult(from calculatorDisplay: String) -> String? {
+        guard let number = Double(calculatorDisplay) else { return nil }
+        if calculatorDisplay.hasExponent() {
+            return handleCalculatorDisplayWithExponent(number)
+        } else {
+            return handleCalculatorDisplayWithoutExponent(number)
+        }
+    }
+    
+    func formatEnteredNumber(from calculatorDisplay: String) -> String? {
+        let hasDecimal = calculatorDisplay.hasDecimal(checkForDecimalCharacter: true)
+        let lastNonSignificantCharacters = calculatorDisplay.extractLastCharactersOf(CalculatorConstants.nonSignificantCharacters)
+        
+        // If the display contains non significant characters at the last, we add them after formatting it.
+        if hasDecimal, !lastNonSignificantCharacters.isEmpty  {
+            guard let formatted = formatResult(from: calculatorDisplay) else { return nil }
+            return formatted + lastNonSignificantCharacters
+        } else {
+            return formatResult(from: calculatorDisplay)
+        }
+    }
 }
 
 extension CalculatorResultFormatter {
     struct Constants {
+        static let decimalMaximumFractionDigits = 8
         static let scientificMaximumFractionDigits = 5
+        static let defaultMaximumFractionDigits = 100
     }
 }
