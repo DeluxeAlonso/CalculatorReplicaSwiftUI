@@ -12,26 +12,16 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
     
     lazy var defaultFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .none
-        numberFormatter.maximumFractionDigits = Constants.defaultMaximumFractionDigits
         return numberFormatter
     }()
     
-    lazy var decimalFormatter: NumberFormatter = {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = Constants.decimalMaximumFractionDigits
-        numberFormatter.decimalSeparator = CalculatorConstants.decimal
+    lazy var decimalFormatter: DecimalFormatter = {
+        let numberFormatter = DecimalFormatter()
         return numberFormatter
     }()
     
-    lazy var scientificFormatter: NumberFormatter = {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .scientific
-        numberFormatter.maximumIntegerDigits = 1
-        numberFormatter.maximumFractionDigits = Constants.scientificMaximumFractionDigits
-        numberFormatter.decimalSeparator = CalculatorConstants.decimal
-        numberFormatter.exponentSymbol = CalculatorConstants.exponentStringRepresentation
+    lazy var scientificFormatter: ScientificFormatter = {
+        let numberFormatter = ScientificFormatter()
         return numberFormatter
     }()
     
@@ -50,7 +40,7 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
     }
     
     private func needsScientificFormat(calculatorDisplay: String) -> Bool {
-        let fractionDigitsCount = min(calculatorDisplay.fractionDigitsCount(), Constants.scientificMaximumFractionDigits)
+        let fractionDigitsCount = min(calculatorDisplay.fractionDigitsCount(), scientificFormatter.maximumFractionDigits)
         let integerDigitsCount = calculatorDisplay.integerDigitsCount()
         return fractionDigitsCount + integerDigitsCount > CalculatorConstants.calculatorDisplayMaxLimit
     }
@@ -84,13 +74,5 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
         } else {
             return formatResult(from: calculatorDisplay)
         }
-    }
-}
-
-extension CalculatorResultFormatter {
-    struct Constants {
-        static let decimalMaximumFractionDigits = 8
-        static let scientificMaximumFractionDigits = 5
-        static let defaultMaximumFractionDigits = 100
     }
 }
