@@ -9,27 +9,33 @@
 import Foundation
 
 class PendingBinaryOperation {
-    let function: (Double, Double) -> Double
-    var firstOperand: Double
-    var secondOperand: Double? = nil
+    private let function: (Double, Double) -> Double
+    private var accumulatedValue: Double
+    private var operand: Double? = nil
     
     init(function: @escaping (Double, Double) -> Double, firstOperand: Double) {
         self.function = function
-        self.firstOperand = firstOperand
+        self.accumulatedValue = firstOperand
     }
     
-    var hasSecondOperand: Bool {
-        return secondOperand != nil
+    var hasOperand: Bool {
+        return operand != nil
     }
     
-    func setSecondOperand(_ secondOperand: Double) {
-        self.secondOperand = secondOperand
+    func setAccumulatedValue(_ value: Double) {
+        self.accumulatedValue = value
+    }
+    
+    func setOperand(_ secondOperand: Double) {
+        self.operand = secondOperand
     }
     
     func perform() -> Double {
-        guard let secondOperand = secondOperand else { return 0 }
-        let value = function(firstOperand, secondOperand)
-        firstOperand = value
+        guard let operand = operand else {
+                return 0
+        }
+        let value = function(accumulatedValue, operand)
+        accumulatedValue = value
         return value
     }
 }

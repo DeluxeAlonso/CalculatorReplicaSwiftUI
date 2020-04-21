@@ -80,8 +80,8 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol, CalculatorO
     
     private func performPendingBinaryOperation() {
         guard let pendingBinaryOperation = pendingBinaryOperation else { return }
-        if !pendingBinaryOperation.hasSecondOperand {
-            pendingBinaryOperation.setSecondOperand(resultValue)
+        if !pendingBinaryOperation.hasOperand {
+            pendingBinaryOperation.setOperand(resultValue)
         }
         resultValue = pendingBinaryOperation.perform()
     }
