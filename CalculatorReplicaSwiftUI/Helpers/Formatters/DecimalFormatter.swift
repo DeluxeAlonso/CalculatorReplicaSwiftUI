@@ -13,7 +13,7 @@ class DecimalFormatter: NumberFormatter {
         super.init()
         numberStyle = .decimal
         maximumFractionDigits = Constants.decimalMaximumFractionDigits
-        decimalSeparator = CalculatorConstants.decimal
+        decimalSeparator = CalculatorOptionRepresentable.decimal.rawValue
     }
     
     required init?(coder: NSCoder) {

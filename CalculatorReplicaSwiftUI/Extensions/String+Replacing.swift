@@ -18,8 +18,12 @@ extension String {
     }
     
     func removeNonSignificantExponents() -> String {
-        let positiveNonSignificantExponent = "\(CalculatorConstants.exponentStringRepresentation)0"
-        let negativeNonSignificantExponent = "\(CalculatorConstants.exponentStringRepresentation)-0"
+        let exponent = CalculatorOptionRepresentable.exponent.rawValue
+        let zero = CalculatorOptionRepresentable.zero.rawValue
+        
+        let positiveNonSignificantExponent = "\(exponent)\(zero)"
+        let negativeNonSignificantExponent = "\(exponent)-\(zero)"
+        
         return lowercased().replacingOccurrences(of: [positiveNonSignificantExponent, negativeNonSignificantExponent], with: "")
     }
 }

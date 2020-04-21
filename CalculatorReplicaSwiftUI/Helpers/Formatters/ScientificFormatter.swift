@@ -14,8 +14,8 @@ class ScientificFormatter: NumberFormatter {
         numberStyle = .scientific
         maximumIntegerDigits = 1
         maximumFractionDigits = Constants.scientificMaximumFractionDigits
-        decimalSeparator = CalculatorConstants.decimal
-        exponentSymbol = CalculatorConstants.exponentStringRepresentation
+        decimalSeparator = CalculatorOptionRepresentable.decimal.rawValue
+        exponentSymbol = CalculatorOptionRepresentable.exponent.rawValue
     }
     
     required init?(coder: NSCoder) {

@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-protocol CalculatorOptionProtocol {
+protocol CalculatorOptionProtocol {    
     var title: String { get set }
     var gridSpace: Int { get set }
     var backgroundColor: Color { get set }
