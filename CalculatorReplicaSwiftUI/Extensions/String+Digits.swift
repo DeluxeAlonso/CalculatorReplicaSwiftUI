@@ -21,12 +21,12 @@ extension String {
     }
     
     func hasExponent() -> Bool {
-        return self.lowercased().contains(CalculatorConstants.exponentStringRepresentation)
+        return self.lowercased().contains(CalculatorOptionRepresentable.exponent.rawValue)
     }
     
     func hasDecimal(checkForDecimalCharacter: Bool = false) -> Bool {
         if checkForDecimalCharacter {
-            return fractionDigitsCount() > 0 || contains(".")
+            return fractionDigitsCount() > 0 || contains(CalculatorOptionRepresentable.decimal.rawValue)
         } else {
             return fractionDigitsCount() > 0
         }

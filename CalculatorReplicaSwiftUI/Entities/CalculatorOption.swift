@@ -25,4 +25,21 @@ struct CalculatorOption: CalculatorOptionProtocol {
     var backgroundColor: Color = Color(.darkGray)
     
     var operation: CalculatorOperation?
+    
+    // MARK: - Initializers
+    
+    init(title: String, gridSpace: Int = 1,
+         backgroundColor: Color = Color(.darkGray),
+         operation: CalculatorOperation? = nil) {
+        self.title = title
+        self.gridSpace = gridSpace
+        self.backgroundColor = backgroundColor
+        self.operation = operation
+    }
+    
+    init(representable: CalculatorOptionRepresentable, gridSpace: Int = 1,
+         backgroundColor: Color = Color(.darkGray), operation: CalculatorOperation? = nil) {
+        self.init(title: representable.rawValue, gridSpace: gridSpace,
+                  backgroundColor: backgroundColor, operation: operation)
+    }
 }
