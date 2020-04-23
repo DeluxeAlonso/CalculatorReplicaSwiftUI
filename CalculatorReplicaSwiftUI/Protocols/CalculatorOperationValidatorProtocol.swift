@@ -19,11 +19,7 @@ extension CalculatorOperationValidatorProtocol {
      */
     func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) -> Bool {
         if !calculatorOption.isPlainNumber {
-            if calculatorDisplay.contains(calculatorOption.title) {
-                return false
-            } else {
-                return true
-            }
+            return !calculatorDisplay.contains(calculatorOption.title)
         }
         return true
     }

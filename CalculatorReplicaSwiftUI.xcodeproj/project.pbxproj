@@ -23,6 +23,8 @@
 		E2681FD2244BB368002DB20F /* CalculatorContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2681FD1244BB368002DB20F /* CalculatorContants.swift */; };
 		E2681FDA244BE42C002DB20F /* CalculatorReplicaSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2681FD9244BE42C002DB20F /* CalculatorReplicaSwiftUITests.swift */; };
 		E2681FE2244BE6F0002DB20F /* CalculatorResultFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2681FE1244BE6F0002DB20F /* CalculatorResultFormatterTests.swift */; };
+		E2697DC224515D9B0082F30D /* CalculatorOperationValidatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2697DC124515D9B0082F30D /* CalculatorOperationValidatorMock.swift */; };
+		E2697DC424515F030082F30D /* CalculatorOperationValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2697DC324515F030082F30D /* CalculatorOperationValidatorTests.swift */; };
 		E27030EF24494EC500955BDF /* CalculatorOperationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27030EE24494EC500955BDF /* CalculatorOperationHandler.swift */; };
 		E27030F1244951FD00955BDF /* CalculatorOperationHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27030F0244951FD00955BDF /* CalculatorOperationHandlerProtocol.swift */; };
 		E27030F324495D0000955BDF /* CalculatorEnvironmentObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27030F224495D0000955BDF /* CalculatorEnvironmentObjectProtocol.swift */; };
@@ -70,6 +72,8 @@
 		E2681FD9244BE42C002DB20F /* CalculatorReplicaSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorReplicaSwiftUITests.swift; sourceTree = "<group>"; };
 		E2681FDB244BE42C002DB20F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2681FE1244BE6F0002DB20F /* CalculatorResultFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorResultFormatterTests.swift; sourceTree = "<group>"; };
+		E2697DC124515D9B0082F30D /* CalculatorOperationValidatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperationValidatorMock.swift; sourceTree = "<group>"; };
+		E2697DC324515F030082F30D /* CalculatorOperationValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperationValidatorTests.swift; sourceTree = "<group>"; };
 		E27030EE24494EC500955BDF /* CalculatorOperationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperationHandler.swift; sourceTree = "<group>"; };
 		E27030F0244951FD00955BDF /* CalculatorOperationHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperationHandlerProtocol.swift; sourceTree = "<group>"; };
 		E27030F224495D0000955BDF /* CalculatorEnvironmentObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorEnvironmentObjectProtocol.swift; sourceTree = "<group>"; };
@@ -142,11 +146,21 @@
 		E2681FD8244BE42C002DB20F /* CalculatorReplicaSwiftUITests */ = {
 			isa = PBXGroup;
 			children = (
+				E2697DC024515D150082F30D /* Mocks */,
 				E2681FD9244BE42C002DB20F /* CalculatorReplicaSwiftUITests.swift */,
 				E2681FDB244BE42C002DB20F /* Info.plist */,
 				E2681FE1244BE6F0002DB20F /* CalculatorResultFormatterTests.swift */,
+				E2697DC324515F030082F30D /* CalculatorOperationValidatorTests.swift */,
 			);
 			path = CalculatorReplicaSwiftUITests;
+			sourceTree = "<group>";
+		};
+		E2697DC024515D150082F30D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E2697DC124515D9B0082F30D /* CalculatorOperationValidatorMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		E2CBA5162442C3C9008A3097 /* Protocols */ = {
@@ -331,7 +345,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2697DC224515D9B0082F30D /* CalculatorOperationValidatorMock.swift in Sources */,
 				E2681FDA244BE42C002DB20F /* CalculatorReplicaSwiftUITests.swift in Sources */,
+				E2697DC424515F030082F30D /* CalculatorOperationValidatorTests.swift in Sources */,
 				E2681FE2244BE6F0002DB20F /* CalculatorResultFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
