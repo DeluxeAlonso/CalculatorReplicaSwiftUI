@@ -21,4 +21,12 @@ enum CalculatorOptionRepresentable: String {
     case zero = "0"
     case decimal = "."
     case exponent = "e"
+    case clear = "AC"
+    case sum = "+"
+    case subtraction = "-"
+    case multiplication = "*"
+    case division = "/"
+    case percent = "%"
+    case negative = "+-"
+    case equal = "="
 }

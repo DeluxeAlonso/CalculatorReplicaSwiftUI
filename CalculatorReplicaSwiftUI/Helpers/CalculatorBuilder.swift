@@ -11,23 +11,25 @@ import SwiftUI
 struct CalculatorBuilder {
     static func buildCalculatorOptions() -> [[CalculatorOptionProtocol]] {
         let firstRowOptions = [
-            CalculatorOption(title: "AC",
+            CalculatorOption(representable: .clear,
                              backgroundColor: Color(.lightGray),
                              operation: .clear),
-            CalculatorOption(title: "+-",
+            CalculatorOption(representable: .negative,
                              backgroundColor: Color(.lightGray),
                              operation: .unaryOperation({ -$0 })),
-            CalculatorOption(title: "%",
+            CalculatorOption(representable: .percent,
                              backgroundColor: Color(.lightGray),
                              operation: .unaryOperation({ $0 / 100.0 })),
-            CalculatorOption(title: "/", backgroundColor: Color(.orange), operation: .binaryOperation({ $0 / $1 }))
+            CalculatorOption(representable: .division,
+                             backgroundColor: Color(.orange),
+                             operation: .binaryOperation({ $0 / $1 }))
         ]
         
         let secondRowOptions = [
             CalculatorOption(representable: .seven),
             CalculatorOption(representable: .eight),
             CalculatorOption(representable: .nine),
-            CalculatorOption(title: "x",
+            CalculatorOption(representable: .multiplication,
                              backgroundColor: Color(.orange),
                              operation: .binaryOperation({ $0 * $1 }))
         ]
@@ -36,7 +38,7 @@ struct CalculatorBuilder {
             CalculatorOption(representable: .four),
             CalculatorOption(representable: .five),
             CalculatorOption(representable: .six),
-            CalculatorOption(title: "-",
+            CalculatorOption(representable: .subtraction,
                              backgroundColor: Color(.orange),
                              operation: .binaryOperation({ $0 - $1 }))
         ]
@@ -45,15 +47,15 @@ struct CalculatorBuilder {
             CalculatorOption(representable: .one),
             CalculatorOption(representable: .two),
             CalculatorOption(representable: .three),
-            CalculatorOption(title: "+",
+            CalculatorOption(representable: .sum,
                              backgroundColor: Color(.orange),
                              operation: .binaryOperation({ $0 + $1 }))
         ]
         
         let fifthRowOptions = [
             CalculatorOption(representable: .zero, gridSpace: 2),
-            CalculatorOption(title: ".", operation: .decimal),
-            CalculatorOption(title: "=",
+            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .equal,
                              backgroundColor: Color(.orange),
                              operation: .equals)
         ]
