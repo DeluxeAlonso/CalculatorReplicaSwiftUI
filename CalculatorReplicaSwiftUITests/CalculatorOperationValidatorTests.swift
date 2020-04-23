@@ -1,0 +1,137 @@
+//
+//  CalculatorOperationValidatorTests.swift
+//  CalculatorReplicaSwiftUITests
+//
+//  Created by Alonso on 4/23/20.
+//  Copyright © 2020 Alonso. All rights reserved.
+//
+
+import XCTest
+@testable import CalculatorReplicaSwiftUI
+
+class CalculatorOperationValidatorTests: XCTestCase {
+    
+    private var validatorToTest: CalculatorOperationValidatorProtocol!
+
+    override func setUp() {
+        super.setUp()
+        validatorToTest = CalculatorOperationValidatorMock(isEnteringNumbers: false,
+                                                           calculatorDisplay: "")
+    }
+
+    override func tearDown() {
+        validatorToTest = nil
+        super.tearDown()
+    }
+    
+    func testShouldProcessCalculatorOptionNumber() {
+        //Arrange
+        validatorToTest.calculatorDisplay = ""
+        let calculatorOption = CalculatorOption(representable: .five)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertTrue(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionNewNumber() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "123"
+        let calculatorOption = CalculatorOption(representable: .five)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertTrue(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionRepeatedNumber() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "550"
+        let calculatorOption = CalculatorOption(representable: .five)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertTrue(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionNewNumberAfterDecimal() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "123.4"
+        let calculatorOption = CalculatorOption(representable: .five)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertTrue(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionRepeatedNumberAfterDecimal() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "555.4"
+        let calculatorOption = CalculatorOption(representable: .five)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertTrue(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionNewNumberInmediatelyAfterDecimal() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "123."
+        let calculatorOption = CalculatorOption(representable: .five)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertTrue(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionRepeatedNumberInmediatelyAfterDecimal() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "555."
+        let calculatorOption = CalculatorOption(representable: .five)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertTrue(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionDecimal() {
+        //Arrange
+        validatorToTest.calculatorDisplay = ""
+        let calculatorOption = CalculatorOption(representable: .decimal, operation: .decimal)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertTrue(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionNewDecimal() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "23"
+        let calculatorOption = CalculatorOption(representable: .decimal, operation: .decimal)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertTrue(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionInmediatelyRepeatedDecimal() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "23."
+        let calculatorOption = CalculatorOption(representable: .decimal, operation: .decimal)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertFalse(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionRepeatedDecimal() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "23.56"
+        let calculatorOption = CalculatorOption(representable: .decimal, operation: .decimal)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertFalse(shouldProcess)
+    }
+
+}
