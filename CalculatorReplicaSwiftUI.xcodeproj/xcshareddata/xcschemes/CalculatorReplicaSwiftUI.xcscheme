@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E2FBCEBF2441608600147B1B"
-               BuildableName = "CalculatorReplicaSwiftUI.app"
+               BuildableName = "Calculator.app"
                BlueprintName = "CalculatorReplicaSwiftUI"
                ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
             </BuildableReference>
@@ -60,7 +60,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E2FBCEBF2441608600147B1B"
-            BuildableName = "CalculatorReplicaSwiftUI.app"
+            BuildableName = "Calculator.app"
             BlueprintName = "CalculatorReplicaSwiftUI"
             ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
          </BuildableReference>
@@ -77,7 +77,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E2FBCEBF2441608600147B1B"
-            BuildableName = "CalculatorReplicaSwiftUI.app"
+            BuildableName = "Calculator.app"
             BlueprintName = "CalculatorReplicaSwiftUI"
             ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
          </BuildableReference>
