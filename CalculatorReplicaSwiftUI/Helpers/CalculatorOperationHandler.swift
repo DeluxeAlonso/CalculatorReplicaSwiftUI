@@ -111,7 +111,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol, CalculatorO
     private func getTrimmedCalculatorDisplay(with calculatorOption: CalculatorOptionProtocol) -> String {
         let newCalculatorDisplay = calculatorDisplay + calculatorOption.title
         var trimmedCalculatorDisplay = newCalculatorDisplay.trimLeadingOcurrencesOf("0")
-        if trimmedCalculatorDisplay == "." {
+        if trimmedCalculatorDisplay.first == "." {
             trimmedCalculatorDisplay.insert("0", at: trimmedCalculatorDisplay.startIndex)
         }
         

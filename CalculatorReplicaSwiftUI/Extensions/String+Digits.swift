@@ -45,7 +45,7 @@ extension String {
         var array: [String] = []
         var mutableString = self
         while let lastCharacter = mutableString.popLast(), characters.contains(lastCharacter) {
-            guard !mutableString.isEmpty else { continue }
+            guard !mutableString.isEmpty else { break }
             array.insert(String(lastCharacter), at: 0)
         }
         return array.joined()
