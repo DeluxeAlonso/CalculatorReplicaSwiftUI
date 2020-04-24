@@ -29,4 +29,8 @@ enum CalculatorOptionRepresentable: String {
     case percent = "%"
     case negative = "+-"
     case equal = "="
+    
+    var character: Character {
+        return self.rawValue.first!
+    }
 }
