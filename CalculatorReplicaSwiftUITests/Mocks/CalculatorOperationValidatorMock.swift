@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import CalculatorReplicaSwiftUI
+@testable import Calculator
 
 class CalculatorOperationValidatorMock: CalculatorOperationValidatorProtocol {
     var isEnteringNumbers: Bool
