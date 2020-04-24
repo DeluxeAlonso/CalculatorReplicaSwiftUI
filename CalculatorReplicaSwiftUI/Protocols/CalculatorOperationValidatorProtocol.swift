@@ -18,6 +18,7 @@ extension CalculatorOperationValidatorProtocol {
      * Only plain numbers can be repeated on our calculator result display. Any other option should only appear once.
      */
     func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) -> Bool {
+        guard calculatorOption.shouldShowOnResultDisplay else { return false }
         if !calculatorOption.isPlainNumber {
             return !calculatorDisplay.contains(calculatorOption.title)
         }
@@ -38,7 +39,7 @@ extension CalculatorOperationValidatorProtocol {
     func isEnteringSignificantNumber(_ calculatorOption: CalculatorOptionProtocol) -> Bool {
         guard calculatorOption.title == "0" else { return true }
         let numberOfZeros = calculatorDisplay.extractLastCharactersOf("0").count
-        return !(numberOfZeros == calculatorDisplay.count && numberOfZeros > 1)
+        return !(numberOfZeros == calculatorDisplay.count && numberOfZeros > 0)
     }
 }
 

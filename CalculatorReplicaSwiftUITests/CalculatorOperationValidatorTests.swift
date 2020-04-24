@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CalculatorReplicaSwiftUI
+@testable import Calculator
 
 class CalculatorOperationValidatorTests: XCTestCase {
     
@@ -132,6 +132,75 @@ class CalculatorOperationValidatorTests: XCTestCase {
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
         //Assert
         XCTAssertFalse(shouldProcess)
+    }
+    
+    func testShouldProcessCalculatorOptionOperation() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "10"
+        let calculatorOption = CalculatorOption(representable: .equal, operation: .equals)
+        //Act
+        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
+        //Assert
+        XCTAssertFalse(shouldProcess)
+    }
+    
+    func testAreDisplayCharactersInRangeWhileNotEnteringNumbers() {
+        //Arrange
+        validatorToTest.isEnteringNumbers = false
+        //Act
+        let areDisplayCharactersInRange = validatorToTest.areDisplayCharactersInRange()
+        //Assert
+        XCTAssertTrue(areDisplayCharactersInRange)
+    }
+    
+    func testAreDisplayCharactersInRangeCalculatorDisplayInMinRange() {
+        //Arrange
+        validatorToTest.isEnteringNumbers = true
+        validatorToTest.calculatorDisplay = ""
+        //Act
+        let areDisplayCharactersInRange = validatorToTest.areDisplayCharactersInRange()
+        //Assert
+        XCTAssertTrue(areDisplayCharactersInRange)
+    }
+    
+    func testAreDisplayCharactersInRangeCalculatorDisplayInMidRange() {
+        //Arrange
+        validatorToTest.isEnteringNumbers = true
+        validatorToTest.calculatorDisplay = "23345.4"
+        //Act
+        let areDisplayCharactersInRange = validatorToTest.areDisplayCharactersInRange()
+        //Assert
+        XCTAssertTrue(areDisplayCharactersInRange)
+    }
+    
+    func testAreDisplayCharactersInRangeCalculatorDisplayInMaxRange() {
+        //Arrange
+        validatorToTest.isEnteringNumbers = true
+        validatorToTest.calculatorDisplay = "23345.4342"
+        //Act
+        let areDisplayCharactersInRange = validatorToTest.areDisplayCharactersInRange()
+        //Assert
+        XCTAssertFalse(areDisplayCharactersInRange)
+    }
+    
+    func testAreDisplayCharactersInRangeOffLimit() {
+        //Arrange
+        validatorToTest.isEnteringNumbers = true
+        validatorToTest.calculatorDisplay = "23345.43422"
+        //Act
+        let areDisplayCharactersInRange = validatorToTest.areDisplayCharactersInRange()
+        //Assert
+        XCTAssertFalse(areDisplayCharactersInRange)
+    }
+
+    func testIsEnteringSignificantNumberUnnecesaryZero() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "00"
+        let calculatorOption = CalculatorOption(representable: .zero)
+        //Act
+        let isEnteringSignificantNumber = validatorToTest.isEnteringSignificantNumber(calculatorOption)
+        //Assert
+        XCTAssertFalse(isEnteringSignificantNumber)
     }
 
 }

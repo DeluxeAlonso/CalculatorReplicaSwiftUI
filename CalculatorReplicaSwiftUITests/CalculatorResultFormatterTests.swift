@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CalculatorReplicaSwiftUI
+@testable import Calculator
 
 class CalculatorResultFormatterTests: XCTestCase {
     
