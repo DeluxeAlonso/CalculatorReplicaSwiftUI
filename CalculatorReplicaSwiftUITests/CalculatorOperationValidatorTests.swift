@@ -193,9 +193,19 @@ class CalculatorOperationValidatorTests: XCTestCase {
         XCTAssertFalse(areDisplayCharactersInRange)
     }
 
-    func testIsEnteringSignificantNumberUnnecesaryZero() {
+    func testIsEnteringSignificantNumberSingleZero() {
         //Arrange
-        validatorToTest.calculatorDisplay = "00"
+        validatorToTest.calculatorDisplay = "0"
+        let calculatorOption = CalculatorOption(representable: .zero)
+        //Act
+        let isEnteringSignificantNumber = validatorToTest.isEnteringSignificantNumber(calculatorOption)
+        //Assert
+        XCTAssertFalse(isEnteringSignificantNumber)
+    }
+    
+    func testIsEnteringSignificantNumberMultipleZeros() {
+        //Arrange
+        validatorToTest.calculatorDisplay = "0000"
         let calculatorOption = CalculatorOption(representable: .zero)
         //Act
         let isEnteringSignificantNumber = validatorToTest.isEnteringSignificantNumber(calculatorOption)
