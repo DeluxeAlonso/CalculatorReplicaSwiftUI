@@ -206,5 +206,41 @@ class CalculatorResultFormatterTests: XCTestCase {
         //Assert
         XCTAssertEqual(formmattedNumber, "9.88888889")
     }
+    
+    func testDecimalNumberWithLotOfFractionalDigits() {
+        //Arrange
+        let calculatorDisplay = "5.1499999999999995"
+        //Act
+        let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
+        //Assert
+        XCTAssertEqual(formmattedNumber, "5.15")
+    }
+    
+    func testEnteredNumberWithLeadingZero() {
+        //Arrange
+        let calculatorDisplay = "0.0000"
+        //Act
+        let formmattedNumber = formatterToTest.formatEnteredNumber(from: calculatorDisplay)
+        //Assert
+        XCTAssertEqual(formmattedNumber, "0.0000")
+    }
+    
+    func testEnteredNumberZeroWithDecimalPointAtLast() {
+        //Arrange
+        let calculatorDisplay = "0."
+        //Act
+        let formmattedNumber = formatterToTest.formatEnteredNumber(from: calculatorDisplay)
+        //Assert
+        XCTAssertEqual(formmattedNumber, "0.")
+    }
+    
+    func testEnteredNumberWithDecimalPointAtLast() {
+        //Arrange
+        let calculatorDisplay = "30."
+        //Act
+        let formmattedNumber = formatterToTest.formatEnteredNumber(from: calculatorDisplay)
+        //Assert
+        XCTAssertEqual(formmattedNumber, "30.")
+    }
 
 }
