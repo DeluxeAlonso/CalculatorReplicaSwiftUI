@@ -97,7 +97,7 @@ class CalculatorOperationValidatorTests: XCTestCase {
     func testShouldProcessCalculatorOptionDecimal() {
         //Arrange
         validatorToTest.calculatorDisplay = ""
-        let calculatorOption = CalculatorOption(representable: .decimal, operation: .decimal)
+        let calculatorOption = CalculatorOption(representable: .decimal)
         //Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
         //Assert
@@ -107,7 +107,7 @@ class CalculatorOperationValidatorTests: XCTestCase {
     func testShouldProcessCalculatorOptionNewDecimal() {
         //Arrange
         validatorToTest.calculatorDisplay = "23"
-        let calculatorOption = CalculatorOption(representable: .decimal, operation: .decimal)
+        let calculatorOption = CalculatorOption(representable: .decimal)
         //Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
         //Assert
@@ -117,7 +117,7 @@ class CalculatorOperationValidatorTests: XCTestCase {
     func testShouldProcessCalculatorOptionInmediatelyRepeatedDecimal() {
         //Arrange
         validatorToTest.calculatorDisplay = "23."
-        let calculatorOption = CalculatorOption(representable: .decimal, operation: .decimal)
+        let calculatorOption = CalculatorOption(representable: .decimal)
         //Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
         //Assert
@@ -127,7 +127,7 @@ class CalculatorOperationValidatorTests: XCTestCase {
     func testShouldProcessCalculatorOptionRepeatedDecimal() {
         //Arrange
         validatorToTest.calculatorDisplay = "23.56"
-        let calculatorOption = CalculatorOption(representable: .decimal, operation: .decimal)
+        let calculatorOption = CalculatorOption(representable: .decimal)
         //Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
         //Assert
@@ -137,7 +137,7 @@ class CalculatorOperationValidatorTests: XCTestCase {
     func testShouldProcessCalculatorOptionOperation() {
         //Arrange
         validatorToTest.calculatorDisplay = "10"
-        let calculatorOption = CalculatorOption(representable: .equal, operation: .equals)
+        let calculatorOption = CalculatorOption(representable: .equal)
         //Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption)
         //Assert

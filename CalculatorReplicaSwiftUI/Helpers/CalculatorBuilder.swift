@@ -12,17 +12,13 @@ struct CalculatorBuilder {
     static func buildCalculatorOptions() -> [[CalculatorOptionProtocol]] {
         let firstRowOptions = [
             CalculatorOption(representable: .clear,
-                             backgroundColor: Color(.lightGray),
-                             operation: .clear),
+                             backgroundColor: Color(.lightGray)),
             CalculatorOption(representable: .negative,
-                             backgroundColor: Color(.lightGray),
-                             operation: .unaryOperation({ -$0 })),
+                             backgroundColor: Color(.lightGray)),
             CalculatorOption(representable: .percent,
-                             backgroundColor: Color(.lightGray),
-                             operation: .unaryOperation({ $0 / 100.0 })),
+                             backgroundColor: Color(.lightGray)),
             CalculatorOption(representable: .division,
-                             backgroundColor: Color(.orange),
-                             operation: .binaryOperation({ $0 / $1 }))
+                             backgroundColor: Color(.orange))
         ]
         
         let secondRowOptions = [
@@ -30,8 +26,7 @@ struct CalculatorBuilder {
             CalculatorOption(representable: .eight),
             CalculatorOption(representable: .nine),
             CalculatorOption(representable: .multiplication,
-                             backgroundColor: Color(.orange),
-                             operation: .binaryOperation({ $0 * $1 }))
+                             backgroundColor: Color(.orange))
         ]
         
         let thirdRowOptions = [
@@ -39,8 +34,7 @@ struct CalculatorBuilder {
             CalculatorOption(representable: .five),
             CalculatorOption(representable: .six),
             CalculatorOption(representable: .subtraction,
-                             backgroundColor: Color(.orange),
-                             operation: .binaryOperation({ $0 - $1 }))
+                             backgroundColor: Color(.orange))
         ]
         
         let fourthRowOptions = [
@@ -48,16 +42,14 @@ struct CalculatorBuilder {
             CalculatorOption(representable: .two),
             CalculatorOption(representable: .three),
             CalculatorOption(representable: .sum,
-                             backgroundColor: Color(.orange),
-                             operation: .binaryOperation({ $0 + $1 }))
+                             backgroundColor: Color(.orange))
         ]
         
         let fifthRowOptions = [
             CalculatorOption(representable: .zero, gridSpace: 2),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .equal,
-                             backgroundColor: Color(.orange),
-                             operation: .equals)
+                             backgroundColor: Color(.orange))
         ]
         
         return [
