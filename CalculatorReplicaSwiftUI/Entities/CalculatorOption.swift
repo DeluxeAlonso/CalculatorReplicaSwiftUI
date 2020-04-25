@@ -39,7 +39,9 @@ struct CalculatorOption: CalculatorOptionProtocol {
     
     init(representable: CalculatorOptionRepresentable, gridSpace: Int = 1,
          backgroundColor: Color = Color(.darkGray), operation: CalculatorOperation? = nil) {
-        self.init(title: representable.rawValue, gridSpace: gridSpace,
-                  backgroundColor: backgroundColor, operation: operation)
+        self.init(title: representable.rawValue,
+                  gridSpace: gridSpace,
+                  backgroundColor: backgroundColor,
+                  operation: operation)
     }
 }
