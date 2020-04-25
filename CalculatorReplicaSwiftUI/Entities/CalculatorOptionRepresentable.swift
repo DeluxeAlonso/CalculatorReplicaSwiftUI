@@ -33,4 +33,29 @@ enum CalculatorOptionRepresentable: String {
     var character: Character {
         return self.rawValue.first!
     }
+    
+    var operation: CalculatorOperation? {
+        switch self {
+        case .clear:
+            return .clear
+        case .sum:
+            return .binaryOperation({ $0 + $1 })
+        case .subtraction:
+            return .binaryOperation({ $0 - $1 })
+        case .multiplication:
+            return .binaryOperation({ $0 * $1 })
+        case .division:
+            return .binaryOperation({ $0 / $1 })
+        case .percent:
+            return .unaryOperation({ $0 * 0.01 })
+        case .negative:
+            return .unaryOperation({ -$0 })
+        case .equal:
+            return .equals
+        case .decimal:
+            return .decimal
+        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero, .exponent:
+            return nil
+        }
+    }
 }

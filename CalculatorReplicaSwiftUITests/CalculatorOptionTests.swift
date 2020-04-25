@@ -22,7 +22,7 @@ class CalculatorOptionTests: XCTestCase {
     
     func testIsPlainNumberFalse() {
         //Arrange
-        let calculatorOption = CalculatorOption(representable: .equal, operation: .equals)
+        let calculatorOption = CalculatorOption(representable: .equal)
         //Act
         let isPlainNumber = calculatorOption.isPlainNumber
         //Assert
@@ -40,7 +40,7 @@ class CalculatorOptionTests: XCTestCase {
     
     func testShouldShowOnResultDisplayDecimal() {
         //Arrange
-        let calculatorOption = CalculatorOption(representable: .decimal, operation: .decimal)
+        let calculatorOption = CalculatorOption(representable: .decimal)
         //Act
         let shouldShowOnResultDisplay = calculatorOption.shouldShowOnResultDisplay
         //Assert
@@ -49,7 +49,7 @@ class CalculatorOptionTests: XCTestCase {
     
     func testShouldShowOnResultDisplayOperation() {
         //Arrange
-        let calculatorOption = CalculatorOption(representable: .sum, operation: .binaryOperation({$0 + $1}))
+        let calculatorOption = CalculatorOption(representable: .sum)
         //Act
         let shouldShowOnResultDisplay = calculatorOption.shouldShowOnResultDisplay
         //Assert

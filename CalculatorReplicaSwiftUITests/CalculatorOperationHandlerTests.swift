@@ -34,7 +34,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
     
     func testIsEnteringNumberFalse() {
         //Arrange
-        let calculatorOption = CalculatorOption(representable: .division, operation: .binaryOperation({$0/$1}))
+        let calculatorOption = CalculatorOption(representable: .division)
         //Act
         operationHandlerToTest.handleCalculatorOption(calculatorOption)
         //Assert
@@ -58,7 +58,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
         let options = [
             CalculatorOption(representable: .three),
             CalculatorOption(representable: .five),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .two)
         ]
         //Act
@@ -72,7 +72,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
         let options = [
             CalculatorOption(representable: .three),
             CalculatorOption(representable: .five),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .zero)
         ]
         //Act
@@ -86,7 +86,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
         let options = [
             CalculatorOption(representable: .three),
             CalculatorOption(representable: .five),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .zero)
@@ -104,7 +104,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .three),
             CalculatorOption(representable: .five),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .zero)
         ]
         //Act
@@ -116,7 +116,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
     func testNumberWithDecimalWithDecimalAtFirstEntered() {
         //Arrange
         let options = [
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .three),
@@ -132,7 +132,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
     func testZeroNumberWithDecimalWithOnlyDecimalEntered() {
         //Arrange
         let options = [
-            CalculatorOption(representable: .decimal, operation: .decimal)
+            CalculatorOption(representable: .decimal)
         ]
         //Act
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
@@ -145,7 +145,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
         let options = [
             CalculatorOption(representable: .one),
             CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .decimal, operation: .decimal)
+            CalculatorOption(representable: .decimal)
         ]
         //Act
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
@@ -169,7 +169,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
         let options = [
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .zero)
         ]
@@ -183,9 +183,9 @@ class CalculatorOperationHandlerTests: XCTestCase {
         //Arrange
         let options = [
             CalculatorOption(representable: .one),
-            CalculatorOption(representable: .sum, operation: .binaryOperation({$0 + $1})),
+            CalculatorOption(representable: .sum),
             CalculatorOption(representable: .two),
-            CalculatorOption(representable: .equal, operation: .equals)
+            CalculatorOption(representable: .equal)
         ]
         //Act
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
@@ -197,11 +197,11 @@ class CalculatorOperationHandlerTests: XCTestCase {
         //Arrange
         let options = [
             CalculatorOption(representable: .one),
-            CalculatorOption(representable: .sum, operation: .binaryOperation({$0 + $1})),
+            CalculatorOption(representable: .sum),
             CalculatorOption(representable: .two),
-            CalculatorOption(representable: .equal, operation: .equals),
-            CalculatorOption(representable: .equal, operation: .equals),
-            CalculatorOption(representable: .equal, operation: .equals)
+            CalculatorOption(representable: .equal),
+            CalculatorOption(representable: .equal),
+            CalculatorOption(representable: .equal)
         ]
         //Act
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
@@ -213,14 +213,14 @@ class CalculatorOperationHandlerTests: XCTestCase {
         //Arrange
         let options = [
             CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .five),
-            CalculatorOption(representable: .sum, operation: .binaryOperation({$0 + $1})),
+            CalculatorOption(representable: .sum),
             CalculatorOption(representable: .one),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .five),
             CalculatorOption(representable: .five),
-            CalculatorOption(representable: .equal, operation: .equals)
+            CalculatorOption(representable: .equal)
         ]
         //Act
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
@@ -232,13 +232,13 @@ class CalculatorOperationHandlerTests: XCTestCase {
         //Arrange
         let options = [
             CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .five),
-            CalculatorOption(representable: .sum, operation: .binaryOperation({$0 + $1})),
+            CalculatorOption(representable: .sum),
             CalculatorOption(representable: .one),
-            CalculatorOption(representable: .equal, operation: .equals),
-            CalculatorOption(representable: .equal, operation: .equals),
-            CalculatorOption(representable: .equal, operation: .equals),
+            CalculatorOption(representable: .equal),
+            CalculatorOption(representable: .equal),
+            CalculatorOption(representable: .equal)
         ]
         //Act
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
@@ -250,7 +250,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
         //Arrange
         let options = [
             CalculatorOption(representable: .one),
-            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0}))
+            CalculatorOption(representable: .negative)
         ]
         //Act
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
@@ -262,8 +262,8 @@ class CalculatorOperationHandlerTests: XCTestCase {
         //Arrange
         let options = [
             CalculatorOption(representable: .one),
-            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0})),
-            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0}))
+            CalculatorOption(representable: .negative),
+            CalculatorOption(representable: .negative)
         ]
         //Act
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
@@ -275,10 +275,10 @@ class CalculatorOperationHandlerTests: XCTestCase {
         //Arrange
         let options = [
             CalculatorOption(representable: .one),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .five),
-            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0}))
+            CalculatorOption(representable: .negative)
         ]
         //Act
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
@@ -290,11 +290,11 @@ class CalculatorOperationHandlerTests: XCTestCase {
         //Arrange
         let options = [
             CalculatorOption(representable: .one),
-            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .five),
-            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0})),
-            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0}))
+            CalculatorOption(representable: .negative),
+            CalculatorOption(representable: .negative)
         ]
         //Act
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
