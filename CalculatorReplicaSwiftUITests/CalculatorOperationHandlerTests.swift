@@ -129,7 +129,7 @@ class CalculatorOperationHandlerTests: XCTestCase {
         XCTAssertEqual("0.00350", operationHandlerToTest.calculatorDisplay)
     }
     
-    func testNumberWithDecimalWithOnlyDecimalEntered() {
+    func testZeroNumberWithDecimalWithOnlyDecimalEntered() {
         //Arrange
         let options = [
             CalculatorOption(representable: .decimal, operation: .decimal)
@@ -138,6 +138,19 @@ class CalculatorOperationHandlerTests: XCTestCase {
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
         //Assert
         XCTAssertEqual("0.", operationHandlerToTest.calculatorDisplay)
+    }
+    
+    func testNumberWithDecimalWithOnlyDecimalEntered() {
+        //Arrange
+        let options = [
+            CalculatorOption(representable: .one),
+            CalculatorOption(representable: .zero),
+            CalculatorOption(representable: .decimal, operation: .decimal)
+        ]
+        //Act
+        options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
+        //Assert
+        XCTAssertEqual("10.", operationHandlerToTest.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithOffLimitEntered() {
@@ -231,6 +244,62 @@ class CalculatorOperationHandlerTests: XCTestCase {
         options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
         //Assert
         XCTAssertEqual("3.5", operationHandlerToTest.calculatorDisplay)
+    }
+    
+    func testSimpleUnaryOperation() {
+        //Arrange
+        let options = [
+            CalculatorOption(representable: .one),
+            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0}))
+        ]
+        //Act
+        options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
+        //Assert
+        XCTAssertEqual("-1", operationHandlerToTest.calculatorDisplay)
+    }
+    
+    func testRecurrentUnaryOperation() {
+        //Arrange
+        let options = [
+            CalculatorOption(representable: .one),
+            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0})),
+            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0}))
+        ]
+        //Act
+        options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
+        //Assert
+        XCTAssertEqual("1", operationHandlerToTest.calculatorDisplay)
+    }
+    
+    func testFractionalUnaryOperation() {
+        //Arrange
+        let options = [
+            CalculatorOption(representable: .one),
+            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .zero),
+            CalculatorOption(representable: .five),
+            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0}))
+        ]
+        //Act
+        options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
+        //Assert
+        XCTAssertEqual("-1.05", operationHandlerToTest.calculatorDisplay)
+    }
+    
+    func testFractionalRecurrentUnaryOperation() {
+        //Arrange
+        let options = [
+            CalculatorOption(representable: .one),
+            CalculatorOption(representable: .decimal, operation: .decimal),
+            CalculatorOption(representable: .zero),
+            CalculatorOption(representable: .five),
+            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0})),
+            CalculatorOption(representable: .negative, operation: .unaryOperation({-$0}))
+        ]
+        //Act
+        options.forEach { operationHandlerToTest.handleCalculatorOption($0) }
+        //Assert
+        XCTAssertEqual("1.05", operationHandlerToTest.calculatorDisplay)
     }
 
 }
