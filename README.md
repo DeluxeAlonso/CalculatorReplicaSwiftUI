@@ -6,6 +6,6 @@
 
 Calculator app replica using SwiftUI framework.
 
-# Screenshots
+# Demo
 
-<img src="Screenshots/Calculator.png" width=200 height=433>
+![](Demo.gif)
