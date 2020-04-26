@@ -8,9 +8,9 @@
 
 import Foundation
 
-class CalculatorOperationHadler: CalculatorOperationHandlerProtocol, CalculatorOperationValidatorProtocol {
+class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
-    private let calculatorConfiguration: CalculatorConfigurationProtocol
+    private let calculatorValidator: CalculatorOperationValidatorProtocol
     private var resultValue: Double = 0
     private var pendingBinaryOperation: PendingBinaryOperation?
     
@@ -23,14 +23,11 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol, CalculatorO
         }
     }
     
-    var calculatorDisplayMaxLimit: Int {
-        return calculatorConfiguration.calculatorDisplayMaxLimit
-    }
-    
     // MARK: - Initializers
     
-    init(calculatorConfiguration: CalculatorConfigurationProtocol) {
-        self.calculatorConfiguration = calculatorConfiguration
+    init(calculatorConfiguration: CalculatorConfigurationProtocol,
+         calculatorValidator: CalculatorOperationValidatorProtocol) {
+        self.calculatorValidator = calculatorValidator
     }
     
     // MARK: - CalculatorOperationHandlerProtocol
@@ -47,9 +44,9 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol, CalculatorO
     
     private func updateResultDisplay(_ calculatorOption: CalculatorOptionProtocol) {
         clearCalculatorDisplayIfNeeded()
-        guard shouldProcessCalculatorOption(calculatorOption),
-            isEnteringSignificantNumber(calculatorOption),
-            areDisplayCharactersInRange() else {
+        guard calculatorValidator.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay),
+            calculatorValidator.isEnteringSignificantNumber(calculatorOption, in: calculatorDisplay),
+            calculatorValidator.areDisplayCharactersInRange(for: calculatorDisplay, and: isEnteringNumbers) else {
                 return
         }
         isEnteringNumbers = true

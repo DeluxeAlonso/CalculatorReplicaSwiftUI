@@ -9,12 +9,22 @@
 import Foundation
 
 struct DependencyInjectionManager {
+    static func createCalculatorConfiguration() -> CalculatorConfigurationProtocol {
+        return CalculatorConfiguration()
+    }
+    
+    static func createCalculatorValidator() -> CalculatorOperationValidatorProtocol {
+        let calculatorConfiguration = createCalculatorConfiguration()
+        return CalculatorOperationValidator(calculatorDisplayMaxLimit: calculatorConfiguration.calculatorDisplayMaxLimit)
+    }
+    
     static func createCalculatorOperationHandler() -> CalculatorOperationHandlerProtocol {
-        return CalculatorOperationHadler(calculatorConfiguration: CalculatorConfiguration())
+        return CalculatorOperationHadler(calculatorConfiguration: createCalculatorConfiguration(),
+                                         calculatorValidator: createCalculatorValidator())
     }
     
     static func createCalculatorResultFormatter() -> CalculatorResultFormatterProtocol {
-        return CalculatorResultFormatter(calculatorConfiguration: CalculatorConfiguration())
+        return CalculatorResultFormatter(calculatorConfiguration: createCalculatorConfiguration())
     }
     
     static func createCalculatorEnvironmentObject() -> CalculatorEnviromentObject {
