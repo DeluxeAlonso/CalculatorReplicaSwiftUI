@@ -11,12 +11,8 @@ import Foundation
 
 class CalculatorOperationValidatorMock: CalculatorOperationValidatorProtocol {
     var calculatorDisplayMaxLimit: Int
-    var isEnteringNumbers: Bool
-    var calculatorDisplay: String
     
-    init(isEnteringNumbers: Bool, calculatorDisplay: String, calculatorDisplayMaxLimit: Int) {
-        self.isEnteringNumbers = isEnteringNumbers
-        self.calculatorDisplay = calculatorDisplay
+    init(calculatorDisplayMaxLimit: Int) {
         self.calculatorDisplayMaxLimit = calculatorDisplayMaxLimit
     }
 }
