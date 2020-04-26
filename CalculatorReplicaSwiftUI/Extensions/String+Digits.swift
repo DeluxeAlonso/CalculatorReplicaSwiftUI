@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     func fractionDigitsCount() -> Int {
-        guard let decimal = Decimal(string: self) else { return CalculatorConstants.calculatorDisplayMaxLimit }
+        guard let decimal = Decimal(string: self) else { return Int.max }
         guard !decimal.isZero else { return 0 }
         return decimal.fractionalDigitsCount
     }
