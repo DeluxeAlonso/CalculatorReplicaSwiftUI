@@ -9,6 +9,7 @@
 import Foundation
 
 protocol CalculatorOperationValidatorProtocol {
+    var calculatorDisplayMaxLimit: Int { get }
     var isEnteringNumbers: Bool { get set }
     var calculatorDisplay: String { get set }
 }
@@ -30,7 +31,7 @@ extension CalculatorOperationValidatorProtocol {
      */
     func areDisplayCharactersInRange() -> Bool {
         guard isEnteringNumbers else { return true }
-        return calculatorDisplay.filter { $0.isNumber }.count < CalculatorConstants.calculatorDisplayMaxLimit
+        return calculatorDisplay.filter { $0.isNumber }.count < calculatorDisplayMaxLimit
     }
     
     /**

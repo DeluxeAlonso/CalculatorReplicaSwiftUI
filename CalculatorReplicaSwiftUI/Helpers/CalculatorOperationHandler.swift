@@ -10,6 +10,7 @@ import Foundation
 
 class CalculatorOperationHadler: CalculatorOperationHandlerProtocol, CalculatorOperationValidatorProtocol {
 
+    private let calculatorConfiguration: CalculatorConfigurationProtocol
     private var resultValue: Double = 0
     private var pendingBinaryOperation: PendingBinaryOperation?
     
@@ -22,9 +23,15 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol, CalculatorO
         }
     }
     
+    var calculatorDisplayMaxLimit: Int {
+        return calculatorConfiguration.calculatorDisplayMaxLimit
+    }
+    
     // MARK: - Initializers
     
-    init() {}
+    init(calculatorConfiguration: CalculatorConfigurationProtocol) {
+        self.calculatorConfiguration = calculatorConfiguration
+    }
     
     // MARK: - CalculatorOperationHandlerProtocol
     

@@ -10,11 +10,11 @@ import Foundation
 
 struct DependencyInjectionManager {
     static func createCalculatorOperationHandler() -> CalculatorOperationHandlerProtocol {
-        return CalculatorOperationHadler()
+        return CalculatorOperationHadler(calculatorConfiguration: CalculatorConfiguration())
     }
     
     static func createCalculatorResultFormatter() -> CalculatorResultFormatterProtocol {
-        return CalculatorResultFormatter()
+        return CalculatorResultFormatter(calculatorConfiguration: CalculatorConfiguration())
     }
     
     static func createCalculatorEnvironmentObject() -> CalculatorEnviromentObject {

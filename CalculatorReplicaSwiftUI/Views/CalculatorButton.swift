@@ -31,7 +31,7 @@ struct CalculatorButton: View {
 
 extension CalculatorButton {
     var buttonSize: (width: CGFloat, height: CGFloat) {
-        let numberOfButtonsPerRow = CalculatorEnviromentObject.numberOfButtonsPerRow
+        let numberOfButtonsPerRow = Constant.numberOfButtonsPerRow
         let screenWidth = UIScreen.main.bounds.width
         let offset = button.gridSpace - 1
         
@@ -47,5 +47,6 @@ extension CalculatorButton {
 extension CalculatorButton {
     struct Constant {
         static let spacing = 12
+        static let numberOfButtonsPerRow = 4
     }
 }
