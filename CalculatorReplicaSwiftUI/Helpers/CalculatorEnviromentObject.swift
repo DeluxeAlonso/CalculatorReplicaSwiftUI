@@ -47,8 +47,3 @@ class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironmentObjectP
     }
     
 }
-
-extension CalculatorEnviromentObject {
-    static let calculatorDisplayMaxLimit = 9
-    static let numberOfButtonsPerRow = 4
-}

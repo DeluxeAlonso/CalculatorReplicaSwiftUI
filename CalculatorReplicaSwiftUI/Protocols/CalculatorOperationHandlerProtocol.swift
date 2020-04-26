@@ -9,6 +9,9 @@
 import SwiftUI
 
 protocol CalculatorOperationHandlerProtocol {
+    var isEnteringNumbers: Bool { get set }
+    var calculatorDisplay: String { get set }
+    
     var delegate: CalculatorEnvironmentObjectProtocol? { get set }
     
     func handleCalculatorOption(_ calculatorOption: CalculatorOptionProtocol)

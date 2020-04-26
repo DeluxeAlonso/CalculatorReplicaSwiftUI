@@ -25,6 +25,14 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
         return numberFormatter
     }()
     
+    private var calculatorConfiguration: CalculatorConfigurationProtocol
+    
+    // MARK: - Initializers
+
+    init(calculatorConfiguration: CalculatorConfigurationProtocol) {
+        self.calculatorConfiguration = calculatorConfiguration
+    }
+    
     // MARK: - Private
     
     private func handleCalculatorDisplayWithExponent(_ number: Double) -> String? {
@@ -42,7 +50,7 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
     private func needsScientificFormat(calculatorDisplay: String) -> Bool {
         let fractionDigitsCount = min(calculatorDisplay.fractionDigitsCount(), scientificFormatter.maximumFractionDigits)
         let integerDigitsCount = calculatorDisplay.integerDigitsCount()
-        return fractionDigitsCount + integerDigitsCount > CalculatorConstants.calculatorDisplayMaxLimit
+        return fractionDigitsCount + integerDigitsCount > calculatorConfiguration.calculatorDisplayMaxLimit
     }
     
     private func formatNumber(_ number: Double, with formatter: NumberFormatter) -> String? {

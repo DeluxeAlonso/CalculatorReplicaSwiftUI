@@ -16,7 +16,8 @@ class CalculatorOperationValidatorTests: XCTestCase {
     override func setUp() {
         super.setUp()
         validatorToTest = CalculatorOperationValidatorMock(isEnteringNumbers: false,
-                                                           calculatorDisplay: "")
+                                                           calculatorDisplay: "",
+                                                           calculatorDisplayMaxLimit: 9)
     }
 
     override func tearDown() {
