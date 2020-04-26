@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+struct CalculatorInputFactory {
+    static func createStringIntegerNumber(with numberOfDigits: Int) -> String {
+        return random(digits: numberOfDigits)
+    }
+    
+    static func random(digits:Int) -> String {
+        var number = String()
+        for _ in 1...digits {
+           number += "\(Int.random(in: 1...9))"
+        }
+        return number
+    }
+}
