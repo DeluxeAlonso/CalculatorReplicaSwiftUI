@@ -11,11 +11,11 @@ import Foundation
 class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
     private let calculatorValidator: CalculatorOperationValidatorProtocol
+    private let calculatorTrimmer: CalculatorDisplayTrimmerProtocol
     private var pendingBinaryOperation: PendingBinaryOperation?
-    private var resultValue: Double? = nil
-
+    
     var isEnteringNumbers: Bool = false
-    var calculatorDisplay: String = "0" {
+    var calculatorDisplay: String = "" {
         didSet {
             delegate?.updateValue(calculatorDisplay, isEnteringNumbers: isEnteringNumbers)
         }
@@ -26,8 +26,10 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     // MARK: - Initializers
     
     init(calculatorConfiguration: CalculatorConfigurationProtocol,
-         calculatorValidator: CalculatorOperationValidatorProtocol) {
+         calculatorValidator: CalculatorOperationValidatorProtocol,
+         calculatorTrimmer: CalculatorDisplayTrimmerProtocol) {
         self.calculatorValidator = calculatorValidator
+        self.calculatorTrimmer = calculatorTrimmer
     }
     
     // MARK: - CalculatorOperationHandlerProtocol
@@ -50,7 +52,8 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
                 return
         }
         isEnteringNumbers = true
-        calculatorDisplay = getTrimmedCalculatorDisplay(with: calculatorOption)
+        let newCalculatorDisplay = calculatorDisplay + calculatorOption.title
+        calculatorDisplay = calculatorTrimmer.getTrimmedCalculatorDisplay(newCalculatorDisplay)
     }
     
     private func performOperation(_ calculatorOption: CalculatorOptionProtocol) {
@@ -60,25 +63,18 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         let resultValueUpdated = calculatorDisplay.toDouble()
         switch operation {
         case .clear:
-            clearDisplay()
+            clearCalculator()
         case .unaryOperation(let function):
-            updateResultValue(with: function(resultValueUpdated),
-                              shouldResetValueAfterDisplay: false)
+            updateDisplay(with: function(resultValueUpdated))
         case .binaryOperation(let function):
             pendingBinaryOperation = PendingBinaryOperation(function: function,
                                                             firstOperand: resultValueUpdated)
-            resetResultValue()
         case .decimal:
             break
         case .equals:
-            updateResultValue(with: performPendingBinaryOperation(with: resultValueUpdated))
+            let newValue = performPendingBinaryOperation(with: resultValueUpdated)
+            updateDisplay(with: newValue)
         }
-    }
-    
-    private func clearDisplay() {
-        resetResultValue()
-        calculatorDisplay = "0"
-        pendingBinaryOperation = nil
     }
     
     private func performPendingBinaryOperation(with resultValue: Double) -> Double {
@@ -89,43 +85,33 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         return pendingBinaryOperation.perform()
     }
     
-    private func resetResultValue() {
-        resultValue = nil
-    }
-    
-    // MARK: - Utils
-
-    private func updateResultValue(with newValue: Double, shouldResetValueAfterDisplay: Bool = true) {
-        resultValue = newValue
-        updateDisplay(with: self.resultValue!)
-        if shouldResetValueAfterDisplay {
-            resetResultValue()
-        }
-    }
-    
     private func updateDisplay(with resultValue: Double) {
         let isInteger = !String(resultValue).hasDecimal() && Double(Int.min)...Double(Int.max) ~= resultValue
         let valueToDisplay: CustomStringConvertible = isInteger ? Int(resultValue) : resultValue
         calculatorDisplay = String(valueToDisplay.description)
     }
     
+    // MARK: - Clear methods
+    
     /**
      * If we have just applied an operation, we clear the calculator display string.
      */
     private func clearCalculatorDisplayIfNeeded() {
-        if resultValue == nil && !isEnteringNumbers {
-            calculatorDisplay = ""
-        }
+        guard !isEnteringNumbers else { return }
+        clearCalculatorDisplay()
     }
     
-    private func getTrimmedCalculatorDisplay(with calculatorOption: CalculatorOptionProtocol) -> String {
-        let newCalculatorDisplay = calculatorDisplay + calculatorOption.title
-        var trimmedCalculatorDisplay = newCalculatorDisplay.trimLeadingOcurrencesOf(CalculatorOptionRepresentable.zero.character)
-        if trimmedCalculatorDisplay.first == CalculatorOptionRepresentable.decimal.character {
-            trimmedCalculatorDisplay.insert(CalculatorOptionRepresentable.zero.character, at: trimmedCalculatorDisplay.startIndex)
-        }
-        
-        return trimmedCalculatorDisplay
+    private func clearCalculatorDisplay() {
+        calculatorDisplay = "0"
+    }
+    
+    private func clearPendingBinaryOperation() {
+        pendingBinaryOperation = nil
+    }
+    
+    private func clearCalculator() {
+        clearCalculatorDisplay()
+        clearPendingBinaryOperation()
     }
     
 }
