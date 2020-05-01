@@ -55,4 +55,8 @@ extension String {
     func trimLeadingOcurrencesOf(_ character: Character) -> Self {
         return String(drop { $0 == character })
     }
+    
+    func toDouble() -> Double {
+        return Double(self) ?? 0.0
+    }
 }
