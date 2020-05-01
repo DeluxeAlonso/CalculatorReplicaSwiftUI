@@ -56,7 +56,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     private func performOperation(_ calculatorOption: CalculatorOptionProtocol) {
         guard let operation = calculatorOption.operation else { return }
         // We set isEnteringNumbers to false when performing any operation except decimal.
-        isEnteringNumbers = operation == .decimal
+        isEnteringNumbers = false
         updateResultValue()
         switch operation {
         case .clear:
