@@ -59,7 +59,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         let resultValueUpdated = calculatorDisplay.toDouble()
         switch operation {
         case .clear:
-            clearDisplay()
+            clearCalculator()
         case .unaryOperation(let function):
             updateDisplay(with: function(resultValueUpdated))
         case .binaryOperation(let function):
@@ -71,11 +71,6 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
             let newValue = performPendingBinaryOperation(with: resultValueUpdated)
             updateDisplay(with: newValue)
         }
-    }
-    
-    private func clearDisplay() {
-        calculatorDisplay = "0"
-        pendingBinaryOperation = nil
     }
     
     private func performPendingBinaryOperation(with resultValue: Double) -> Double {
@@ -98,9 +93,21 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
      * If we have just applied an operation, we clear the calculator display string.
      */
     private func clearCalculatorDisplayIfNeeded() {
-        if !isEnteringNumbers {
-            calculatorDisplay = ""
-        }
+        guard !isEnteringNumbers else { return }
+        clearCalculatorDisplay()
+    }
+    
+    private func clearCalculatorDisplay() {
+        calculatorDisplay = "0"
+    }
+    
+    private func clearPendingBinaryOperation() {
+        pendingBinaryOperation = nil
+    }
+    
+    private func clearCalculator() {
+        clearCalculatorDisplay()
+        clearPendingBinaryOperation()
     }
     
     private func getTrimmedCalculatorDisplay(with calculatorOption: CalculatorOptionProtocol) -> String {
