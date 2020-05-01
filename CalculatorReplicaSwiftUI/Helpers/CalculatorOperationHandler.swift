@@ -93,7 +93,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     // MARK: - Utils
     
     private func updateDisplay() {
-        let isInteger = !String(resultValue).hasDecimal() && resultValue < Double(Int.max)
+        let isInteger = !String(resultValue).hasDecimal() && Double(Int.min)...Double(Int.max) ~= resultValue
         let valueToDisplay: CustomStringConvertible = isInteger ? Int(resultValue) : resultValue
         calculatorDisplay = String(valueToDisplay.description)
     }
