@@ -15,7 +15,8 @@ struct CalculatorTestsMockFactory {
         let calculatorDisplayMaxLimit = calculatorConfiguration.calculatorDisplayMaxLimit
         let calculatorValidator = CalculatorOperationValidatorMock(calculatorDisplayMaxLimit: calculatorDisplayMaxLimit)
         return CalculatorOperationHadler(calculatorConfiguration: CalculatorConfigurationMock(),
-                                         calculatorValidator: calculatorValidator)
+                                         calculatorValidator: calculatorValidator,
+                                         calculatorTrimmer: CalculatorDisplayTrimmer())
     }
     
     static func createCalculatorResultFormatter() -> CalculatorResultFormatterProtocol {

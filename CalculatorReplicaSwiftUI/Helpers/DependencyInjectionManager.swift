@@ -18,9 +18,14 @@ struct DependencyInjectionManager {
         return CalculatorOperationValidator(calculatorDisplayMaxLimit: calculatorConfiguration.calculatorDisplayMaxLimit)
     }
     
+    static func createCalculatorTrimmer() -> CalculatorDisplayTrimmerProtocol {
+        return CalculatorDisplayTrimmer()
+    }
+    
     static func createCalculatorOperationHandler() -> CalculatorOperationHandlerProtocol {
         return CalculatorOperationHadler(calculatorConfiguration: createCalculatorConfiguration(),
-                                         calculatorValidator: createCalculatorValidator())
+                                         calculatorValidator: createCalculatorValidator(),
+                                         calculatorTrimmer: createCalculatorTrimmer())
     }
     
     static func createCalculatorResultFormatter() -> CalculatorResultFormatterProtocol {
