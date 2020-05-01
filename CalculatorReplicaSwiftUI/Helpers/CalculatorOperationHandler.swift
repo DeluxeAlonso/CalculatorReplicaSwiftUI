@@ -12,8 +12,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
     private let calculatorValidator: CalculatorOperationValidatorProtocol
     private var pendingBinaryOperation: PendingBinaryOperation?
-    private var resultValue: Double? = nil
-
+    
     var isEnteringNumbers: Bool = false
     var calculatorDisplay: String = "0" {
         didSet {
@@ -62,21 +61,19 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         case .clear:
             clearDisplay()
         case .unaryOperation(let function):
-            updateResultValue(with: function(resultValueUpdated),
-                              shouldResetValueAfterDisplay: false)
+            updateDisplay(with: function(resultValueUpdated))
         case .binaryOperation(let function):
             pendingBinaryOperation = PendingBinaryOperation(function: function,
                                                             firstOperand: resultValueUpdated)
-            resetResultValue()
         case .decimal:
             break
         case .equals:
-            updateResultValue(with: performPendingBinaryOperation(with: resultValueUpdated))
+            let newValue = performPendingBinaryOperation(with: resultValueUpdated)
+            updateDisplay(with: newValue)
         }
     }
     
     private func clearDisplay() {
-        resetResultValue()
         calculatorDisplay = "0"
         pendingBinaryOperation = nil
     }
@@ -89,19 +86,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         return pendingBinaryOperation.perform()
     }
     
-    private func resetResultValue() {
-        resultValue = nil
-    }
-    
     // MARK: - Utils
-
-    private func updateResultValue(with newValue: Double, shouldResetValueAfterDisplay: Bool = true) {
-        resultValue = newValue
-        updateDisplay(with: self.resultValue!)
-        if shouldResetValueAfterDisplay {
-            resetResultValue()
-        }
-    }
     
     private func updateDisplay(with resultValue: Double) {
         let isInteger = !String(resultValue).hasDecimal() && Double(Int.min)...Double(Int.max) ~= resultValue
@@ -113,7 +98,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
      * If we have just applied an operation, we clear the calculator display string.
      */
     private func clearCalculatorDisplayIfNeeded() {
-        if resultValue == nil && !isEnteringNumbers {
+        if !isEnteringNumbers {
             calculatorDisplay = ""
         }
     }
