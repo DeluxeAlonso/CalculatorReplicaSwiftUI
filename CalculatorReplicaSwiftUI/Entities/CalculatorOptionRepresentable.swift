@@ -34,6 +34,22 @@ enum CalculatorOptionRepresentable: String {
         return self.rawValue.first!
     }
     
+    var icon: String? {
+        switch self {
+        case .sum: return "plus"
+        case .subtraction: return "minus"
+        case .multiplication: return "multiply"
+        case .division: return "divide"
+        case .percent: return "percent"
+        case .negative: return "plus.slash.minus"
+        case .equal: return "equal"
+        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:
+            return nil
+        case .exponent, .clear, .decimal:
+            return nil
+        }
+    }
+    
     var operation: CalculatorOperation? {
         switch self {
         case .clear:

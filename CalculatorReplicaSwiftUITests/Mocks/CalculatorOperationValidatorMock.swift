@@ -10,11 +10,9 @@ import Foundation
 @testable import Calculator
 
 class CalculatorOperationValidatorMock: CalculatorOperationValidatorProtocol {
-    var isEnteringNumbers: Bool
-    var calculatorDisplay: String
+    var calculatorDisplayMaxLimit: Int
     
-    init(isEnteringNumbers: Bool, calculatorDisplay: String) {
-        self.isEnteringNumbers = isEnteringNumbers
-        self.calculatorDisplay = calculatorDisplay
+    init(calculatorDisplayMaxLimit: Int) {
+        self.calculatorDisplayMaxLimit = calculatorDisplayMaxLimit
     }
 }

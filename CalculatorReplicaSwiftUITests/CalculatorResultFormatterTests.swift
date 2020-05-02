@@ -15,7 +15,7 @@ class CalculatorResultFormatterTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        formatterToTest = CalculatorResultFormatter()
+        formatterToTest = CalculatorTestsMockFactory.createCalculatorResultFormatter()
     }
 
     override func tearDown() {

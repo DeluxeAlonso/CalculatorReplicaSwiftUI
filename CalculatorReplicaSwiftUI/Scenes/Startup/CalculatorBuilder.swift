@@ -12,10 +12,13 @@ struct CalculatorBuilder {
     static func buildCalculatorOptions() -> [[CalculatorOptionProtocol]] {
         let firstRowOptions = [
             CalculatorOption(representable: .clear,
+                             foregroundColor: Color(.black),
                              backgroundColor: Color(.lightGray)),
             CalculatorOption(representable: .negative,
+                             foregroundColor: Color(.black),
                              backgroundColor: Color(.lightGray)),
             CalculatorOption(representable: .percent,
+                             foregroundColor: Color(.black),
                              backgroundColor: Color(.lightGray)),
             CalculatorOption(representable: .division,
                              backgroundColor: Color(.orange))

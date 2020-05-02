@@ -11,11 +11,11 @@ import XCTest
 
 class CalculatorOperationHandlerTests: XCTestCase {
     
-    private var operationHandlerToTest: CalculatorOperationHadler!
+    private var operationHandlerToTest: CalculatorOperationHandlerProtocol!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        operationHandlerToTest = CalculatorOperationHadler()
+        operationHandlerToTest = CalculatorTestsMockFactory.createCalculatorOperationHandler()
     }
 
     override func tearDownWithError() throws {
