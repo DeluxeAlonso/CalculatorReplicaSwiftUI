@@ -1,35 +1,16 @@
 //
-//  CalculatorButton.swift
+//  CalculatorButtonViewModifier.swift
 //  CalculatorReplicaSwiftUI
 //
-//  Created by Alonso on 4/11/20.
+//  Created by Alonso on 5/1/20.
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
 import SwiftUI
 
-struct CalculatorButton: View {
-    @EnvironmentObject var env: CalculatorEnviromentObject
-    
+struct CalculatorButtonViewModifier: ViewModifier {
     let button: CalculatorOptionProtocol
     
-    var body: some View {
-        Button(action: {
-            self.env.handleCalculatorOption(self.button)
-        }, label: {
-            Text(button.title)
-            .font(.system(size: 32.0))
-            .frame(width: self.buttonSize.width, height: self.buttonSize.height)
-            .foregroundColor(.white)
-            .background(button.backgroundColor)
-            .cornerRadius(self.buttonSize.width / 2)
-        })
-    }
-}
-
-// MARK: - Button size
-
-extension CalculatorButton {
     var buttonSize: (width: CGFloat, height: CGFloat) {
         let numberOfButtonsPerRow = Constant.numberOfButtonsPerRow
         let screenWidth = UIScreen.main.bounds.width
@@ -40,11 +21,19 @@ extension CalculatorButton {
         
         return (width, height)
     }
+    
+    func body(content: Content) -> some View {
+        content
+            .frame(width: self.buttonSize.width, height: self.buttonSize.height)
+            .foregroundColor(button.foregroundColor)
+            .background(button.backgroundColor)
+            .cornerRadius(self.buttonSize.width / 2)
+    }
 }
 
 // MARK: - Constants
 
-extension CalculatorButton {
+extension CalculatorButtonViewModifier {
     struct Constant {
         static let spacing = 12
         static let numberOfButtonsPerRow = 4
