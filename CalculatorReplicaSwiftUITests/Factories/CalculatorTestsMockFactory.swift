@@ -11,7 +11,6 @@ import Foundation
 
 struct CalculatorTestsMockFactory {
     static func createCalculatorOperationHandler() -> CalculatorOperationHandlerProtocol {
-        let calculatorConfiguration = CalculatorConfigurationMock()
         let calculatorDisplayMaxLimit = calculatorConfiguration.calculatorDisplayMaxLimit
         let calculatorValidator = CalculatorOperationValidatorMock(calculatorDisplayMaxLimit: calculatorDisplayMaxLimit)
         return CalculatorOperationHadler(calculatorValidator: calculatorValidator,
