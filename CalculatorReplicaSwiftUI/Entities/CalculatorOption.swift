@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CalculatorOption: CalculatorOptionProtocol {
     var title: String
+    var icon: String?
     
     var isPlainNumber: Bool {
         return operation == nil
@@ -21,17 +22,18 @@ struct CalculatorOption: CalculatorOptionProtocol {
     }
     
     var gridSpace: Int = 1
-    
     var backgroundColor: Color = Color(.darkGray)
-    
     var operation: CalculatorOperation?
     
     // MARK: - Initializers
     
-    init(title: String, gridSpace: Int = 1,
+    init(title: String,
+         icon: String?,
+         gridSpace: Int = 1,
          backgroundColor: Color = Color(.darkGray),
          operation: CalculatorOperation? = nil) {
         self.title = title
+        self.icon = icon
         self.gridSpace = gridSpace
         self.backgroundColor = backgroundColor
         self.operation = operation
@@ -40,6 +42,7 @@ struct CalculatorOption: CalculatorOptionProtocol {
     init(representable: CalculatorOptionRepresentable, gridSpace: Int = 1,
          backgroundColor: Color = Color(.darkGray)) {
         self.init(title: representable.rawValue,
+                  icon: representable.icon,
                   gridSpace: gridSpace,
                   backgroundColor: backgroundColor,
                   operation: representable.operation)
