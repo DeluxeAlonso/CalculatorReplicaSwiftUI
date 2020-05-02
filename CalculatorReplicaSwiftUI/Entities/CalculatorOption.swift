@@ -21,29 +21,35 @@ struct CalculatorOption: CalculatorOptionProtocol {
         return operation == .decimal
     }
     
-    var gridSpace: Int = 1
-    var backgroundColor: Color = Color(.darkGray)
+    var gridSpace: Int
+    var foregroundColor: Color
+    var backgroundColor: Color
     var operation: CalculatorOperation?
     
     // MARK: - Initializers
     
     init(title: String,
          icon: String?,
-         gridSpace: Int = 1,
-         backgroundColor: Color = Color(.darkGray),
-         operation: CalculatorOperation? = nil) {
+         gridSpace: Int,
+         foregroundColor: Color,
+         backgroundColor: Color,
+         operation: CalculatorOperation?) {
         self.title = title
         self.icon = icon
         self.gridSpace = gridSpace
+        self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor
         self.operation = operation
     }
     
-    init(representable: CalculatorOptionRepresentable, gridSpace: Int = 1,
+    init(representable: CalculatorOptionRepresentable,
+         gridSpace: Int = 1,
+         foregroundColor: Color = Color(.white),
          backgroundColor: Color = Color(.darkGray)) {
         self.init(title: representable.rawValue,
                   icon: representable.icon,
                   gridSpace: gridSpace,
+                  foregroundColor: foregroundColor,
                   backgroundColor: backgroundColor,
                   operation: representable.operation)
     }

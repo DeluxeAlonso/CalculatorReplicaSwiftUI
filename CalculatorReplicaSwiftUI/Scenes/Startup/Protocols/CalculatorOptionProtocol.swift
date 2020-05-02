@@ -12,6 +12,7 @@ protocol CalculatorOptionProtocol {
     var title: String { get set }
     var icon: String? { get set }
     var gridSpace: Int { get set }
+    var foregroundColor: Color { get set }
     var backgroundColor: Color { get set }
     var operation: CalculatorOperation? { get set }
     
