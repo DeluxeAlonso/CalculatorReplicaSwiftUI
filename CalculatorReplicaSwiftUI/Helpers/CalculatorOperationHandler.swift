@@ -25,8 +25,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     
     // MARK: - Initializers
     
-    init(calculatorConfiguration: CalculatorConfigurationProtocol,
-         calculatorValidator: CalculatorOperationValidatorProtocol,
+    init(calculatorValidator: CalculatorOperationValidatorProtocol,
          calculatorTrimmer: CalculatorDisplayTrimmerProtocol) {
         self.calculatorValidator = calculatorValidator
         self.calculatorTrimmer = calculatorTrimmer
