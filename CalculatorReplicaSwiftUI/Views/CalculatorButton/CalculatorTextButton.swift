@@ -14,6 +14,6 @@ struct CalculatorTextButton: View {
     var body: some View {
         Text(button.title)
             .font(.system(size: 32.0))
-            .modifier(CalculatorButtonViewModifier(button: button))
+            .calculatorButtonStyle(for: button)
     }
 }
