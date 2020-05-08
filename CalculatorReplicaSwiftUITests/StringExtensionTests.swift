@@ -56,6 +56,32 @@ class StringExtensionTests: XCTestCase {
         XCTAssertFalse(hasExponent)
     }
     
+    func testExtractLastCharactersOfZero() {
+        //Arrange
+        let numberOfFractionDigits = Int.random(in: 1...9)
+        var input = CalculatorInputFactory.createFractionDigitNumber(with: numberOfFractionDigits)
+        
+        let numberOfTrailingZeros = Int.random(in: 1...9)
+        for _ in 0..<numberOfTrailingZeros { input.append("0") }
+        //Act
+        let zeroCharacters = input.extractLastCharactersOf("0")
+        //Assert
+        XCTAssertEqual(numberOfTrailingZeros, zeroCharacters.count)
+    }
+    
+    func testExtractLastCharactersOfDecimalSeparatorAndZero() {
+        //Arrange
+        let numberOfFractionDigits = Int.random(in: 1...9)
+        var input = CalculatorInputFactory.createStringIntegerNumber(with: numberOfFractionDigits) + "."
+        
+        let numberOfTrailingZeros = Int.random(in: 1...9)
+        for _ in 0..<numberOfTrailingZeros { input.append("0") }
+        //Act
+        let zeroCharacters = input.extractLastCharactersOf([".", "0"], withCutCharacter: ".")
+        //Assert
+        XCTAssertEqual(numberOfTrailingZeros + 1, zeroCharacters.count)
+    }
+    
     // MARK: - Verification Methods
     
     func verifyDigitsCount(result: (count: Int, hasDecimal: Bool),
