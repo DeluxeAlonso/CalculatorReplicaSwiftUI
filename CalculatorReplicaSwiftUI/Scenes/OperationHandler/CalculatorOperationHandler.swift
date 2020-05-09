@@ -101,7 +101,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     }
     
     private func clearCalculatorDisplay() {
-        calculatorDisplay = "0"
+        calculatorDisplay = CalculatorOptionRepresentable.zero.rawValue
     }
     
     private func clearPendingBinaryOperation() {
