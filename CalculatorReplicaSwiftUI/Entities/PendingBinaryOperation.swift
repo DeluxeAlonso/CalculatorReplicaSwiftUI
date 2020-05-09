@@ -30,10 +30,12 @@ class PendingBinaryOperation {
         self.operand = secondOperand
     }
     
+    /**
+    * We save the current accumulated value in order to handle recurrent operations when tapping the equal button
+    * more than once.
+    */
     func perform() -> Double {
-        guard let operand = operand else {
-                return 0
-        }
+        guard let operand = operand else { return 0 }
         let value = function(accumulatedValue, operand)
         accumulatedValue = value
         return value
