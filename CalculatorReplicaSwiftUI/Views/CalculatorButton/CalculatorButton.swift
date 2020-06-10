@@ -23,9 +23,9 @@ struct CalculatorButton: View {
     
     func containedView() -> AnyView {
         if let _ = button.icon {
-            return AnyView(CalculatorImageButton(button: button))
+            return CalculatorImageButton(button: button).erasedToAnyView()
         } else {
-            return AnyView(CalculatorTextButton(button: button))
+            return CalculatorTextButton(button: button).erasedToAnyView()
         }
     }
 }
