@@ -33,6 +33,10 @@ class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironmentObjectP
     func handleCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) {
         calculatorOperationHandler.handleCalculatorOption(calculatorOption)
     }
+
+    func deleteLastSingleDigit() {
+        calculatorOperationHandler.deleteLastSingleDigit()
+    }
     
     // MARK: - CalculatorEnvironmentObjectProtocol
     

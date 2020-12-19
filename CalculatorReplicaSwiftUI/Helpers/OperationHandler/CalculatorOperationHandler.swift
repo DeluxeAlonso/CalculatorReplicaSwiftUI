@@ -40,6 +40,15 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
             performOperation(calculatorOption)
         }
     }
+
+    func deleteLastSingleDigit() {
+        let newCalculatorDisplay = String(calculatorDisplay.dropLast())
+        if newCalculatorDisplay.isEmpty {
+            calculatorDisplay = CalculatorOptionRepresentable.zero.rawValue
+        } else {
+            calculatorDisplay = newCalculatorDisplay
+        }
+    }
     
     // MARK: - Calculator Operations
     

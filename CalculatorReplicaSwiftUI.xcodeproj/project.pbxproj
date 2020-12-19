@@ -34,6 +34,7 @@
 		E27030F1244951FD00955BDF /* CalculatorOperationHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27030F0244951FD00955BDF /* CalculatorOperationHandlerProtocol.swift */; };
 		E27030F324495D0000955BDF /* CalculatorEnvironmentObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27030F224495D0000955BDF /* CalculatorEnvironmentObjectProtocol.swift */; };
 		E27030F5244970B800955BDF /* DependencyInjectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27030F4244970B800955BDF /* DependencyInjectionManager.swift */; };
+		E286D6D12589D1D70083CD21 /* DragGesture+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D6D02589D1D70083CD21 /* DragGesture+Orientation.swift */; };
 		E2C600322448229C0099A038 /* PendingBinaryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C600312448229C0099A038 /* PendingBinaryOperation.swift */; };
 		E2C60034244822EE0099A038 /* CalculatorResultFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C60033244822EE0099A038 /* CalculatorResultFormatter.swift */; };
 		E2C60038244824AB0099A038 /* CalculatorResultFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C60037244824AB0099A038 /* CalculatorResultFormatterProtocol.swift */; };
@@ -99,6 +100,7 @@
 		E27030F0244951FD00955BDF /* CalculatorOperationHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperationHandlerProtocol.swift; sourceTree = "<group>"; };
 		E27030F224495D0000955BDF /* CalculatorEnvironmentObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorEnvironmentObjectProtocol.swift; sourceTree = "<group>"; };
 		E27030F4244970B800955BDF /* DependencyInjectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionManager.swift; sourceTree = "<group>"; };
+		E286D6D02589D1D70083CD21 /* DragGesture+Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DragGesture+Orientation.swift"; sourceTree = "<group>"; };
 		E2C600312448229C0099A038 /* PendingBinaryOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingBinaryOperation.swift; sourceTree = "<group>"; };
 		E2C60033244822EE0099A038 /* CalculatorResultFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorResultFormatter.swift; sourceTree = "<group>"; };
 		E2C60037244824AB0099A038 /* CalculatorResultFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorResultFormatterProtocol.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				E2681FCF244BB33F002DB20F /* String+Replacing.swift */,
 				E239F23C245F91A600097C39 /* View+Modifiers.swift */,
 				E23B8406249079D700F3ED68 /* View+TypeErasure.swift */,
+				E286D6D02589D1D70083CD21 /* DragGesture+Orientation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -348,12 +351,12 @@
 		E2FBCEC22441608600147B1B /* CalculatorReplicaSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				E22593102589AF710000E97F /* DependencyInjection */,
 				E266775B245D12CE006B2872 /* Scenes */,
 				E2667758245D0EE5006B2872 /* ViewModifiers */,
 				E2641533244433D30017AC6E /* Extensions */,
 				E2CBA51A2442C655008A3097 /* Entities */,
 				E2CBA5192442C63D008A3097 /* Helpers */,
+				E22593102589AF710000E97F /* DependencyInjection */,
 				E2FBCEC32441608600147B1B /* AppDelegate.swift */,
 				E2FBCEC52441608600147B1B /* SceneDelegate.swift */,
 				E2FBCEC92441608D00147B1B /* Assets.xcassets */,
@@ -500,6 +503,7 @@
 				E2CAA055245525D600C4DBC9 /* CalculatorConfiguration.swift in Sources */,
 				E2681FD2244BB368002DB20F /* CalculatorConstants.swift in Sources */,
 				E24E84C0244276E8007AC7AE /* CalculatorResultDisplayView.swift in Sources */,
+				E286D6D12589D1D70083CD21 /* DragGesture+Orientation.swift in Sources */,
 				E266775A245D0F1D006B2872 /* CalculatorButtonViewModifier.swift in Sources */,
 				E2CBA51C2442C660008A3097 /* CalculatorOption.swift in Sources */,
 				E266F250244E8F240009559E /* ScientificFormatter.swift in Sources */,

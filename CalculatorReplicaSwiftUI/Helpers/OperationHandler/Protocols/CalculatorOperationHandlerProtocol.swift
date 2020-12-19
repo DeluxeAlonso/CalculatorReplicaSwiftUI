@@ -15,4 +15,6 @@ protocol CalculatorOperationHandlerProtocol {
     var delegate: CalculatorEnvironmentObjectProtocol? { get set }
     
     func handleCalculatorOption(_ calculatorOption: CalculatorOptionProtocol)
+
+    func deleteLastSingleDigit()
 }
