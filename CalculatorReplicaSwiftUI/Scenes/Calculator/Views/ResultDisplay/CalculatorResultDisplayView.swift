@@ -41,8 +41,10 @@ struct CalculatorResultDisplayView: View {
         .padding()
     }
 
+    // MARK: - Private
+
     private func handleUserDragGesture(_ value: DragGesture.Value) {
-        if value.isHorizontalDrag {
+        if value.isHorizontalDrag(toleranceOffset: 10.0) {
             env.deleteLastSingleDigit()
         }
     }

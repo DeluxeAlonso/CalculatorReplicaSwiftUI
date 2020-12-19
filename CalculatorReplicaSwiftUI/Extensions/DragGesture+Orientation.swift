@@ -9,13 +9,8 @@
 import SwiftUI
 
 extension DragGesture.Value {
-
-    var isHorizontalDrag: Bool {
-        if startLocation.x > location.x || startLocation.x < location.x {
-            return true
-        } else {
-            return false
-        }
+    func isHorizontalDrag(toleranceOffset: CGFloat = 0.0) -> Bool {
+        guard abs(startLocation.y - location.y) <= toleranceOffset else { return false }
+        return startLocation.x > location.x || startLocation.x < location.x
     }
-
 }
