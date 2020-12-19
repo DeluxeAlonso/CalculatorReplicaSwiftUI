@@ -11,7 +11,7 @@ import SwiftUI
 struct CalculatorResultDisplayView: View {
     @EnvironmentObject var env: CalculatorEnviromentObject
 
-    @State var isUserSwipping: Bool = false
+    @State var isUserDragging: Bool = false
     
     var body: some View {
         VStack {
@@ -28,19 +28,22 @@ struct CalculatorResultDisplayView: View {
         .contentShape(Rectangle())
         .gesture(
             DragGesture()
-                .onChanged {
-                    if !isUserSwipping {
-                        if $0.isHorizontalDrag {
-                            env.deleteLastSingleDigit()
-                            print("Horizontal")
-                        }
-                        isUserSwipping = true
+                .onChanged { gestureValue in
+                    if !isUserDragging {
+                        isUserDragging = true
+                        handleUserDragGesture(gestureValue)
                     }
                 }
                 .onEnded { _ in
-                    isUserSwipping = false
+                    isUserDragging = false
                 }
         )
         .padding()
+    }
+
+    private func handleUserDragGesture(_ value: DragGesture.Value) {
+        if value.isHorizontalDrag {
+            env.deleteLastSingleDigit()
+        }
     }
 }

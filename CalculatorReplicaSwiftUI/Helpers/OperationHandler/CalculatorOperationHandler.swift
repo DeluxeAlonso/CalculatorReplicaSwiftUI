@@ -42,6 +42,8 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     }
 
     func deleteLastSingleDigit() {
+        guard isEnteringNumbers else { return }
+
         let newCalculatorDisplay = String(calculatorDisplay.dropLast())
         if newCalculatorDisplay.isEmpty {
             calculatorDisplay = CalculatorOptionRepresentable.zero.rawValue
