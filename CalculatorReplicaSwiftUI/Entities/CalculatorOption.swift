@@ -11,6 +11,8 @@ import SwiftUI
 struct CalculatorOption: CalculatorOptionProtocol {
     var title: String
     var icon: String?
+
+    var accessibilityLabel: String
     
     var isPlainNumber: Bool {
         return operation == nil
@@ -30,12 +32,14 @@ struct CalculatorOption: CalculatorOptionProtocol {
     
     init(title: String,
          icon: String?,
+         accessibilityLabel: String,
          gridSpace: Int,
          foregroundColor: Color,
          backgroundColor: Color,
          operation: CalculatorOperation?) {
         self.title = title
         self.icon = icon
+        self.accessibilityLabel = accessibilityLabel
         self.gridSpace = gridSpace
         self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor
@@ -48,6 +52,7 @@ struct CalculatorOption: CalculatorOptionProtocol {
          backgroundColor: Color = Color(.darkGray)) {
         self.init(title: representable.rawValue,
                   icon: representable.icon,
+                  accessibilityLabel: representable.accessibilityLabel,
                   gridSpace: gridSpace,
                   foregroundColor: foregroundColor,
                   backgroundColor: backgroundColor,

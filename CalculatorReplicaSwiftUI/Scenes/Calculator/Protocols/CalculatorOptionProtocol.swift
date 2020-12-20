@@ -9,12 +9,15 @@
 import SwiftUI
 
 protocol CalculatorOptionProtocol {    
-    var title: String { get set }
-    var icon: String? { get set }
-    var gridSpace: Int { get set }
-    var foregroundColor: Color { get set }
-    var backgroundColor: Color { get set }
-    var operation: CalculatorOperation? { get set }
+    var title: String { get }
+    var icon: String? { get }
+
+    var accessibilityLabel: String { get }
+
+    var gridSpace: Int { get }
+    var foregroundColor: Color { get }
+    var backgroundColor: Color { get }
+    var operation: CalculatorOperation? { get }
     
     var isPlainNumber: Bool { get }
     var shouldShowOnResultDisplay: Bool { get }

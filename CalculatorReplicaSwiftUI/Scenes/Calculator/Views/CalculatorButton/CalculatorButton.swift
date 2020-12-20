@@ -19,6 +19,7 @@ struct CalculatorButton: View {
         }, label: {
             containedView()
         })
+        .accessibility(label: Text(button.accessibilityLabel))
     }
     
     func containedView() -> AnyView {
