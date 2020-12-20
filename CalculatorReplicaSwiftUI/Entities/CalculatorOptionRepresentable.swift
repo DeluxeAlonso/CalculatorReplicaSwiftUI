@@ -33,6 +33,23 @@ enum CalculatorOptionRepresentable: String {
     var character: Character {
         return self.rawValue.first!
     }
+
+    var accessibilityLabel: String {
+        switch self {
+        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:
+            return self.rawValue
+        case .sum, .subtraction, .multiplication, .division, .percent, .negative:
+            return self.rawValue
+        case .decimal:
+            return "Decimal"
+        case .exponent:
+            return "Exponent"
+        case .clear:
+            return "All clear"
+        case .equal:
+            return "Equals"
+        }
+    }
     
     var icon: String? {
         switch self {
