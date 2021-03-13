@@ -1,5 +1,5 @@
 //
-//  CalculatorEnviromentObject.swift
+//  CalculatorEnvironmentObject.swift
 //  CalculatorReplicaSwiftUI
 //
 //  Created by Alonso on 4/11/20.
@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironmentObjectProtocol {
+class CalculatorEnvironmentObject: ObservableObject, CalculatorEnvironmentObjectProtocol {
 
     @UserDefaultsStorage("calculatorDisplay", defaultValue: "0")
     var formattedCalculatorDisplay: String {

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalculatorView: View {
-    @EnvironmentObject var env: CalculatorEnviromentObject
+    @EnvironmentObject var env: CalculatorEnvironmentObject
     
     var body: some View {
         ZStack(alignment: .bottom) {

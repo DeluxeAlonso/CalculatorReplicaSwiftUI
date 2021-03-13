@@ -31,8 +31,8 @@ struct DependencyInjectionFactory {
         return CalculatorResultFormatter(calculatorConfiguration: createCalculatorConfiguration())
     }
     
-    static func createCalculatorEnvironmentObject() -> CalculatorEnviromentObject {
-        return CalculatorEnviromentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
+    static func createCalculatorEnvironmentObject() -> CalculatorEnvironmentObject {
+        return CalculatorEnvironmentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
                                           resultFormatter: createCalculatorResultFormatter(),
                                           calculatorOperationHandler: createCalculatorOperationHandler())
     }
