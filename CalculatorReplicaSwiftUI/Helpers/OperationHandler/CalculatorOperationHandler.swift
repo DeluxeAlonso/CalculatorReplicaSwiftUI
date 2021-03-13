@@ -69,7 +69,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     private func performOperation(_ calculatorOption: CalculatorOptionProtocol) {
         guard let operation = calculatorOption.operation else { return }
         // We set isEnteringNumbers to false when performing any operation except decimal.
-        isEnteringNumbers = false
+        isEnteringNumbers = operation == .decimal
         let resultValueUpdated = calculatorDisplay.toDouble()
         switch operation {
         case .clear:
@@ -82,13 +82,15 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         case .decimal:
             break
         case .equals:
-            let newValue = performPendingBinaryOperation(with: resultValueUpdated)
+            guard let newValue = performPendingBinaryOperation(with: resultValueUpdated) else {
+                return
+            }
             updateDisplay(with: newValue)
         }
     }
     
-    private func performPendingBinaryOperation(with resultValue: Double) -> Double {
-        guard let pendingBinaryOperation = pendingBinaryOperation else { return 0 }
+    private func performPendingBinaryOperation(with resultValue: Double) -> Double? {
+        guard let pendingBinaryOperation = pendingBinaryOperation else { return nil }
         if !pendingBinaryOperation.hasOperand {
             pendingBinaryOperation.setOperand(resultValue)
         }
