@@ -10,8 +10,13 @@ import Foundation
 import Combine
 
 class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironmentObjectProtocol {
-    
-    @Published var formattedCalculatorDisplay: String = "0"
+
+    @UserDefaultsStorage("calculatorDisplay", defaultValue: "0")
+    var formattedCalculatorDisplay: String {
+        willSet {
+            objectWillChange.send()
+        }
+    }
     
     let calculatorButtons: [[CalculatorOptionProtocol]]
     private let resultFormatter: CalculatorResultFormatterProtocol

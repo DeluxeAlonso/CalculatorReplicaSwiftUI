@@ -11,6 +11,7 @@
 		E201FACC24421E6200AE6F4C /* CalculatorButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E201FACB24421E6200AE6F4C /* CalculatorButtonsView.swift */; };
 		E239F23D245F91A600097C39 /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239F23C245F91A600097C39 /* View+Modifiers.swift */; };
 		E23B8407249079D700F3ED68 /* View+TypeErasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23B8406249079D700F3ED68 /* View+TypeErasure.swift */; };
+		E248B9A925FC5AF800DCFCD8 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E248B9A825FC5AF800DCFCD8 /* UserDefaultsStorage.swift */; };
 		E24CFDA22455F8190084F51D /* CalculatorOperationValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24CFDA12455F8190084F51D /* CalculatorOperationValidator.swift */; };
 		E24E84C0244276E8007AC7AE /* CalculatorResultDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E84BF244276E8007AC7AE /* CalculatorResultDisplayView.swift */; };
 		E256231124427A3E00AA7CD0 /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E256231024427A3E00AA7CD0 /* CalculatorButton.swift */; };
@@ -75,6 +76,7 @@
 		E201FACB24421E6200AE6F4C /* CalculatorButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonsView.swift; sourceTree = "<group>"; };
 		E239F23C245F91A600097C39 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
 		E23B8406249079D700F3ED68 /* View+TypeErasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TypeErasure.swift"; sourceTree = "<group>"; };
+		E248B9A825FC5AF800DCFCD8 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		E24CFDA12455F8190084F51D /* CalculatorOperationValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperationValidator.swift; sourceTree = "<group>"; };
 		E24E84BF244276E8007AC7AE /* CalculatorResultDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorResultDisplayView.swift; sourceTree = "<group>"; };
 		E256231024427A3E00AA7CD0 /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
@@ -214,6 +216,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		E248B9A725FC5AD700DCFCD8 /* PropertyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				E248B9A825FC5AF800DCFCD8 /* UserDefaultsStorage.swift */,
+			);
+			path = PropertyWrappers;
+			sourceTree = "<group>";
+		};
 		E2641533244433D30017AC6E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +321,7 @@
 		E2CBA5192442C63D008A3097 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E248B9A725FC5AD700DCFCD8 /* PropertyWrappers */,
 				E225930C2589AEDF0000E97F /* OperationHandler */,
 				E266F24E244E8F120009559E /* Formatters */,
 				E2681FD1244BB368002DB20F /* CalculatorConstants.swift */,
@@ -351,10 +362,10 @@
 		E2FBCEC22441608600147B1B /* CalculatorReplicaSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				E2CBA51A2442C655008A3097 /* Entities */,
 				E266775B245D12CE006B2872 /* Scenes */,
 				E2667758245D0EE5006B2872 /* ViewModifiers */,
 				E2641533244433D30017AC6E /* Extensions */,
-				E2CBA51A2442C655008A3097 /* Entities */,
 				E2CBA5192442C63D008A3097 /* Helpers */,
 				E22593102589AF710000E97F /* DependencyInjection */,
 				E2FBCEC32441608600147B1B /* AppDelegate.swift */,
@@ -515,6 +526,7 @@
 				E201FAC924421A7C00AE6F4C /* CalculatorEnviromentObject.swift in Sources */,
 				E2FBCEC42441608600147B1B /* AppDelegate.swift in Sources */,
 				E2681FD0244BB33F002DB20F /* String+Replacing.swift in Sources */,
+				E248B9A925FC5AF800DCFCD8 /* UserDefaultsStorage.swift in Sources */,
 				E27030EF24494EC500955BDF /* CalculatorOperationHandler.swift in Sources */,
 				E23B8407249079D700F3ED68 /* View+TypeErasure.swift in Sources */,
 				E27030F1244951FD00955BDF /* CalculatorOperationHandlerProtocol.swift in Sources */,
@@ -728,7 +740,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alonso.CalculatorReplicaSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alonso.CalculatorReplicaSwiftUI.Development;
 				PRODUCT_NAME = Calculator;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -749,7 +761,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alonso.CalculatorReplicaSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alonso.CalculatorReplicaSwiftUI.Development;
 				PRODUCT_NAME = Calculator;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
