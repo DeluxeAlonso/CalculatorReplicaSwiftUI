@@ -24,7 +24,7 @@ struct CalculatorOption: CalculatorOptionProtocol {
     }
     
     var gridSpace: Int
-    var foregroundColor: Color
+    var tintColor: Color
     var backgroundColor: Color
     var operation: CalculatorOperation?
     
@@ -41,7 +41,7 @@ struct CalculatorOption: CalculatorOptionProtocol {
         self.icon = icon
         self.accessibilityLabel = accessibilityLabel
         self.gridSpace = gridSpace
-        self.foregroundColor = foregroundColor
+        self.tintColor = foregroundColor
         self.backgroundColor = backgroundColor
         self.operation = operation
     }

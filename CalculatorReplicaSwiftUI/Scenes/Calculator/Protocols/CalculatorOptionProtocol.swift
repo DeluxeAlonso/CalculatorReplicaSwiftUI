@@ -15,7 +15,7 @@ protocol CalculatorOptionProtocol {
     var accessibilityLabel: String { get }
 
     var gridSpace: Int { get }
-    var foregroundColor: Color { get }
+    var tintColor: Color { get }
     var backgroundColor: Color { get }
     var operation: CalculatorOperation? { get }
     
