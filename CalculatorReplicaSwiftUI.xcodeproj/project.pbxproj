@@ -362,10 +362,10 @@
 		E2FBCEC22441608600147B1B /* CalculatorReplicaSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				E2CBA51A2442C655008A3097 /* Entities */,
 				E266775B245D12CE006B2872 /* Scenes */,
 				E2667758245D0EE5006B2872 /* ViewModifiers */,
 				E2641533244433D30017AC6E /* Extensions */,
-				E2CBA51A2442C655008A3097 /* Entities */,
 				E2CBA5192442C63D008A3097 /* Helpers */,
 				E22593102589AF710000E97F /* DependencyInjection */,
 				E2FBCEC32441608600147B1B /* AppDelegate.swift */,
