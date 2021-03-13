@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DependencyInjectionManager {
+struct DependencyInjectionFactory {
     static func createCalculatorConfiguration() -> CalculatorConfigurationProtocol {
         return CalculatorConfiguration()
     }
@@ -33,7 +33,7 @@ struct DependencyInjectionManager {
     
     static func createCalculatorEnvironmentObject() -> CalculatorEnviromentObject {
         return CalculatorEnviromentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
-                                          resultFormatter: self.createCalculatorResultFormatter(),
-                                          calculatorOperationHandler: self.createCalculatorOperationHandler())
+                                          resultFormatter: createCalculatorResultFormatter(),
+                                          calculatorOperationHandler: createCalculatorOperationHandler())
     }
 }

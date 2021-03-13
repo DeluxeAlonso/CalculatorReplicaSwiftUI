@@ -25,6 +25,6 @@ struct CalculatorView: View {
 
 struct CalculatorView_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorView().environmentObject(DependencyInjectionManager.createCalculatorEnvironmentObject())
+        CalculatorView().environmentObject(DependencyInjectionFactory.createCalculatorEnvironmentObject())
     }
 }
