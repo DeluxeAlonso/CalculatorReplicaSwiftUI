@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
-
 enum CalculatorOperation: Equatable {
     case unaryOperation((Double) -> Double)
     case binaryOperation((Double, Double) -> Double)

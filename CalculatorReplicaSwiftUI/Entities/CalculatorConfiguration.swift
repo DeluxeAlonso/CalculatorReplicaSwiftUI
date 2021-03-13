@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
-
 struct CalculatorConfiguration: CalculatorConfigurationProtocol {
     var calculatorDisplayMaxLimit: Int {
         return 9

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
+import Combine
 
 protocol CalculatorEnvironmentObjectProtocol: class {
     func updateValue(_ value: String, isEnteringNumbers: Bool)
