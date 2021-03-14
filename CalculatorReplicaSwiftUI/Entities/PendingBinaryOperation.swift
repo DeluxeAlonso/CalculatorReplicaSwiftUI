@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
-
 class PendingBinaryOperation {
     private let function: (Double, Double) -> Double
     private var accumulatedValue: Double

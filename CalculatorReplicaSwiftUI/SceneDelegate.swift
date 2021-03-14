@@ -10,11 +10,10 @@ import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let contentView = CalculatorView().environmentObject(DependencyInjectionManager.createCalculatorEnvironmentObject())
+        let contentView = CalculatorView().environmentObject(DependencyInjectionFactory.createCalculatorEnvironmentObject())
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -24,6 +23,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
         }
     }
-
 }
 

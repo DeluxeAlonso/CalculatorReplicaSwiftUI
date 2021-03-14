@@ -6,9 +6,7 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
-
-struct DependencyInjectionManager {
+struct DependencyInjectionFactory {
     static func createCalculatorConfiguration() -> CalculatorConfigurationProtocol {
         return CalculatorConfiguration()
     }
@@ -31,9 +29,9 @@ struct DependencyInjectionManager {
         return CalculatorResultFormatter(calculatorConfiguration: createCalculatorConfiguration())
     }
     
-    static func createCalculatorEnvironmentObject() -> CalculatorEnviromentObject {
-        return CalculatorEnviromentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
-                                          resultFormatter: self.createCalculatorResultFormatter(),
-                                          calculatorOperationHandler: self.createCalculatorOperationHandler())
+    static func createCalculatorEnvironmentObject() -> CalculatorEnvironmentObject {
+        return CalculatorEnvironmentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
+                                          resultFormatter: createCalculatorResultFormatter(),
+                                          calculatorOperationHandler: createCalculatorOperationHandler())
     }
 }

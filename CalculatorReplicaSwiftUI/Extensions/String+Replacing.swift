@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
-
 extension String {
     func replacingOccurrences<Target, Replacement>(of targets: [Target], with replacement: Replacement) -> String where Target : StringProtocol, Replacement : StringProtocol {
         var newString = self

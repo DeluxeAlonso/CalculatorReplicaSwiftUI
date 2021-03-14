@@ -25,7 +25,7 @@ struct CalculatorButtonViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(width: self.buttonSize.width, height: self.buttonSize.height)
-            .foregroundColor(button.foregroundColor)
+            .foregroundColor(button.tintColor)
             .background(button.backgroundColor)
             .cornerRadius(self.buttonSize.width / 2)
     }

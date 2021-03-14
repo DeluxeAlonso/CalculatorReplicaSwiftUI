@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalculatorResultDisplayView: View {
-    @EnvironmentObject var env: CalculatorEnviromentObject
+    @EnvironmentObject var env: CalculatorEnvironmentObject
 
     @State var isUserDragging: Bool = false
     
