@@ -8,6 +8,6 @@
 
 import Combine
 
-protocol CalculatorEnvironmentObjectProtocol: class {
+protocol CalculatorEnvironmentObjectProtocol: AnyObject {
     func updateValue(_ value: String, isEnteringNumbers: Bool)
 }
