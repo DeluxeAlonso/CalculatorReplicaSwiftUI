@@ -7,17 +7,6 @@ on:
     branches: [ development ]
 
 jobs:
-  lint:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install Bundle
-      run: bundle install
-    - name: Dependencies
-      run: pod install
-    - name: Run swiftlint
-      run: bundle exec fastlane lint
-
   test:
     needs: lint
     runs-on: macos-latest
