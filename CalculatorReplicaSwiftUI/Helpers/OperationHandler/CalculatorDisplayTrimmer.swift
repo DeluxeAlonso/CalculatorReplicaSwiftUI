@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
-
 struct CalculatorDisplayTrimmer: CalculatorDisplayTrimmerProtocol {
     func getTrimmedCalculatorDisplay(_ calculatorDisplay: String) -> String {
         var trimmedCalculatorDisplay = calculatorDisplay.trimLeadingOcurrencesOf(CalculatorOptionRepresentable.zero.character)
