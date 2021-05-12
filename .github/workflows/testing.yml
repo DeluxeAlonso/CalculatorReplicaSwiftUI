@@ -8,7 +8,6 @@ on:
 
 jobs:
   test:
-    needs: lint
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
