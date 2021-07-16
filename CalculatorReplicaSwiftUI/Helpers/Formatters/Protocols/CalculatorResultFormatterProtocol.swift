@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CalculatorResultFormatterProtocol: class {
+protocol CalculatorResultFormatterProtocol: AnyObject {
     func format(from calculatorDisplay: String, isEnteringNumbers: Bool) -> String?
     func formatResult(from calculatorDisplay: String) -> String?
     func formatEnteredNumber(from calculatorDisplay: String) -> String?
