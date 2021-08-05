@@ -10,9 +10,10 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
     private let calculatorValidator: CalculatorOperationValidatorProtocol
     private let calculatorTrimmer: CalculatorDisplayTrimmerProtocol
+
     private var pendingBinaryOperation: PendingBinaryOperation?
+    private var isEnteringNumbers: Bool = false
     
-    var isEnteringNumbers: Bool = false
     var calculatorDisplay: String = "" {
         didSet {
             delegate?.updateValue(calculatorDisplay, isEnteringNumbers: isEnteringNumbers)
