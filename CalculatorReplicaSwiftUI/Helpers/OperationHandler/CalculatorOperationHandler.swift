@@ -8,11 +8,18 @@
 
 class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
+    // MARK: - Dependencies
+
     private let calculatorValidator: CalculatorOperationValidatorProtocol
     private let calculatorTrimmer: CalculatorDisplayTrimmerProtocol
+
+    // MARK: - Stored properties
+
     private var pendingBinaryOperation: PendingBinaryOperation?
+    private var isEnteringNumbers: Bool = false
+
+    // MARK: - Computed properties
     
-    var isEnteringNumbers: Bool = false
     var calculatorDisplay: String = "" {
         didSet {
             delegate?.updateValue(calculatorDisplay, isEnteringNumbers: isEnteringNumbers)

@@ -23,24 +23,24 @@ class CalculatorOperationHandlerTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func testIsEnteringNumberTrue() {
-        //Arrange
-        let calculatorOption = CalculatorOption(representable: .three)
-        //Act
-        operationHandlerToTest.handleCalculatorOption(calculatorOption)
-        //Assert
-        XCTAssertTrue(operationHandlerToTest.isEnteringNumbers)
-    }
-    
-    func testIsEnteringNumberFalse() {
-        //Arrange
-        let calculatorOption = CalculatorOption(representable: .division)
-        //Act
-        operationHandlerToTest.handleCalculatorOption(calculatorOption)
-        //Assert
-        XCTAssertFalse(operationHandlerToTest.isEnteringNumbers)
-    }
-    
+//    func testIsEnteringNumberTrue() {
+//        //Arrange
+//        let calculatorOption = CalculatorOption(representable: .three)
+//        //Act
+//        operationHandlerToTest.handleCalculatorOption(calculatorOption)
+//        //Assert
+//        XCTAssertTrue(operationHandlerToTest.isEnteringNumbers)
+//    }
+//
+//    func testIsEnteringNumberFalse() {
+//        //Arrange
+//        let calculatorOption = CalculatorOption(representable: .division)
+//        //Act
+//        operationHandlerToTest.handleCalculatorOption(calculatorOption)
+//        //Assert
+//        XCTAssertFalse(operationHandlerToTest.isEnteringNumbers)
+//    }
+
     func testNumberEntered() {
         //Arrange
         let options = [
