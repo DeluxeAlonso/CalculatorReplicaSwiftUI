@@ -24,6 +24,8 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
         let numberFormatter = ScientificFormatter()
         return numberFormatter
     }()
+
+    // MARK: - Dependencies
     
     private var calculatorConfiguration: CalculatorConfigurationProtocol
     
