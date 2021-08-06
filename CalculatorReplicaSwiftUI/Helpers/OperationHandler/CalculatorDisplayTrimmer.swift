@@ -7,6 +7,9 @@
 //
 
 struct CalculatorDisplayTrimmer: CalculatorDisplayTrimmerProtocol {
+
+    // MARK: - CalculatorDisplayTrimmerProtocol
+
     func getTrimmedCalculatorDisplay(_ calculatorDisplay: String) -> String {
         var trimmedCalculatorDisplay = calculatorDisplay.trimLeadingOcurrencesOf(CalculatorOptionRepresentable.zero.character)
         
@@ -16,4 +19,5 @@ struct CalculatorDisplayTrimmer: CalculatorDisplayTrimmerProtocol {
         
         return trimmedCalculatorDisplay
     }
+
 }
