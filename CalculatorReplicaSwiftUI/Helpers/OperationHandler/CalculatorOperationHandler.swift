@@ -7,7 +7,6 @@
 //
 
 class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
-
     // MARK: - Dependencies
 
     private let calculatorValidator: CalculatorOperationValidatorProtocol
@@ -130,5 +129,4 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         clearCalculatorDisplay()
         clearPendingBinaryOperation()
     }
-    
 }

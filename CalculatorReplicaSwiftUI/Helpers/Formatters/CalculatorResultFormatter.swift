@@ -10,20 +10,22 @@ import Foundation
 
 class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
     
-    lazy var defaultFormatter: NumberFormatter = {
+    private lazy var defaultFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         return numberFormatter
     }()
     
-    lazy var decimalFormatter: DecimalFormatter = {
+    private lazy var decimalFormatter: DecimalFormatter = {
         let numberFormatter = DecimalFormatter()
         return numberFormatter
     }()
     
-    lazy var scientificFormatter: ScientificFormatter = {
+    private lazy var scientificFormatter: ScientificFormatter = {
         let numberFormatter = ScientificFormatter()
         return numberFormatter
     }()
+
+    // MARK: - Dependencies
     
     private var calculatorConfiguration: CalculatorConfigurationProtocol
     
