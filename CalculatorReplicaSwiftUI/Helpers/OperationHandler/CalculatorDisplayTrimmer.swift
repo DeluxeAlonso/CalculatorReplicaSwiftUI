@@ -7,7 +7,6 @@
 //
 
 struct CalculatorDisplayTrimmer: CalculatorDisplayTrimmerProtocol {
-
     // MARK: - CalculatorDisplayTrimmerProtocol
 
     func getTrimmedCalculatorDisplay(_ calculatorDisplay: String) -> String {
@@ -19,5 +18,4 @@ struct CalculatorDisplayTrimmer: CalculatorDisplayTrimmerProtocol {
         
         return trimmedCalculatorDisplay
     }
-
 }

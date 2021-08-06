@@ -7,9 +7,7 @@
 //
 
 struct CalculatorOperationValidator: CalculatorOperationValidatorProtocol {
-
     // MARK: - CalculatorOperationValidatorProtocol
 
     var calculatorDisplayMaxLimit: Int
-
 }
