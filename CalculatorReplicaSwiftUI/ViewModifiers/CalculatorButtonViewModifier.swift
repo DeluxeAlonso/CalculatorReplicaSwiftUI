@@ -11,7 +11,7 @@ import SwiftUI
 struct CalculatorButtonViewModifier: ViewModifier {
     let button: CalculatorOptionProtocol
     
-    var buttonSize: (width: CGFloat, height: CGFloat) {
+    private var buttonSize: (width: CGFloat, height: CGFloat) {
         let numberOfButtonsPerRow = Constant.numberOfButtonsPerRow
         let screenWidth = UIScreen.main.bounds.width
         let offset = button.gridSpace - 1

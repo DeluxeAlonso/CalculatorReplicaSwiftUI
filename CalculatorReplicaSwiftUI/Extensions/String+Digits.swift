@@ -21,7 +21,7 @@ extension String {
     }
     
     func hasExponent() -> Bool {
-        return self.lowercased().contains(CalculatorOptionRepresentable.exponent.rawValue)
+        return lowercased().contains(CalculatorOptionRepresentable.exponent.rawValue)
     }
     
     func hasDecimal(checkForDecimalCharacter: Bool = false) -> Bool {
