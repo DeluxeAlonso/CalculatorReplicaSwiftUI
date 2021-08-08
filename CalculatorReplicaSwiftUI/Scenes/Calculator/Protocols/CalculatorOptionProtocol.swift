@@ -18,7 +18,8 @@ protocol CalculatorOptionProtocol {
     var tintColor: Color { get }
     var backgroundColor: Color { get }
     var operation: CalculatorOperation? { get }
-    
+
+    /// Indicates if the calculator option is a plain number and not an operation.
     var isPlainNumber: Bool { get }
     var shouldShowOnResultDisplay: Bool { get }
 }
