@@ -22,7 +22,7 @@ struct CalculatorButton: View {
         .accessibility(label: Text(button.accessibilityLabel))
     }
     
-    func containedView() -> AnyView {
+    private func containedView() -> AnyView {
         if let _ = button.icon {
             return CalculatorImageButton(button: button).erasedToAnyView()
         } else {
