@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct CalculatorOption: CalculatorOptionProtocol {
-    var title: String
+    let title: String
     var icon: String?
 
-    var accessibilityLabel: String
+    let accessibilityLabel: String
     
     var isPlainNumber: Bool {
         return operation == nil
@@ -23,10 +23,10 @@ struct CalculatorOption: CalculatorOptionProtocol {
         return operation == .decimal
     }
     
-    var gridSpace: Int
-    var tintColor: Color
-    var backgroundColor: Color
-    var operation: CalculatorOperation?
+    let gridSpace: Int
+    let tintColor: Color
+    let backgroundColor: Color
+    let operation: CalculatorOperation?
     
     // MARK: - Initializers
     
