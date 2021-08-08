@@ -9,24 +9,24 @@
 import SwiftUI
 
 struct CalculatorOption: CalculatorOptionProtocol {
-    let title: String
-    var icon: String?
 
+    let title: String
     let accessibilityLabel: String
-    
-    var isPlainNumber: Bool {
-        return operation == nil
-    }
-    
-    var shouldShowOnResultDisplay: Bool {
-        guard let operation = operation else { return true }
-        return operation == .decimal
-    }
-    
     let gridSpace: Int
     let tintColor: Color
     let backgroundColor: Color
     let operation: CalculatorOperation?
+
+    private(set) var icon: String?
+
+    var isPlainNumber: Bool {
+        return operation == nil
+    }
+
+    var shouldShowOnResultDisplay: Bool {
+        guard let operation = operation else { return true }
+        return operation == .decimal
+    }
     
     // MARK: - Initializers
     
