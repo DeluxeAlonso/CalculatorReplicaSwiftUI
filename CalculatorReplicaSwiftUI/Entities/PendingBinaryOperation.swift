@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-class PendingBinaryOperation {
+final class PendingBinaryOperation {
     private let function: (Double, Double) -> Double
     private var accumulatedValue: Double
     private var operand: Double? = nil
