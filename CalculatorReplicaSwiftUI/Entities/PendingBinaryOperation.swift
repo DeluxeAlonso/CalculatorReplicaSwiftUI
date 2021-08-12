@@ -20,10 +20,6 @@ class PendingBinaryOperation {
         return operand != nil
     }
     
-    private func setAccumulatedValue(_ value: Double) {
-        self.accumulatedValue = value
-    }
-    
     func setOperand(_ secondOperand: Double) {
         self.operand = secondOperand
     }
