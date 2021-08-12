@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-class PendingBinaryOperation {
+final class PendingBinaryOperation {
     private let function: (Double, Double) -> Double
     private var accumulatedValue: Double
     private var operand: Double? = nil
@@ -18,10 +18,6 @@ class PendingBinaryOperation {
     
     var hasOperand: Bool {
         return operand != nil
-    }
-    
-    func setAccumulatedValue(_ value: Double) {
-        self.accumulatedValue = value
     }
     
     func setOperand(_ secondOperand: Double) {
