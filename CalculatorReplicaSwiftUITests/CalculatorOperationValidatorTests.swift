@@ -13,14 +13,14 @@ class CalculatorOperationValidatorTests: XCTestCase {
     
     private var validatorToTest: CalculatorOperationValidatorProtocol!
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         validatorToTest = CalculatorOperationValidatorMock(calculatorDisplayMaxLimit: 9)
     }
 
-    override func tearDown() {
+    override func tearDownWithError() throws {
         validatorToTest = nil
-        super.tearDown()
+        try super.tearDownWithError()
     }
     
     func testShouldProcessCalculatorOptionNumber() {
