@@ -13,14 +13,14 @@ class CalculatorResultFormatterTests: XCTestCase {
     
     private var formatterToTest: CalculatorResultFormatterProtocol!
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         formatterToTest = CalculatorTestsMockFactory.createCalculatorResultFormatter()
     }
 
-    override func tearDown() {
+    override func tearDownWithError() throws {
         formatterToTest = nil
-        super.tearDown()
+        try super.tearDownWithError()
     }
     
     // MARK: - Integer
