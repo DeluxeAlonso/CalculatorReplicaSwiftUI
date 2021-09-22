@@ -31,9 +31,6 @@ protocol CalculatorOperationValidatorProtocol {
 }
 
 extension CalculatorOperationValidatorProtocol {
-    /**
-     * Only plain numbers can be repeated on our calculator result display. Any other option should only appear once.
-     */
     func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol,
                                        in calculatorDisplay: String) -> Bool {
         guard calculatorOption.shouldShowOnResultDisplay else { return false }
@@ -42,19 +39,13 @@ extension CalculatorOperationValidatorProtocol {
         }
         return true
     }
-    
-    /**
-     * We only validate the digits limit if the user is currently entering non-operation options (numbers or decimal).
-     */
+
     func areDisplayCharactersInRange(for calculatorDisplay: String,
                                      and isEnteringNumbers: Bool) -> Bool {
         guard isEnteringNumbers else { return true }
         return calculatorDisplay.filter { $0.isNumber }.count < calculatorDisplayMaxLimit
     }
     
-    /**
-     * Detects if the user is entering more than one zero on the left side of the number.
-     */
     func isEnteringSignificantNumber(_ calculatorOption: CalculatorOptionProtocol,
                                      in calculatorDisplay: String) -> Bool {
         guard calculatorOption.title == "0" else { return true }
