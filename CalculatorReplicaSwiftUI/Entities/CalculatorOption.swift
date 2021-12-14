@@ -11,6 +11,7 @@ import SwiftUI
 struct CalculatorOption: CalculatorOptionProtocol {
 
     let title: String
+    let titleAlignment: Alignment
     let accessibilityLabel: String
     let gridSpace: Int
     let tintColor: Color
@@ -31,6 +32,7 @@ struct CalculatorOption: CalculatorOptionProtocol {
     // MARK: - Initializers
     
     init(title: String,
+         titleAlignment: Alignment,
          icon: String?,
          accessibilityLabel: String,
          gridSpace: Int,
@@ -38,6 +40,7 @@ struct CalculatorOption: CalculatorOptionProtocol {
          backgroundColor: Color,
          operation: CalculatorOperation?) {
         self.title = title
+        self.titleAlignment = titleAlignment
         self.icon = icon
         self.accessibilityLabel = accessibilityLabel
         self.gridSpace = gridSpace
@@ -51,6 +54,7 @@ struct CalculatorOption: CalculatorOptionProtocol {
          foregroundColor: Color = Color(.white),
          backgroundColor: Color = Color(.darkGray)) {
         self.init(title: representable.rawValue,
+                  titleAlignment: representable.titleAlignment,
                   icon: representable.icon,
                   accessibilityLabel: representable.accessibilityLabel,
                   gridSpace: gridSpace,
