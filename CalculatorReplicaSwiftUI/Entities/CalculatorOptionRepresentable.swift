@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import SwiftUI
-
 enum CalculatorOptionRepresentable: String {
     case one = "1"
     case two = "2"
