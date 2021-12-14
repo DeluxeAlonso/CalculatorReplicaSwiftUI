@@ -6,6 +6,8 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
+import SwiftUI
+
 enum CalculatorOptionRepresentable: String {
     case one = "1"
     case two = "2"
@@ -30,6 +32,19 @@ enum CalculatorOptionRepresentable: String {
     
     var character: Character {
         return self.rawValue.first!
+    }
+
+    var titleAlignment: Alignment {
+        switch self {
+        case .zero:
+            return .leading
+        case .clear, .decimal, .equal, .exponent, .negative, .percent:
+            return .center
+        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine:
+            return .center
+        case .sum, .subtraction, .division, .multiplication:
+            return .center
+        }
     }
 
     var accessibilityLabel: String {
