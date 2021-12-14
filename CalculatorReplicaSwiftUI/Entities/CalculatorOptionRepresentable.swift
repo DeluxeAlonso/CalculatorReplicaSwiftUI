@@ -34,19 +34,6 @@ enum CalculatorOptionRepresentable: String {
         return self.rawValue.first!
     }
 
-    var titleAlignment: Alignment {
-        switch self {
-        case .zero:
-            return .leading
-        case .clear, .decimal, .equal, .exponent, .negative, .percent:
-            return .center
-        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine:
-            return .center
-        case .sum, .subtraction, .division, .multiplication:
-            return .center
-        }
-    }
-
     var accessibilityLabel: String {
         switch self {
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:

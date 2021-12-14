@@ -28,9 +28,7 @@ struct CalculatorButtonViewModifier: ViewModifier {
                 // We manually align the text to the left.
                 view.padding(.trailing, buttonSize.width * 0.5 + CGFloat(Constant.spacing) * 0.5)
             }
-            .frame(width: self.buttonSize.width,
-                   height: self.buttonSize.height,
-                   alignment: .center)
+            .frame(width: self.buttonSize.width, height: self.buttonSize.height)
             .foregroundColor(button.tintColor)
             .background(button.backgroundColor)
             .cornerRadius(self.buttonSize.width / 2)
