@@ -21,9 +21,13 @@ struct CalculatorButtonViewModifier: ViewModifier {
         
         return (width, height)
     }
-    
+
     func body(content: Content) -> some View {
         content
+            .if(button.gridSpace > 1) { view in
+                // We manually align the text to the left.
+                view.padding(.trailing, buttonSize.width * 0.5 + CGFloat(Constant.spacing) * 0.5)
+            }
             .frame(width: self.buttonSize.width, height: self.buttonSize.height)
             .foregroundColor(button.tintColor)
             .background(button.backgroundColor)

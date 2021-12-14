@@ -10,6 +10,7 @@ import SwiftUI
 
 protocol CalculatorOptionProtocol {    
     var title: String { get }
+
     var icon: String? { get }
 
     var accessibilityLabel: String { get }
