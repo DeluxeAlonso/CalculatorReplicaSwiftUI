@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
-
 protocol CalculatorDisplayTrimmerProtocol {
     func getTrimmedCalculatorDisplay(_ calculatorDisplay: String) -> String
 }
