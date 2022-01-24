@@ -11,4 +11,3 @@ struct CalculatorConfiguration: CalculatorConfigurationProtocol {
         return 9
     }
 }
-
