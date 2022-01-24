@@ -13,7 +13,7 @@ struct DependencyInjectionFactory {
     
     static func createCalculatorValidator() -> CalculatorOperationValidatorProtocol {
         let calculatorConfiguration = createCalculatorConfiguration()
-        return CalculatorOperationValidator(calculatorDisplayMaxLimit: calculatorConfiguration.calculatorDisplayMaxLimit)
+        return CalculatorOperationValidator(calculatorConfiguration: calculatorConfiguration)
     }
     
     static func createCalculatorTrimmer() -> CalculatorDisplayTrimmerProtocol {

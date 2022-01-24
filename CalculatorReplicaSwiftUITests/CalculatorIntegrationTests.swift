@@ -16,8 +16,7 @@ class CalculatorIntegrationTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         let calculatorConfiguration = CalculatorConfiguration()
-        let calculatorDisplayMaxLimit = calculatorConfiguration.calculatorDisplayMaxLimit
-        let calculatorValidator = CalculatorOperationValidator(calculatorDisplayMaxLimit: calculatorDisplayMaxLimit)
+        let calculatorValidator = CalculatorOperationValidator(calculatorConfiguration: calculatorConfiguration)
         let calculatorTrimmer = CalculatorDisplayTrimmer()
         operationHandler = CalculatorOperationHadler(calculatorValidator: calculatorValidator,
                                                      calculatorTrimmer: calculatorTrimmer)

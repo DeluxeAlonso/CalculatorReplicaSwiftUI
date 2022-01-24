@@ -7,7 +7,13 @@
 //
 
 struct CalculatorOperationValidator: CalculatorOperationValidatorProtocol {
-    let calculatorDisplayMaxLimit: Int
+    private let calculatorConfiguration: CalculatorConfigurationProtocol
+
+    // MARK: - Initializers
+
+    init(calculatorConfiguration: CalculatorConfigurationProtocol) {
+        self.calculatorConfiguration = calculatorConfiguration
+    }
 
     func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol,
                                        in calculatorDisplay: String) -> Bool {
@@ -21,7 +27,7 @@ struct CalculatorOperationValidator: CalculatorOperationValidatorProtocol {
     func areDisplayCharactersInRange(for calculatorDisplay: String,
                                      and isEnteringNumbers: Bool) -> Bool {
         guard isEnteringNumbers else { return true }
-        return calculatorDisplay.filter { $0.isNumber }.count < calculatorDisplayMaxLimit
+        return calculatorDisplay.filter { $0.isNumber }.count < calculatorConfiguration.calculatorDisplayMaxLimit
     }
 
     func isEnteringSignificantNumber(_ calculatorOption: CalculatorOptionProtocol,
