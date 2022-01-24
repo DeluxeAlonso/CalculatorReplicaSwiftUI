@@ -15,7 +15,7 @@ class CalculatorOperationValidatorTests: XCTestCase {
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        validatorToTest = CalculatorOperationValidatorMock(calculatorDisplayMaxLimit: 9)
+        validatorToTest = CalculatorOperationValidator(calculatorDisplayMaxLimit: 9)
     }
 
     override func tearDownWithError() throws {
