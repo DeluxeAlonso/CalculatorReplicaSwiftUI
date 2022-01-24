@@ -15,4 +15,19 @@ class CalculatorOperationValidatorMock: CalculatorOperationValidatorProtocol {
     init(calculatorDisplayMaxLimit: Int) {
         self.calculatorDisplayMaxLimit = calculatorDisplayMaxLimit
     }
+
+    var shouldProcessCalculatorOptionReturnValue = true
+    func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol, in calculatorDisplay: String) -> Bool {
+        return shouldProcessCalculatorOptionReturnValue
+    }
+
+    var areDisplayCharactersInRangeReturnValue = true
+    func areDisplayCharactersInRange(for calculatorDisplay: String, and isEnteringNumbers: Bool) -> Bool {
+        return areDisplayCharactersInRangeReturnValue
+    }
+
+    var isEnteringSignificantNumberReturnValue = true
+    func isEnteringSignificantNumber(_ calculatorOption: CalculatorOptionProtocol, in calculatorDisplay: String) -> Bool {
+        return isEnteringSignificantNumberReturnValue
+    }
 }
