@@ -10,7 +10,8 @@ import Foundation
 @testable import Calculator
 
 struct CalculatorConfigurationMock: CalculatorConfigurationProtocol {
+    var calculatorDisplayMaxLimitValue = 9
     var calculatorDisplayMaxLimit: Int {
-        return 9
+        return calculatorDisplayMaxLimitValue
     }
 }
