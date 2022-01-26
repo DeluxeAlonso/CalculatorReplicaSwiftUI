@@ -27,7 +27,7 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
 
     // MARK: - Dependencies
     
-    private var calculatorConfiguration: CalculatorConfigurationProtocol
+    private let calculatorConfiguration: CalculatorConfigurationProtocol
     
     // MARK: - Initializers
 

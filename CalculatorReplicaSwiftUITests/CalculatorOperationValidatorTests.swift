@@ -12,13 +12,16 @@ import XCTest
 class CalculatorOperationValidatorTests: XCTestCase {
     
     private var validatorToTest: CalculatorOperationValidatorProtocol!
+    private var mockCalculatorConfiguration: CalculatorConfigurationMock!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        validatorToTest = CalculatorOperationValidator(calculatorDisplayMaxLimit: 9)
+        mockCalculatorConfiguration = CalculatorConfigurationMock()
+        validatorToTest = CalculatorOperationValidator(calculatorConfiguration: mockCalculatorConfiguration)
     }
 
     override func tearDownWithError() throws {
+        mockCalculatorConfiguration = nil
         validatorToTest = nil
         try super.tearDownWithError()
     }

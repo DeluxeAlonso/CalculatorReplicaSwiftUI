@@ -7,7 +7,7 @@
 //
 
 protocol CalculatorOperationValidatorProtocol {
-    var calculatorDisplayMaxLimit: Int { get }
+    //var calculatorDisplayMaxLimit: Int { get }
 
     /**
      * Only plain numbers can be repeated on our calculator result display. Any other option should only appear once.

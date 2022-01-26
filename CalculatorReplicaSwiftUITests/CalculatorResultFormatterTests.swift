@@ -12,13 +12,16 @@ import XCTest
 class CalculatorResultFormatterTests: XCTestCase {
     
     private var formatterToTest: CalculatorResultFormatterProtocol!
+    private var mockCalculatorConfiguration: CalculatorConfigurationMock!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        formatterToTest = CalculatorTestsMockFactory.createCalculatorResultFormatter()
+        mockCalculatorConfiguration = CalculatorConfigurationMock()
+        formatterToTest = CalculatorResultFormatter(calculatorConfiguration: mockCalculatorConfiguration)
     }
 
     override func tearDownWithError() throws {
+        mockCalculatorConfiguration = nil
         formatterToTest = nil
         try super.tearDownWithError()
     }
