@@ -6,10 +6,9 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
 @testable import Calculator
 
-class CalculatorOperationValidatorMock: CalculatorOperationValidatorProtocol {
+final class CalculatorOperationValidatorMock: CalculatorOperationValidatorProtocol {
     var calculatorDisplayMaxLimit: Int
     
     init(calculatorDisplayMaxLimit: Int) {

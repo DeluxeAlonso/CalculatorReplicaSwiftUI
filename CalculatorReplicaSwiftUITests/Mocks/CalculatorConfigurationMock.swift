@@ -6,7 +6,6 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
 @testable import Calculator
 
 struct CalculatorConfigurationMock: CalculatorConfigurationProtocol {
