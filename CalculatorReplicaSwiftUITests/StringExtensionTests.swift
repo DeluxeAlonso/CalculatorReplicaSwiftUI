@@ -12,73 +12,73 @@ import XCTest
 class StringExtensionTests: XCTestCase {
 
     func testIntegerDigitsCount() {
-        //Arrange
+        // Arrange
         let numberOfIntegerDigits = Int.random(in: 1...9)
         let input = CalculatorInputFactory.createStringIntegerNumber(with: numberOfIntegerDigits)
-        //Act
+        // Act
         let integerDigitsCount = input.integerDigitsCount()
         let hasDecimal = input.hasDecimal()
-        //Assert
+        // Assert
         verifyDigitsCount(result: (integerDigitsCount, hasDecimal),
                           expectedCount: numberOfIntegerDigits,
                           expectedHasDecimal: false)
     }
 
     func testFractionDigitsCount() {
-        //Arrange
+        // Arrange
         let numberOfFractionDigits = Int.random(in: 1...9)
         let input = CalculatorInputFactory.createFractionDigitNumber(with: numberOfFractionDigits)
-        //Act
+        // Act
         let fractionDigitsCount = input.fractionDigitsCount()
         let hasDecimal = input.hasDecimal()
-        //Assert
+        // Assert
         verifyDigitsCount(result: (fractionDigitsCount, hasDecimal),
                           expectedCount: numberOfFractionDigits,
                           expectedHasDecimal: true)
     }
     
     func testHasExponentTrue() {
-        //Arrange
+        // Arrange
         let randomNumber = CalculatorInputFactory.createStringIntegerNumber(with: 1...9)
         let input = CalculatorInputFactory.creatNumberWithExponent(with: randomNumber, and: 1...9)
-        //Act
+        // Act
         let hasExponent = input.hasExponent()
-        //Assert
+        // Assert
         XCTAssertTrue(hasExponent)
     }
     
     func testHasExponentFalse() {
-        //Arrange
+        // Arrange
         let input = CalculatorInputFactory.createStringIntegerNumber(with: 1...9)
-        //Act
+        // Act
         let hasExponent = input.hasExponent()
-        //Assert
+        // Assert
         XCTAssertFalse(hasExponent)
     }
     
     func testExtractLastCharactersOfZero() {
-        //Arrange
+        // Arrange
         let numberOfFractionDigits = Int.random(in: 1...9)
         var input = CalculatorInputFactory.createFractionDigitNumber(with: numberOfFractionDigits)
         
         let numberOfTrailingZeros = Int.random(in: 1...9)
         for _ in 0..<numberOfTrailingZeros { input.append("0") }
-        //Act
+        // Act
         let zeroCharacters = input.extractLastCharactersOf("0")
-        //Assert
+        // Assert
         XCTAssertEqual(numberOfTrailingZeros, zeroCharacters.count)
     }
     
     func testExtractLastCharactersOfDecimalSeparatorAndZero() {
-        //Arrange
+        // Arrange
         let numberOfFractionDigits = Int.random(in: 1...9)
         var input = CalculatorInputFactory.createStringIntegerNumber(with: numberOfFractionDigits) + "."
         
         let numberOfTrailingZeros = Int.random(in: 1...9)
         for _ in 0..<numberOfTrailingZeros { input.append("0") }
-        //Act
+        // Act
         let zeroCharacters = input.extractLastCharactersOf([".", "0"], withCutCharacter: ".")
-        //Assert
+        // Assert
         XCTAssertEqual(numberOfTrailingZeros + 1, zeroCharacters.count)
     }
     
