@@ -28,47 +28,47 @@ class CalculatorIntegrationTests: XCTestCase {
     }
 
     func testNumberEntered() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .three),
             CalculatorOption(representable: .five)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("35", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalEntered() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .three),
             CalculatorOption(representable: .five),
             CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .two)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("35.2", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithZeroAtLastEntered() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .three),
             CalculatorOption(representable: .five),
             CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .zero)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("35.0", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithMultipleZeroAtLastEntered() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .three),
             CalculatorOption(representable: .five),
@@ -77,14 +77,14 @@ class CalculatorIntegrationTests: XCTestCase {
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .zero)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("35.000", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithMultipleLeadingZeroEntered() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .zero),
@@ -93,14 +93,14 @@ class CalculatorIntegrationTests: XCTestCase {
             CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .zero)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("35.0", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithDecimalAtFirstEntered() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .decimal),
             CalculatorOption(representable: .zero),
@@ -109,49 +109,49 @@ class CalculatorIntegrationTests: XCTestCase {
             CalculatorOption(representable: .five),
             CalculatorOption(representable: .zero)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("0.00350", operationHandler.calculatorDisplay)
     }
     
     func testZeroNumberWithDecimalWithOnlyDecimalEntered() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .decimal)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("0.", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithOnlyDecimalEntered() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .one),
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .decimal)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("10.", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithOffLimitEntered() {
-        //Arrange
+        // Arrange
         let calculatorOption = CalculatorOption(representable: .nine)
-        //Act
+        // Act
         for _ in 0...15 {
             operationHandler.handleCalculatorOption(calculatorOption)
         }
-        //Assert
+        // Assert
         XCTAssertEqual("999999999", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithMultipleleadinZeroEntered() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .zero),
@@ -159,28 +159,28 @@ class CalculatorIntegrationTests: XCTestCase {
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .zero)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("0.00", operationHandler.calculatorDisplay)
     }
     
     func testSimpleBinaryOperation() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .one),
             CalculatorOption(representable: .sum),
             CalculatorOption(representable: .two),
             CalculatorOption(representable: .equal)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("3", operationHandler.calculatorDisplay)
     }
     
     func testRecurrentBinaryOperation() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .one),
             CalculatorOption(representable: .sum),
@@ -189,14 +189,14 @@ class CalculatorIntegrationTests: XCTestCase {
             CalculatorOption(representable: .equal),
             CalculatorOption(representable: .equal)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("7", operationHandler.calculatorDisplay)
     }
     
     func testFractionalBinaryOperation() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .decimal),
@@ -208,14 +208,14 @@ class CalculatorIntegrationTests: XCTestCase {
             CalculatorOption(representable: .five),
             CalculatorOption(representable: .equal)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("2.05", operationHandler.calculatorDisplay)
     }
     
     func testFractionalRecurrentBinaryOperation() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .zero),
             CalculatorOption(representable: .decimal),
@@ -226,39 +226,39 @@ class CalculatorIntegrationTests: XCTestCase {
             CalculatorOption(representable: .equal),
             CalculatorOption(representable: .equal)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("3.5", operationHandler.calculatorDisplay)
     }
     
     func testSimpleUnaryOperation() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .one),
             CalculatorOption(representable: .negative)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("-1", operationHandler.calculatorDisplay)
     }
     
     func testRecurrentUnaryOperation() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .one),
             CalculatorOption(representable: .negative),
             CalculatorOption(representable: .negative)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("1", operationHandler.calculatorDisplay)
     }
     
     func testFractionalUnaryOperation() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .one),
             CalculatorOption(representable: .decimal),
@@ -266,14 +266,14 @@ class CalculatorIntegrationTests: XCTestCase {
             CalculatorOption(representable: .five),
             CalculatorOption(representable: .negative)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("-1.05", operationHandler.calculatorDisplay)
     }
     
     func testFractionalRecurrentUnaryOperation() {
-        //Arrange
+        // Arrange
         let options = [
             CalculatorOption(representable: .one),
             CalculatorOption(representable: .decimal),
@@ -282,9 +282,9 @@ class CalculatorIntegrationTests: XCTestCase {
             CalculatorOption(representable: .negative),
             CalculatorOption(representable: .negative)
         ]
-        //Act
+        // Act
         options.forEach { operationHandler.handleCalculatorOption($0) }
-        //Assert
+        // Assert
         XCTAssertEqual("1.05", operationHandler.calculatorDisplay)
     }
 
