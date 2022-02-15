@@ -67,6 +67,7 @@ class CalculatorResultFormatterTests: XCTestCase {
     func testIntegerNumberOffLimit() {
         //Arrange
         let calculatorDisplay = "1000000000"
+        mockCalculatorConfiguration.calculatorDisplayMaxLimitValue = 9
         //Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
         //Assert
@@ -76,6 +77,7 @@ class CalculatorResultFormatterTests: XCTestCase {
     func testIntegerNumberOffLimitNegative() {
         //Arrange
         let calculatorDisplay = "-1000000000"
+        mockCalculatorConfiguration.calculatorDisplayMaxLimitValue = 9
         //Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
         //Assert
