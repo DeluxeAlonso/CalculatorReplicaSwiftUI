@@ -12,47 +12,47 @@ import XCTest
 class CalculatorOptionTests: XCTestCase {
 
     func testIsPlainNumberTrue() {
-        //Arrange
+        // Arrange
         let calculatorOption = CalculatorOption(representable: .eight)
-        //Act
+        // Act
         let isPlainNumber = calculatorOption.isPlainNumber
-        //Assert
+        // Assert
         XCTAssertTrue(isPlainNumber)
     }
     
     func testIsPlainNumberFalse() {
-        //Arrange
+        // Arrange
         let calculatorOption = CalculatorOption(representable: .equal)
-        //Act
+        // Act
         let isPlainNumber = calculatorOption.isPlainNumber
-        //Assert
+        // Assert
         XCTAssertFalse(isPlainNumber)
     }
     
     func testShouldShowOnResultDisplayNumber() {
-        //Arrange
+        // Arrange
         let calculatorOption = CalculatorOption(representable: .one)
-        //Act
+        // Act
         let shouldShowOnResultDisplay = calculatorOption.shouldShowOnResultDisplay
-        //Assert
+        // Assert
         XCTAssertTrue(shouldShowOnResultDisplay)
     }
     
     func testShouldShowOnResultDisplayDecimal() {
-        //Arrange
+        // Arrange
         let calculatorOption = CalculatorOption(representable: .decimal)
-        //Act
+        // Act
         let shouldShowOnResultDisplay = calculatorOption.shouldShowOnResultDisplay
-        //Assert
+        // Assert
         XCTAssertTrue(shouldShowOnResultDisplay)
     }
     
     func testShouldShowOnResultDisplayOperation() {
-        //Arrange
+        // Arrange
         let calculatorOption = CalculatorOption(representable: .sum)
-        //Act
+        // Act
         let shouldShowOnResultDisplay = calculatorOption.shouldShowOnResultDisplay
-        //Assert
+        // Assert
         XCTAssertFalse(shouldShowOnResultDisplay)
     }
 
