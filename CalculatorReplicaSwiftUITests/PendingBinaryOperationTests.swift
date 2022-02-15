@@ -12,52 +12,52 @@ import XCTest
 class PendingBinaryOperationTests: XCTestCase {
 
     func testSimpleOperation() {
-        //Arrange
+        // Arrange
         let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0)
-        //Act
+        // Act
         pendingBinaryOperation.setOperand(15.0)
         let resultValue = pendingBinaryOperation.perform()
-        //Assert
+        // Assert
         XCTAssertEqual(25.0, resultValue)
     }
     
     func testRecurrentOperation() {
-        //Arrange
+        // Arrange
         let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0)
-        //Act
+        // Act
         pendingBinaryOperation.setOperand(15.0)
         _ = pendingBinaryOperation.perform()
         _ = pendingBinaryOperation.perform()
         let resultValue = pendingBinaryOperation.perform()
-        //Assert
+        // Assert
         XCTAssertEqual(55.0, resultValue)
     }
     
     func testNilOperand() {
-        //Arrange
+        // Arrange
         let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0)
-        //Act
+        // Act
         let resultValue = pendingBinaryOperation.perform()
-        //Assert
+        // Assert
         XCTAssertEqual(0, resultValue)
     }
     
     func testHasOperandTrue() {
-        //Arrange
+        // Arrange
         let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0)
-        //Act
+        // Act
         pendingBinaryOperation.setOperand(15.0)
         let hasOperand = pendingBinaryOperation.hasOperand
-        //Assert
+        // Assert
         XCTAssertTrue(hasOperand)
     }
     
     func testHasOperandFalse() {
-        //Arrange
+        // Arrange
         let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0)
-        //Act
+        // Act
         let hasOperand = pendingBinaryOperation.hasOperand
-        //Assert
+        // Assert
         XCTAssertFalse(hasOperand)
     }
     
