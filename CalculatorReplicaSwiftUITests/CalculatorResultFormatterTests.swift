@@ -29,222 +29,222 @@ class CalculatorResultFormatterTests: XCTestCase {
     // MARK: - Integer
     
     func testIntegerNumberZero() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "0"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "0")
     }
     
     func testIntegerNumberSmall() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "15"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "15")
     }
     
     func testIntegerNumberMedium() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "123456"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "123,456")
     }
     
     func testIntegerNumberLarge() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "999999999"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "999,999,999")
     }
     
     func testIntegerNumberOffLimit() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "1000000000"
         mockCalculatorConfiguration.calculatorDisplayMaxLimitValue = 9
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "1e9")
     }
     
     func testIntegerNumberOffLimitNegative() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "-1000000000"
         mockCalculatorConfiguration.calculatorDisplayMaxLimitValue = 9
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "-1e9")
     }
     
     // MARK: - Decimals
     
     func testDecimalNumberZero() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "0.0"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "0")
     }
     
     func testDecimalNumberSmall() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "10.05"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "10.05")
     }
     
     func testDecimalNumberSmallNonSignificantZeroAtFirst() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "010.05"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "10.05")
     }
     
     func testDecimalNumberSmallNonSignificantZeroAtLast() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "10.05000"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "10.05")
     }
     
     func testDecimalNumberSmallNonSignificantZero() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "00010.05000"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "10.05")
     }
     
     func testDecimalNumberMedium() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "1234.10203"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "1,234.10203")
     }
     
     func testDecimalNumberMediumNonSignificantZeroAtFirst() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "01234.10203"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "1,234.10203")
     }
     
     func testDecimalNumberMediumNonSignificantZeroAtLast() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "1234.1020300"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "1,234.10203")
     }
     
     func testDecimalNumberMediumNonSignificantZero() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "001234.1020300"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "1,234.10203")
     }
     
     func testDecimalNumberLarge() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "123456.234"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "123,456.234")
     }
     
     func testDecimalNumberLargeNonSignificantZeroAtFirst() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "0123456.234"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "123,456.234")
     }
     
     func testDecimalNumberLargeNonSignificantZeroAtLast() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "123456.2340"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "123,456.234")
     }
     
     func testDecimalNumberLargeNonSignificantZero() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "0123456.2340"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "123,456.234")
     }
     
     func testDecimalNumberMaximumFractionDigits() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "9.88888888888889"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "9.88888889")
     }
     
     func testDecimalNumberWithLotOfFractionalDigits() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "5.1499999999999995"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatResult(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "5.15")
     }
     
     func testEnteredNumberWithLeadingZero() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "0.0000"
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatEnteredNumber(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "0.0000")
     }
     
     func testEnteredNumberZeroWithDecimalPointAtLast() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "0."
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatEnteredNumber(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "0.")
     }
     
     func testEnteredNumberWithDecimalPointAtLast() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "30."
-        //Act
+        // Act
         let formmattedNumber = formatterToTest.formatEnteredNumber(from: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertEqual(formmattedNumber, "30.")
     }
 
