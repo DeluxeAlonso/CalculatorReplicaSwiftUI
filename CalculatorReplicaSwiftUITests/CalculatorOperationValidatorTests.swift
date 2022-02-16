@@ -27,197 +27,197 @@ class CalculatorOperationValidatorTests: XCTestCase {
     }
     
     func testShouldProcessCalculatorOptionNumber() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = ""
         let calculatorOption = CalculatorOption(representable: .five)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertTrue(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionNewNumber() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "123"
         let calculatorOption = CalculatorOption(representable: .five)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertTrue(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionRepeatedNumber() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "550"
         let calculatorOption = CalculatorOption(representable: .five)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertTrue(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionNewNumberAfterDecimal() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "123.4"
         let calculatorOption = CalculatorOption(representable: .five)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertTrue(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionRepeatedNumberAfterDecimal() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "555.4"
         let calculatorOption = CalculatorOption(representable: .five)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertTrue(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionNewNumberInmediatelyAfterDecimal() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "123."
         let calculatorOption = CalculatorOption(representable: .five)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertTrue(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionRepeatedNumberInmediatelyAfterDecimal() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "555."
         let calculatorOption = CalculatorOption(representable: .five)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertTrue(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionDecimal() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = ""
         let calculatorOption = CalculatorOption(representable: .decimal)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertTrue(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionNewDecimal() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "23"
         let calculatorOption = CalculatorOption(representable: .decimal)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertTrue(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionInmediatelyRepeatedDecimal() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "23."
         let calculatorOption = CalculatorOption(representable: .decimal)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertFalse(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionRepeatedDecimal() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "23.56"
         let calculatorOption = CalculatorOption(representable: .decimal)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertFalse(shouldProcess)
     }
     
     func testShouldProcessCalculatorOptionOperation() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "10"
         let calculatorOption = CalculatorOption(representable: .equal)
-        //Act
+        // Act
         let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertFalse(shouldProcess)
     }
     
     func testAreDisplayCharactersInRangeWhileNotEnteringNumbers() {
-        //Arrange
+        // Arrange
         let isEnteringNumbers = false
         let calculatorDisplay = ""
-        //Act
+        // Act
         let areDisplayCharactersInRange = validatorToTest.areDisplayCharactersInRange(for: calculatorDisplay,
                                                                                       and: isEnteringNumbers)
-        //Assert
+        // Assert
         XCTAssertTrue(areDisplayCharactersInRange)
     }
     
     func testAreDisplayCharactersInRangeCalculatorDisplayInMinRange() {
-        //Arrange
+        // Arrange
         let isEnteringNumbers = true
         let calculatorDisplay = ""
-        //Act
+        // Act
         let areDisplayCharactersInRange = validatorToTest.areDisplayCharactersInRange(for: calculatorDisplay,
                                                                                       and: isEnteringNumbers)
-        //Assert
+        // Assert
         XCTAssertTrue(areDisplayCharactersInRange)
     }
     
     func testAreDisplayCharactersInRangeCalculatorDisplayInMidRange() {
-        //Arrange
+        // Arrange
         let isEnteringNumbers = true
         let calculatorDisplay = "23345.4"
-        //Act
+        // Act
         let areDisplayCharactersInRange = validatorToTest.areDisplayCharactersInRange(for: calculatorDisplay,
                                                                                       and: isEnteringNumbers)
-        //Assert
+        // Assert
         XCTAssertTrue(areDisplayCharactersInRange)
     }
     
     func testAreDisplayCharactersInRangeCalculatorDisplayInMaxRange() {
-        //Arrange
+        // Arrange
         let isEnteringNumbers = true
         let calculatorDisplay = "23345.4342"
-        //Act
+        // Act
         let areDisplayCharactersInRange = validatorToTest.areDisplayCharactersInRange(for: calculatorDisplay,
                                                                                       and: isEnteringNumbers)
-        //Assert
+        // Assert
         XCTAssertFalse(areDisplayCharactersInRange)
     }
     
     func testAreDisplayCharactersInRangeOffLimit() {
-        //Arrange
+        // Arrange
         let isEnteringNumbers = true
         let calculatorDisplay = "23345.43422"
-        //Act
+        // Act
         let areDisplayCharactersInRange = validatorToTest.areDisplayCharactersInRange(for: calculatorDisplay,
                                                                                       and: isEnteringNumbers)
-        //Assert
+        // Assert
         XCTAssertFalse(areDisplayCharactersInRange)
     }
 
     func testIsEnteringSignificantNumberSingleZero() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "0"
         let calculatorOption = CalculatorOption(representable: .zero)
-        //Act
+        // Act
         let isEnteringSignificantNumber = validatorToTest.isEnteringSignificantNumber(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertFalse(isEnteringSignificantNumber)
     }
     
     func testIsEnteringSignificantNumberMultipleZeros() {
-        //Arrange
+        // Arrange
         let calculatorDisplay = "0000"
         let calculatorOption = CalculatorOption(representable: .zero)
-        //Act
+        // Act
         let isEnteringSignificantNumber = validatorToTest.isEnteringSignificantNumber(calculatorOption, in: calculatorDisplay)
-        //Assert
+        // Assert
         XCTAssertFalse(isEnteringSignificantNumber)
     }
 
