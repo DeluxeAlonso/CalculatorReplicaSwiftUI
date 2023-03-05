@@ -158,6 +158,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E2225F8C29B45FCD00F4AEDA /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAA0562455261300C4DBC9 /* CalculatorConfigurationProtocol.swift */,
+				E2CAA054245525D600C4DBC9 /* CalculatorConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		E225930C2589AEDF0000E97F /* OperationHandler */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,9 +199,11 @@
 		E225930F2589AF510000E97F /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				E2225F8C29B45FCD00F4AEDA /* Configuration */,
 				E22593112589AF8F0000E97F /* Protocols */,
 				E201FACA24421E5600AE6F4C /* Views */,
 				E2CBA51D2442C7D3008A3097 /* CalculatorBuilder.swift */,
+				E27030F224495D0000955BDF /* CalculatorEnvironmentObjectProtocol.swift */,
 				E201FAC824421A7C00AE6F4C /* CalculatorEnvironmentObject.swift */,
 			);
 			path = Calculator;
@@ -209,9 +220,7 @@
 		E22593112589AF8F0000E97F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				E2CAA0562455261300C4DBC9 /* CalculatorConfigurationProtocol.swift */,
 				E2CBA5172442C3D3008A3097 /* CalculatorOptionProtocol.swift */,
-				E27030F224495D0000955BDF /* CalculatorEnvironmentObjectProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -336,7 +345,6 @@
 				E2CBA51B2442C660008A3097 /* CalculatorOption.swift */,
 				E2CBA5142442C388008A3097 /* CalculatorOperation.swift */,
 				E2C600312448229C0099A038 /* PendingBinaryOperation.swift */,
-				E2CAA054245525D600C4DBC9 /* CalculatorConfiguration.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
