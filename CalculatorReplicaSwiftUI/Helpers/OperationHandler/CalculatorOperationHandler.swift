@@ -37,7 +37,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     
     // MARK: - CalculatorOperationHandlerProtocol
     
-    func handleCalculatorOption(_ calculatorOption: CalculatorButtonProtocol) {
+    func handleCalculatorButton(_ calculatorOption: CalculatorButtonProtocol) {
         if calculatorOption.shouldShowOnResultDisplay {
             updateResultDisplay(calculatorOption)
         } else {

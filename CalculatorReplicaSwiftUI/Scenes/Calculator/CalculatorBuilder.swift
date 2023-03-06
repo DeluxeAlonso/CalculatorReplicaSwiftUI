@@ -10,57 +10,57 @@ import SwiftUI
 
 struct CalculatorBuilder {
     static func buildCalculatorOptions() -> [[CalculatorButtonProtocol]] {
-        let firstRowOptions = [
-            CalculatorOption(representable: .clear,
+        let firstRowButtons = [
+            CalculatorButton(representable: .clear,
                              foregroundColor: Color(.black),
                              backgroundColor: Color(.lightGray)),
-            CalculatorOption(representable: .negative,
+            CalculatorButton(representable: .negative,
                              foregroundColor: Color(.black),
                              backgroundColor: Color(.lightGray)),
-            CalculatorOption(representable: .percent,
+            CalculatorButton(representable: .percent,
                              foregroundColor: Color(.black),
                              backgroundColor: Color(.lightGray)),
-            CalculatorOption(representable: .division,
+            CalculatorButton(representable: .division,
                              backgroundColor: Color(.orange))
         ]
         
-        let secondRowOptions = [
-            CalculatorOption(representable: .seven),
-            CalculatorOption(representable: .eight),
-            CalculatorOption(representable: .nine),
-            CalculatorOption(representable: .multiplication,
+        let secondRowButtons = [
+            CalculatorButton(representable: .seven),
+            CalculatorButton(representable: .eight),
+            CalculatorButton(representable: .nine),
+            CalculatorButton(representable: .multiplication,
                              backgroundColor: Color(.orange))
         ]
         
-        let thirdRowOptions = [
-            CalculatorOption(representable: .four),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .six),
-            CalculatorOption(representable: .subtraction,
+        let thirdRowButtons = [
+            CalculatorButton(representable: .four),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .six),
+            CalculatorButton(representable: .subtraction,
                              backgroundColor: Color(.orange))
         ]
         
-        let fourthRowOptions = [
-            CalculatorOption(representable: .one),
-            CalculatorOption(representable: .two),
-            CalculatorOption(representable: .three),
-            CalculatorOption(representable: .sum,
+        let fourthRowButtons = [
+            CalculatorButton(representable: .one),
+            CalculatorButton(representable: .two),
+            CalculatorButton(representable: .three),
+            CalculatorButton(representable: .sum,
                              backgroundColor: Color(.orange))
         ]
         
-        let fifthRowOptions = [
-            CalculatorOption(representable: .zero, gridSpace: 2),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .equal,
+        let fifthRowButtons = [
+            CalculatorButton(representable: .zero, gridSpace: 2),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .equal,
                              backgroundColor: Color(.orange))
         ]
         
         return [
-            firstRowOptions,
-            secondRowOptions,
-            thirdRowOptions,
-            fourthRowOptions,
-            fifthRowOptions
+            firstRowButtons,
+            secondRowButtons,
+            thirdRowButtons,
+            fourthRowButtons,
+            fifthRowButtons
         ]
     }
 }

@@ -15,7 +15,7 @@ struct CalculatorButtonView: View {
     
     var body: some View {
         Button(action: {
-            self.env.handleCalculatorOption(self.button)
+            self.env.handleCalculatorButton(self.button)
         }, label: {
             containedView()
         })

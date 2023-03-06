@@ -34,8 +34,8 @@ class CalculatorEnvironmentObject: ObservableObject, CalculatorEnvironmentObject
     
     // MARK: - Public
     
-    func handleCalculatorOption(_ calculatorOption: CalculatorButtonProtocol) {
-        calculatorOperationHandler.handleCalculatorOption(calculatorOption)
+    func handleCalculatorButton(_ calculatorButton: CalculatorButtonProtocol) {
+        calculatorOperationHandler.handleCalculatorButton(calculatorButton)
     }
 
     func deleteLastSingleDigit() {

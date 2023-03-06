@@ -29,122 +29,122 @@ class CalculatorIntegrationTests: XCTestCase {
 
     func testNumberEntered() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .three),
-            CalculatorOption(representable: .five)
+        let buttons = [
+            CalculatorButton(representable: .three),
+            CalculatorButton(representable: .five)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("35", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalEntered() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .three),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .two)
+        let buttons = [
+            CalculatorButton(representable: .three),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .two)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("35.2", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithZeroAtLastEntered() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .three),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .zero)
+        let buttons = [
+            CalculatorButton(representable: .three),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .zero)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("35.0", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithMultipleZeroAtLastEntered() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .three),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .zero)
+        let buttons = [
+            CalculatorButton(representable: .three),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .zero)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("35.000", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithMultipleLeadingZeroEntered() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .three),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .zero)
+        let buttons = [
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .three),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .zero)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("35.0", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithDecimalAtFirstEntered() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .three),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .zero)
+        let buttons = [
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .three),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .zero)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("0.00350", operationHandler.calculatorDisplay)
     }
     
     func testZeroNumberWithDecimalWithOnlyDecimalEntered() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .decimal)
+        let buttons = [
+            CalculatorButton(representable: .decimal)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("0.", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithOnlyDecimalEntered() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .one),
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .decimal)
+        let buttons = [
+            CalculatorButton(representable: .one),
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .decimal)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("10.", operationHandler.calculatorDisplay)
     }
     
     func testNumberWithDecimalWithOffLimitEntered() {
         // Arrange
-        let calculatorOption = CalculatorOption(representable: .nine)
+        let calculatorButton = CalculatorButton(representable: .nine)
         // Act
         for _ in 0...15 {
-            operationHandler.handleCalculatorOption(calculatorOption)
+            operationHandler.handleCalculatorButton(calculatorButton)
         }
         // Assert
         XCTAssertEqual("999999999", operationHandler.calculatorDisplay)
@@ -152,138 +152,138 @@ class CalculatorIntegrationTests: XCTestCase {
     
     func testNumberWithMultipleleadinZeroEntered() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .zero)
+        let buttons = [
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .zero)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("0.00", operationHandler.calculatorDisplay)
     }
     
     func testSimpleBinaryOperation() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .one),
-            CalculatorOption(representable: .sum),
-            CalculatorOption(representable: .two),
-            CalculatorOption(representable: .equal)
+        let buttons = [
+            CalculatorButton(representable: .one),
+            CalculatorButton(representable: .sum),
+            CalculatorButton(representable: .two),
+            CalculatorButton(representable: .equal)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("3", operationHandler.calculatorDisplay)
     }
     
     func testRecurrentBinaryOperation() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .one),
-            CalculatorOption(representable: .sum),
-            CalculatorOption(representable: .two),
-            CalculatorOption(representable: .equal),
-            CalculatorOption(representable: .equal),
-            CalculatorOption(representable: .equal)
+        let buttons = [
+            CalculatorButton(representable: .one),
+            CalculatorButton(representable: .sum),
+            CalculatorButton(representable: .two),
+            CalculatorButton(representable: .equal),
+            CalculatorButton(representable: .equal),
+            CalculatorButton(representable: .equal)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("7", operationHandler.calculatorDisplay)
     }
     
     func testFractionalBinaryOperation() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .sum),
-            CalculatorOption(representable: .one),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .equal)
+        let buttons = [
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .sum),
+            CalculatorButton(representable: .one),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .equal)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("2.05", operationHandler.calculatorDisplay)
     }
     
     func testFractionalRecurrentBinaryOperation() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .sum),
-            CalculatorOption(representable: .one),
-            CalculatorOption(representable: .equal),
-            CalculatorOption(representable: .equal),
-            CalculatorOption(representable: .equal)
+        let buttons = [
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .sum),
+            CalculatorButton(representable: .one),
+            CalculatorButton(representable: .equal),
+            CalculatorButton(representable: .equal),
+            CalculatorButton(representable: .equal)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("3.5", operationHandler.calculatorDisplay)
     }
     
     func testSimpleUnaryOperation() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .one),
-            CalculatorOption(representable: .negative)
+        let buttons = [
+            CalculatorButton(representable: .one),
+            CalculatorButton(representable: .negative)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("-1", operationHandler.calculatorDisplay)
     }
     
     func testRecurrentUnaryOperation() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .one),
-            CalculatorOption(representable: .negative),
-            CalculatorOption(representable: .negative)
+        let buttons = [
+            CalculatorButton(representable: .one),
+            CalculatorButton(representable: .negative),
+            CalculatorButton(representable: .negative)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("1", operationHandler.calculatorDisplay)
     }
     
     func testFractionalUnaryOperation() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .one),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .negative)
+        let buttons = [
+            CalculatorButton(representable: .one),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .negative)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("-1.05", operationHandler.calculatorDisplay)
     }
     
     func testFractionalRecurrentUnaryOperation() {
         // Arrange
-        let options = [
-            CalculatorOption(representable: .one),
-            CalculatorOption(representable: .decimal),
-            CalculatorOption(representable: .zero),
-            CalculatorOption(representable: .five),
-            CalculatorOption(representable: .negative),
-            CalculatorOption(representable: .negative)
+        let buttons = [
+            CalculatorButton(representable: .one),
+            CalculatorButton(representable: .decimal),
+            CalculatorButton(representable: .zero),
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .negative),
+            CalculatorButton(representable: .negative)
         ]
         // Act
-        options.forEach { operationHandler.handleCalculatorOption($0) }
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
         XCTAssertEqual("1.05", operationHandler.calculatorDisplay)
     }
