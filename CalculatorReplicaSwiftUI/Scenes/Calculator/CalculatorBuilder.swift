@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalculatorBuilder {
-    static func buildCalculatorOptions() -> [[CalculatorOptionProtocol]] {
+    static func buildCalculatorOptions() -> [[CalculatorButtonProtocol]] {
         let firstRowOptions = [
             CalculatorOption(representable: .clear,
                              foregroundColor: Color(.black),

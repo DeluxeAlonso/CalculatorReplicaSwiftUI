@@ -18,7 +18,7 @@ protocol CalculatorOperationHandlerProtocol {
 
      - Parameter calculatorOption: Option selected by the user (e.g. a number or operation).
      */
-    func handleCalculatorOption(_ calculatorOption: CalculatorOptionProtocol)
+    func handleCalculatorOption(_ calculatorOption: CalculatorButtonProtocol)
 
     /**
      Removes the last digit of the current number that is being input by the user.

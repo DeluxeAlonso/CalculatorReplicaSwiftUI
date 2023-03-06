@@ -16,7 +16,7 @@ final class CalculatorOperationValidatorMock: CalculatorOperationValidatorProtoc
     }
 
     var shouldProcessCalculatorOptionReturnValue = true
-    func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol, in calculatorDisplay: String) -> Bool {
+    func shouldProcessCalculatorOption(_ calculatorOption: CalculatorButtonProtocol, in calculatorDisplay: String) -> Bool {
         return shouldProcessCalculatorOptionReturnValue
     }
 
@@ -26,7 +26,7 @@ final class CalculatorOperationValidatorMock: CalculatorOperationValidatorProtoc
     }
 
     var isEnteringSignificantNumberReturnValue = true
-    func isEnteringSignificantNumber(_ calculatorOption: CalculatorOptionProtocol, in calculatorDisplay: String) -> Bool {
+    func isEnteringSignificantNumber(_ calculatorOption: CalculatorButtonProtocol, in calculatorDisplay: String) -> Bool {
         return isEnteringSignificantNumberReturnValue
     }
 }

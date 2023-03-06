@@ -12,7 +12,7 @@ protocol CalculatorOperationValidatorProtocol {
     /**
      * Only plain numbers can be repeated on our calculator result display. Any other option should only appear once.
      */
-    func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol,
+    func shouldProcessCalculatorOption(_ calculatorOption: CalculatorButtonProtocol,
                                        in calculatorDisplay: String) -> Bool
 
     /**
@@ -24,6 +24,6 @@ protocol CalculatorOperationValidatorProtocol {
     /**
      * Detects if the user is entering more than one zero on the left side of the number.
      */
-    func isEnteringSignificantNumber(_ calculatorOption: CalculatorOptionProtocol,
+    func isEnteringSignificantNumber(_ calculatorOption: CalculatorButtonProtocol,
                                      in calculatorDisplay: String) -> Bool
 }

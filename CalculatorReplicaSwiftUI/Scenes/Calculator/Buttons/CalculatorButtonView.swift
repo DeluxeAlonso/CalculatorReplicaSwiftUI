@@ -11,7 +11,7 @@ import SwiftUI
 struct CalculatorButtonView: View {
     @EnvironmentObject var env: CalculatorEnvironmentObject
     
-    let button: CalculatorOptionProtocol
+    let button: CalculatorButtonProtocol
     
     var body: some View {
         Button(action: {

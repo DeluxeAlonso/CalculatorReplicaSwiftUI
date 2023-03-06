@@ -1,5 +1,5 @@
 //
-//  CalculatorOptionProtocol.swift
+//  CalculatorButtonProtocol.swift
 //  CalculatorReplicaSwiftUI
 //
 //  Created by Alonso on 4/11/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-protocol CalculatorOptionProtocol {    
+protocol CalculatorButtonProtocol {    
     var title: String { get }
 
     var icon: String? { get }

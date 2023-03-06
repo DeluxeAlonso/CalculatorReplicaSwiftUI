@@ -37,7 +37,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     
     // MARK: - CalculatorOperationHandlerProtocol
     
-    func handleCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) {
+    func handleCalculatorOption(_ calculatorOption: CalculatorButtonProtocol) {
         if calculatorOption.shouldShowOnResultDisplay {
             updateResultDisplay(calculatorOption)
         } else {
@@ -58,7 +58,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     
     // MARK: - Calculator Operations
     
-    private func updateResultDisplay(_ calculatorOption: CalculatorOptionProtocol) {
+    private func updateResultDisplay(_ calculatorOption: CalculatorButtonProtocol) {
         clearCalculatorDisplayIfNeeded()
         guard calculatorValidator.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay),
             calculatorValidator.isEnteringSignificantNumber(calculatorOption, in: calculatorDisplay),
@@ -70,7 +70,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         calculatorDisplay = calculatorTrimmer.getTrimmedCalculatorDisplay(newCalculatorDisplay)
     }
     
-    private func performOperation(_ calculatorOption: CalculatorOptionProtocol) {
+    private func performOperation(_ calculatorOption: CalculatorButtonProtocol) {
         guard let operation = calculatorOption.operation else { return }
         // We set isEnteringNumbers to false when performing any operation except decimal.
         isEnteringNumbers = operation == .decimal

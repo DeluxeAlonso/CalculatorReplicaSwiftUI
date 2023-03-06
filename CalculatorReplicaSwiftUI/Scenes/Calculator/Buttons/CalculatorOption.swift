@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CalculatorOption: CalculatorOptionProtocol {
+struct CalculatorOption: CalculatorButtonProtocol {
 
     let title: String
     let accessibilityLabel: String

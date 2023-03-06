@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalculatorButtonViewModifier: ViewModifier {
-    let button: CalculatorOptionProtocol
+    let button: CalculatorButtonProtocol
     
     private var buttonSize: (width: CGFloat, height: CGFloat) {
         let numberOfButtonsPerRow = Constant.numberOfButtonsPerRow
