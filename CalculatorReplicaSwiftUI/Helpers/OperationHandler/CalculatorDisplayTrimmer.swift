@@ -10,10 +10,10 @@ struct CalculatorDisplayTrimmer: CalculatorDisplayTrimmerProtocol {
     // MARK: - CalculatorDisplayTrimmerProtocol
 
     func getTrimmedCalculatorDisplay(_ calculatorDisplay: String) -> String {
-        var trimmedCalculatorDisplay = calculatorDisplay.trimLeadingOcurrencesOf(CalculatorOptionRepresentable.zero.character)
+        var trimmedCalculatorDisplay = calculatorDisplay.trimLeadingOcurrencesOf(CalculatorButtonRepresentable.zero.character)
         
-        if trimmedCalculatorDisplay.first == CalculatorOptionRepresentable.decimal.character {
-            trimmedCalculatorDisplay.insert(CalculatorOptionRepresentable.zero.character, at: trimmedCalculatorDisplay.startIndex)
+        if trimmedCalculatorDisplay.first == CalculatorButtonRepresentable.decimal.character {
+            trimmedCalculatorDisplay.insert(CalculatorButtonRepresentable.zero.character, at: trimmedCalculatorDisplay.startIndex)
         }
         
         return trimmedCalculatorDisplay

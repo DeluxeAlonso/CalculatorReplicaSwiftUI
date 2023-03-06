@@ -46,7 +46,7 @@ struct CalculatorButton: CalculatorButtonProtocol {
         self.operation = operation
     }
     
-    init(representable: CalculatorOptionRepresentable,
+    init(representable: CalculatorButtonRepresentable,
          gridSpace: Int = 1,
          foregroundColor: Color = Color(.white),
          backgroundColor: Color = Color(.darkGray)) {

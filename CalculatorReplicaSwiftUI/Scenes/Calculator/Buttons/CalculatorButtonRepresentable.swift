@@ -1,12 +1,12 @@
 //
-//  CalculatorOptionRepresentable.swift
+//  CalculatorButtonRepresentable.swift
 //  CalculatorReplicaSwiftUI
 //
 //  Created by Alonso on 4/20/20.
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-enum CalculatorOptionRepresentable: String {
+enum CalculatorButtonRepresentable: String {
     case one = "1"
     case two = "2"
     case three = "3"

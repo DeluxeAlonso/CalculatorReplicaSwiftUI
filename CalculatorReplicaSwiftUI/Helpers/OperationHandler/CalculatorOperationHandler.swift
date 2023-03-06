@@ -50,7 +50,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
         let newCalculatorDisplay = String(calculatorDisplay.dropLast())
         if newCalculatorDisplay.isEmpty {
-            calculatorDisplay = CalculatorOptionRepresentable.zero.rawValue
+            calculatorDisplay = CalculatorButtonRepresentable.zero.rawValue
         } else {
             calculatorDisplay = newCalculatorDisplay
         }
@@ -118,7 +118,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     }
     
     private func clearCalculatorDisplay() {
-        calculatorDisplay = CalculatorOptionRepresentable.zero.rawValue
+        calculatorDisplay = CalculatorButtonRepresentable.zero.rawValue
     }
     
     private func clearPendingBinaryOperation() {
