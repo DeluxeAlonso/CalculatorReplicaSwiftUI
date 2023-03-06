@@ -10,13 +10,13 @@ protocol CalculatorOperationValidatorProtocol {
     //var calculatorDisplayMaxLimit: Int { get }
 
     /**
-     * Only plain numbers can be repeated on our calculator result display. Any other option should only appear once.
+     * Only plain numbers can be repeated on our calculator result display. Any other button should only appear on display once.
      */
-    func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol,
+    func shouldProcessCalculatorButton(_ calculatorButton: CalculatorButtonProtocol,
                                        in calculatorDisplay: String) -> Bool
 
     /**
-     * We only validate the digits limit if the user is currently entering non-operation options (numbers or decimal).
+     * We only validate the digits limit if the user is currently entering non-operation buttons (numbers or decimal).
      */
     func areDisplayCharactersInRange(for calculatorDisplay: String,
                                      and isEnteringNumbers: Bool) -> Bool
@@ -24,6 +24,6 @@ protocol CalculatorOperationValidatorProtocol {
     /**
      * Detects if the user is entering more than one zero on the left side of the number.
      */
-    func isEnteringSignificantNumber(_ calculatorOption: CalculatorOptionProtocol,
+    func isEnteringSignificantNumber(_ calculatorButton: CalculatorButtonProtocol,
                                      in calculatorDisplay: String) -> Bool
 }

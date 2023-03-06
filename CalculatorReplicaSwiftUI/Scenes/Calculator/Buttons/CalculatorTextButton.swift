@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalculatorTextButton: View {
-    let button: CalculatorOptionProtocol
+    let button: CalculatorButtonProtocol
     
     var body: some View {
         Text(button.title)

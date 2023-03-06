@@ -37,11 +37,11 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     
     // MARK: - CalculatorOperationHandlerProtocol
     
-    func handleCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) {
-        if calculatorOption.shouldShowOnResultDisplay {
-            updateResultDisplay(calculatorOption)
+    func handleCalculatorButton(_ calculatorButton: CalculatorButtonProtocol) {
+        if calculatorButton.shouldShowOnResultDisplay {
+            updateResultDisplay(calculatorButton)
         } else {
-            performOperation(calculatorOption)
+            performOperation(calculatorButton)
         }
     }
 
@@ -50,7 +50,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
         let newCalculatorDisplay = String(calculatorDisplay.dropLast())
         if newCalculatorDisplay.isEmpty {
-            calculatorDisplay = CalculatorOptionRepresentable.zero.rawValue
+            calculatorDisplay = CalculatorButtonRepresentable.zero.rawValue
         } else {
             calculatorDisplay = newCalculatorDisplay
         }
@@ -58,20 +58,20 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     
     // MARK: - Calculator Operations
     
-    private func updateResultDisplay(_ calculatorOption: CalculatorOptionProtocol) {
+    private func updateResultDisplay(_ calculatorButton: CalculatorButtonProtocol) {
         clearCalculatorDisplayIfNeeded()
-        guard calculatorValidator.shouldProcessCalculatorOption(calculatorOption, in: calculatorDisplay),
-            calculatorValidator.isEnteringSignificantNumber(calculatorOption, in: calculatorDisplay),
+        guard calculatorValidator.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay),
+            calculatorValidator.isEnteringSignificantNumber(calculatorButton, in: calculatorDisplay),
             calculatorValidator.areDisplayCharactersInRange(for: calculatorDisplay, and: isEnteringNumbers) else {
                 return
         }
         isEnteringNumbers = true
-        let newCalculatorDisplay = calculatorDisplay + calculatorOption.title
+        let newCalculatorDisplay = calculatorDisplay + calculatorButton.title
         calculatorDisplay = calculatorTrimmer.getTrimmedCalculatorDisplay(newCalculatorDisplay)
     }
     
-    private func performOperation(_ calculatorOption: CalculatorOptionProtocol) {
-        guard let operation = calculatorOption.operation else { return }
+    private func performOperation(_ calculatorButton: CalculatorButtonProtocol) {
+        guard let operation = calculatorButton.operation else { return }
         // We set isEnteringNumbers to false when performing any operation except decimal.
         isEnteringNumbers = operation == .decimal
         let resultValueUpdated = calculatorDisplay.toDouble()
@@ -118,7 +118,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     }
     
     private func clearCalculatorDisplay() {
-        calculatorDisplay = CalculatorOptionRepresentable.zero.rawValue
+        calculatorDisplay = CalculatorButtonRepresentable.zero.rawValue
     }
     
     private func clearPendingBinaryOperation() {

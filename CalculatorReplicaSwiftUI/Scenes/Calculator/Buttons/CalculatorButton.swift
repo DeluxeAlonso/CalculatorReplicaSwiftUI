@@ -1,5 +1,5 @@
 //
-//  CalculatorOption.swift
+//  CalculatorButton.swift
 //  CalculatorReplicaSwiftUI
 //
 //  Created by Alonso on 4/11/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CalculatorOption: CalculatorOptionProtocol {
+struct CalculatorButton: CalculatorButtonProtocol {
 
     let title: String
     let accessibilityLabel: String
@@ -46,7 +46,7 @@ struct CalculatorOption: CalculatorOptionProtocol {
         self.operation = operation
     }
     
-    init(representable: CalculatorOptionRepresentable,
+    init(representable: CalculatorButtonRepresentable,
          gridSpace: Int = 1,
          foregroundColor: Color = Color(.white),
          backgroundColor: Color = Color(.darkGray)) {

@@ -1,5 +1,5 @@
 //
-//  CalculatorButton.swift
+//  CalculatorButtonView.swift
 //  CalculatorReplicaSwiftUI
 //
 //  Created by Alonso on 4/11/20.
@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct CalculatorButton: View {
+struct CalculatorButtonView: View {
     @EnvironmentObject var env: CalculatorEnvironmentObject
     
-    let button: CalculatorOptionProtocol
+    let button: CalculatorButtonProtocol
     
     var body: some View {
         Button(action: {
-            self.env.handleCalculatorOption(self.button)
+            self.env.handleCalculatorButton(self.button)
         }, label: {
             containedView()
         })

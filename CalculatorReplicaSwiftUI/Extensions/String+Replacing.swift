@@ -16,8 +16,8 @@ extension String {
     }
     
     func removeNonSignificantExponents() -> String {
-        let exponent = CalculatorOptionRepresentable.exponent.rawValue
-        let zero = CalculatorOptionRepresentable.zero.rawValue
+        let exponent = CalculatorButtonRepresentable.exponent.rawValue
+        let zero = CalculatorButtonRepresentable.zero.rawValue
         
         let positiveNonSignificantExponent = "\(exponent)\(zero)"
         let negativeNonSignificantExponent = "\(exponent)-\(zero)"

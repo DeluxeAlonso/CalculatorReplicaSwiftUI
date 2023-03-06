@@ -28,7 +28,7 @@ struct CalculatorInputFactory {
         let numberIntegerDigits = Int.random(in: 1...9)
         let integerDigits = random(digits: numberIntegerDigits)
         let fractionDigits = random(digits: numberOfFractionDigits)
-        return "\(integerDigits)\(CalculatorOptionRepresentable.decimal.rawValue)\(fractionDigits)"
+        return "\(integerDigits)\(CalculatorButtonRepresentable.decimal.rawValue)\(fractionDigits)"
     }
     
     // MARK: - Exponent String Numbers
@@ -49,7 +49,7 @@ struct CalculatorInputFactory {
     
     static func addExponent(to stringNumber: String, with exponentRange: ClosedRange<Int>) -> String {
         let exponent = Int.random(in: exponentRange)
-        let exponentString = "\(CalculatorOptionRepresentable.exponent.rawValue)\(exponent)"
+        let exponentString = "\(CalculatorButtonRepresentable.exponent.rawValue)\(exponent)"
         return stringNumber + exponentString
     }
 }

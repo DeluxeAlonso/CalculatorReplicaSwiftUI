@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalculatorImageButton: View {
-    let button: CalculatorOptionProtocol
+    let button: CalculatorButtonProtocol
     
     var body: some View {
         Image(systemName: button.icon!)

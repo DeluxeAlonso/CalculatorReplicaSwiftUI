@@ -15,11 +15,11 @@ struct CalculatorOperationValidator: CalculatorOperationValidatorProtocol {
         self.calculatorConfiguration = calculatorConfiguration
     }
 
-    func shouldProcessCalculatorOption(_ calculatorOption: CalculatorOptionProtocol,
+    func shouldProcessCalculatorButton(_ calculatorButton: CalculatorButtonProtocol,
                                        in calculatorDisplay: String) -> Bool {
-        guard calculatorOption.shouldShowOnResultDisplay else { return false }
-        if !calculatorOption.isPlainNumber {
-            return !calculatorDisplay.contains(calculatorOption.title)
+        guard calculatorButton.shouldShowOnResultDisplay else { return false }
+        if !calculatorButton.isPlainNumber {
+            return !calculatorDisplay.contains(calculatorButton.title)
         }
         return true
     }
@@ -30,9 +30,9 @@ struct CalculatorOperationValidator: CalculatorOperationValidatorProtocol {
         return calculatorDisplay.filter { $0.isNumber }.count < calculatorConfiguration.calculatorDisplayMaxLimit
     }
 
-    func isEnteringSignificantNumber(_ calculatorOption: CalculatorOptionProtocol,
+    func isEnteringSignificantNumber(_ calculatorButton: CalculatorButtonProtocol,
                                      in calculatorDisplay: String) -> Bool {
-        guard calculatorOption.title == "0" else { return true }
+        guard calculatorButton.title == "0" else { return true }
         let numberOfZeros = calculatorDisplay.extractLastCharactersOf("0").count
         return !(numberOfZeros == calculatorDisplay.count && numberOfZeros > 0)
     }

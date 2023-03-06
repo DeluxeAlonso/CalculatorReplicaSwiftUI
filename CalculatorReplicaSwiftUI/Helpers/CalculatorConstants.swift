@@ -10,7 +10,7 @@ import Foundation
 
 struct CalculatorConstants {
     static let nonSignificantCharacters: [Character] = [
-        CalculatorOptionRepresentable.zero.rawValue.first!,
-        CalculatorOptionRepresentable.decimal.rawValue.first!
+        CalculatorButtonRepresentable.zero.rawValue.first!,
+        CalculatorButtonRepresentable.decimal.rawValue.first!
     ]
 }

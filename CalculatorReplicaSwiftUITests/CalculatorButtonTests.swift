@@ -1,5 +1,5 @@
 //
-//  CalculatorOptionTests.swift
+//  CalculatorButtonTests.swift
 //  CalculatorReplicaSwiftUITests
 //
 //  Created by Alonso on 4/24/20.
@@ -9,49 +9,49 @@
 import XCTest
 @testable import Calculator
 
-class CalculatorOptionTests: XCTestCase {
+class CalculatorButtonTests: XCTestCase {
 
     func testIsPlainNumberTrue() {
         // Arrange
-        let calculatorOption = CalculatorOption(representable: .eight)
+        let calculatorButton = CalculatorButton(representable: .eight)
         // Act
-        let isPlainNumber = calculatorOption.isPlainNumber
+        let isPlainNumber = calculatorButton.isPlainNumber
         // Assert
         XCTAssertTrue(isPlainNumber)
     }
     
     func testIsPlainNumberFalse() {
         // Arrange
-        let calculatorOption = CalculatorOption(representable: .equal)
+        let calculatorButton = CalculatorButton(representable: .equal)
         // Act
-        let isPlainNumber = calculatorOption.isPlainNumber
+        let isPlainNumber = calculatorButton.isPlainNumber
         // Assert
         XCTAssertFalse(isPlainNumber)
     }
     
     func testShouldShowOnResultDisplayNumber() {
         // Arrange
-        let calculatorOption = CalculatorOption(representable: .one)
+        let calculatorButton = CalculatorButton(representable: .one)
         // Act
-        let shouldShowOnResultDisplay = calculatorOption.shouldShowOnResultDisplay
+        let shouldShowOnResultDisplay = calculatorButton.shouldShowOnResultDisplay
         // Assert
         XCTAssertTrue(shouldShowOnResultDisplay)
     }
     
     func testShouldShowOnResultDisplayDecimal() {
         // Arrange
-        let calculatorOption = CalculatorOption(representable: .decimal)
+        let calculatorButton = CalculatorButton(representable: .decimal)
         // Act
-        let shouldShowOnResultDisplay = calculatorOption.shouldShowOnResultDisplay
+        let shouldShowOnResultDisplay = calculatorButton.shouldShowOnResultDisplay
         // Assert
         XCTAssertTrue(shouldShowOnResultDisplay)
     }
     
     func testShouldShowOnResultDisplayOperation() {
         // Arrange
-        let calculatorOption = CalculatorOption(representable: .sum)
+        let calculatorButton = CalculatorButton(representable: .sum)
         // Act
-        let shouldShowOnResultDisplay = calculatorOption.shouldShowOnResultDisplay
+        let shouldShowOnResultDisplay = calculatorButton.shouldShowOnResultDisplay
         // Assert
         XCTAssertFalse(shouldShowOnResultDisplay)
     }

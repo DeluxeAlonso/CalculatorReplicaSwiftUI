@@ -75,7 +75,7 @@ class CalculatorResultFormatter: CalculatorResultFormatterProtocol {
     
     func formatEnteredNumber(from calculatorDisplay: String) -> String? {
         let hasDecimal = calculatorDisplay.hasDecimal(checkForDecimalCharacter: true)
-        let lastNonSignificantCharacters = calculatorDisplay.extractLastCharactersOf(CalculatorConstants.nonSignificantCharacters, withCutCharacter: CalculatorOptionRepresentable.decimal.character)
+        let lastNonSignificantCharacters = calculatorDisplay.extractLastCharactersOf(CalculatorConstants.nonSignificantCharacters, withCutCharacter: CalculatorButtonRepresentable.decimal.character)
         
         // If the display contains non significant characters at the last, we add them after formatting it.
         if hasDecimal, !lastNonSignificantCharacters.isEmpty  {

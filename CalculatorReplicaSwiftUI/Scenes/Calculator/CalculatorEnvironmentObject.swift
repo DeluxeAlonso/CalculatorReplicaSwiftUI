@@ -17,13 +17,13 @@ class CalculatorEnvironmentObject: ObservableObject, CalculatorEnvironmentObject
         }
     }
     
-    let calculatorButtons: [[CalculatorOptionProtocol]]
+    let calculatorButtons: [[CalculatorButtonProtocol]]
     private let resultFormatter: CalculatorResultFormatterProtocol
     private var calculatorOperationHandler: CalculatorOperationHandlerProtocol
     
     // MARK: - Initializers
     
-    init(calculatorButtons: [[CalculatorOptionProtocol]],
+    init(calculatorButtons: [[CalculatorButtonProtocol]],
          resultFormatter: CalculatorResultFormatterProtocol,
          calculatorOperationHandler: CalculatorOperationHandlerProtocol) {
         self.calculatorButtons = calculatorButtons
@@ -34,8 +34,8 @@ class CalculatorEnvironmentObject: ObservableObject, CalculatorEnvironmentObject
     
     // MARK: - Public
     
-    func handleCalculatorOption(_ calculatorOption: CalculatorOptionProtocol) {
-        calculatorOperationHandler.handleCalculatorOption(calculatorOption)
+    func handleCalculatorButton(_ calculatorButton: CalculatorButtonProtocol) {
+        calculatorOperationHandler.handleCalculatorButton(calculatorButton)
     }
 
     func deleteLastSingleDigit() {
