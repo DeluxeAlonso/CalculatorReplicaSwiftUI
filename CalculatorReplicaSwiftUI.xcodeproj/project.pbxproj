@@ -148,16 +148,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E201FACA24421E5600AE6F4C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E2667763245D14CE006B2872 /* ResultDisplay */,
-				E2667762245D14C1006B2872 /* CalculatorButtons */,
-				E256231224427BB400AA7CD0 /* CalculatorView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		E2225F8C29B45FCD00F4AEDA /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +155,28 @@
 				E2CAA054245525D600C4DBC9 /* CalculatorConfiguration.swift */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		E2225F8D29B461C200F4AEDA /* ResultDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				E24E84BF244276E8007AC7AE /* CalculatorResultDisplayView.swift */,
+			);
+			path = ResultDisplay;
+			sourceTree = "<group>";
+		};
+		E2225F8E29B4621200F4AEDA /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				E266F255244EA2580009559E /* CalculatorOptionRepresentable.swift */,
+				E2CBA5172442C3D3008A3097 /* CalculatorOptionProtocol.swift */,
+				E2CBA51B2442C660008A3097 /* CalculatorOption.swift */,
+				E201FACB24421E6200AE6F4C /* CalculatorButtonsView.swift */,
+				E256231024427A3E00AA7CD0 /* CalculatorButtonView.swift */,
+				E2667764245D14E5006B2872 /* CalculatorTextButton.swift */,
+				E2667766245D14F0006B2872 /* CalculatorImageButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		E225930C2589AEDF0000E97F /* OperationHandler */ = {
@@ -199,9 +211,11 @@
 		E225930F2589AF510000E97F /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				E2D195B229B5AE030069EEC7 /* Operations */,
+				E2225F8E29B4621200F4AEDA /* Buttons */,
+				E2225F8D29B461C200F4AEDA /* ResultDisplay */,
 				E2225F8C29B45FCD00F4AEDA /* Configuration */,
-				E22593112589AF8F0000E97F /* Protocols */,
-				E201FACA24421E5600AE6F4C /* Views */,
+				E256231224427BB400AA7CD0 /* CalculatorView.swift */,
 				E2CBA51D2442C7D3008A3097 /* CalculatorBuilder.swift */,
 				E27030F224495D0000955BDF /* CalculatorEnvironmentObjectProtocol.swift */,
 				E201FAC824421A7C00AE6F4C /* CalculatorEnvironmentObject.swift */,
@@ -215,14 +229,6 @@
 				E27030F4244970B800955BDF /* DependencyInjectionFactory.swift */,
 			);
 			path = DependencyInjection;
-			sourceTree = "<group>";
-		};
-		E22593112589AF8F0000E97F /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				E2CBA5172442C3D3008A3097 /* CalculatorOptionProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		E248B9A725FC5AD700DCFCD8 /* PropertyWrappers */ = {
@@ -261,25 +267,6 @@
 				E225930F2589AF510000E97F /* Calculator */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		E2667762245D14C1006B2872 /* CalculatorButtons */ = {
-			isa = PBXGroup;
-			children = (
-				E201FACB24421E6200AE6F4C /* CalculatorButtonsView.swift */,
-				E256231024427A3E00AA7CD0 /* CalculatorButtonView.swift */,
-				E2667764245D14E5006B2872 /* CalculatorTextButton.swift */,
-				E2667766245D14F0006B2872 /* CalculatorImageButton.swift */,
-			);
-			path = CalculatorButtons;
-			sourceTree = "<group>";
-		};
-		E2667763245D14CE006B2872 /* ResultDisplay */ = {
-			isa = PBXGroup;
-			children = (
-				E24E84BF244276E8007AC7AE /* CalculatorResultDisplayView.swift */,
-			);
-			path = ResultDisplay;
 			sourceTree = "<group>";
 		};
 		E266F24E244E8F120009559E /* Formatters */ = {
@@ -338,15 +325,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		E2CBA51A2442C655008A3097 /* Entities */ = {
+		E2D195B229B5AE030069EEC7 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				E266F255244EA2580009559E /* CalculatorOptionRepresentable.swift */,
-				E2CBA51B2442C660008A3097 /* CalculatorOption.swift */,
 				E2CBA5142442C388008A3097 /* CalculatorOperation.swift */,
 				E2C600312448229C0099A038 /* PendingBinaryOperation.swift */,
 			);
-			path = Entities;
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		E2FBCEB72441608600147B1B = {
@@ -370,7 +355,6 @@
 		E2FBCEC22441608600147B1B /* CalculatorReplicaSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				E2CBA51A2442C655008A3097 /* Entities */,
 				E266775B245D12CE006B2872 /* Scenes */,
 				E2667758245D0EE5006B2872 /* ViewModifiers */,
 				E2641533244433D30017AC6E /* Extensions */,
