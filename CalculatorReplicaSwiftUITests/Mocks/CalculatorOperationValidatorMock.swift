@@ -15,9 +15,9 @@ final class CalculatorOperationValidatorMock: CalculatorOperationValidatorProtoc
         self.calculatorDisplayMaxLimit = calculatorDisplayMaxLimit
     }
 
-    var shouldProcessCalculatorOptionReturnValue = true
-    func shouldProcessCalculatorOption(_ calculatorOption: CalculatorButtonProtocol, in calculatorDisplay: String) -> Bool {
-        return shouldProcessCalculatorOptionReturnValue
+    var shouldProcessCalculatorButtonReturnValue = true
+    func shouldProcessCalculatorButton(_ calculatorButton: CalculatorButtonProtocol, in calculatorDisplay: String) -> Bool {
+        return shouldProcessCalculatorButtonReturnValue
     }
 
     var areDisplayCharactersInRangeReturnValue = true
@@ -26,7 +26,7 @@ final class CalculatorOperationValidatorMock: CalculatorOperationValidatorProtoc
     }
 
     var isEnteringSignificantNumberReturnValue = true
-    func isEnteringSignificantNumber(_ calculatorOption: CalculatorButtonProtocol, in calculatorDisplay: String) -> Bool {
+    func isEnteringSignificantNumber(_ calculatorButton: CalculatorButtonProtocol, in calculatorDisplay: String) -> Bool {
         return isEnteringSignificantNumberReturnValue
     }
 }

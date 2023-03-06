@@ -1,5 +1,5 @@
 //
-//  CalculatorOption.swift
+//  CalculatorButton.swift
 //  CalculatorReplicaSwiftUI
 //
 //  Created by Alonso on 4/11/20.

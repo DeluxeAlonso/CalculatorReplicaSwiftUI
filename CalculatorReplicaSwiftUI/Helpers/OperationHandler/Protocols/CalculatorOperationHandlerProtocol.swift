@@ -16,7 +16,7 @@ protocol CalculatorOperationHandlerProtocol {
     /**
      Handles the user's calculator input.
 
-     - Parameter calculatorOption: Option selected by the user (e.g. a number or operation).
+     - Parameter calculatorButton: Button selected by the user (e.g. a number or operation).
      */
     func handleCalculatorButton(_ calculatorButton: CalculatorButtonProtocol)
 

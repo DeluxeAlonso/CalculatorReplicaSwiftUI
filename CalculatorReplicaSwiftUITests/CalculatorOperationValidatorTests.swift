@@ -26,122 +26,122 @@ class CalculatorOperationValidatorTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func testShouldProcessCalculatorOptionNumber() {
+    func testShouldProcessCalculatorButtonNumber() {
         // Arrange
         let calculatorDisplay = ""
         let calculatorButton = CalculatorButton(representable: .five)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertTrue(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionNewNumber() {
+    func testShouldProcessCalculatorButtonNewNumber() {
         // Arrange
         let calculatorDisplay = "123"
         let calculatorButton = CalculatorButton(representable: .five)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertTrue(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionRepeatedNumber() {
+    func testShouldProcessCalculatorButtonRepeatedNumber() {
         // Arrange
         let calculatorDisplay = "550"
         let calculatorButton = CalculatorButton(representable: .five)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertTrue(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionNewNumberAfterDecimal() {
+    func testShouldProcessCalculatorButtonNewNumberAfterDecimal() {
         // Arrange
         let calculatorDisplay = "123.4"
         let calculatorButton = CalculatorButton(representable: .five)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertTrue(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionRepeatedNumberAfterDecimal() {
+    func testShouldProcessCalculatorButtonRepeatedNumberAfterDecimal() {
         // Arrange
         let calculatorDisplay = "555.4"
         let calculatorButton = CalculatorButton(representable: .five)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertTrue(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionNewNumberInmediatelyAfterDecimal() {
+    func testShouldProcessCalculatorButtonNewNumberInmediatelyAfterDecimal() {
         // Arrange
         let calculatorDisplay = "123."
         let calculatorButton = CalculatorButton(representable: .five)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertTrue(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionRepeatedNumberInmediatelyAfterDecimal() {
+    func testShouldProcessCalculatorButtonRepeatedNumberInmediatelyAfterDecimal() {
         // Arrange
         let calculatorDisplay = "555."
         let calculatorButton = CalculatorButton(representable: .five)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertTrue(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionDecimal() {
+    func testShouldProcessCalculatorButtonDecimal() {
         // Arrange
         let calculatorDisplay = ""
         let calculatorButton = CalculatorButton(representable: .decimal)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertTrue(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionNewDecimal() {
+    func testShouldProcessCalculatorButtonNewDecimal() {
         // Arrange
         let calculatorDisplay = "23"
         let calculatorButton = CalculatorButton(representable: .decimal)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertTrue(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionInmediatelyRepeatedDecimal() {
+    func testShouldProcessCalculatorButtonInmediatelyRepeatedDecimal() {
         // Arrange
         let calculatorDisplay = "23."
         let calculatorButton = CalculatorButton(representable: .decimal)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertFalse(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionRepeatedDecimal() {
+    func testShouldProcessCalculatorButtonRepeatedDecimal() {
         // Arrange
         let calculatorDisplay = "23.56"
         let calculatorButton = CalculatorButton(representable: .decimal)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertFalse(shouldProcess)
     }
     
-    func testShouldProcessCalculatorOptionOperation() {
+    func testShouldProcessCalculatorButtonOperation() {
         // Arrange
         let calculatorDisplay = "10"
         let calculatorButton = CalculatorButton(representable: .equal)
         // Act
-        let shouldProcess = validatorToTest.shouldProcessCalculatorOption(calculatorButton, in: calculatorDisplay)
+        let shouldProcess = validatorToTest.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay)
         // Assert
         XCTAssertFalse(shouldProcess)
     }
