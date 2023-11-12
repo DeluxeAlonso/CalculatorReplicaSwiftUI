@@ -18,7 +18,7 @@ final class CalculatorButtonProtocolMock: CalculatorButtonProtocol {
 
     var gridSpace: Int = 0
 
-    var tintColor: Color = .accentColor
+    var tintColor: Color = .primary
 
     var backgroundColor: Color = .accentColor
 
