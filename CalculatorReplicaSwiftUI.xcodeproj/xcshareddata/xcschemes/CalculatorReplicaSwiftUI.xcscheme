@@ -43,6 +43,39 @@
                </Test>
             </SkippedTests>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E215DE032B018BBF00670876"
+               BuildableName = "CalculatorSnapshotTests.xctest"
+               BlueprintName = "CalculatorSnapshotTests"
+               ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E215DE102B018BFB00670876"
+               BuildableName = "CalculatorReplicaSnapshotTests.xctest"
+               BlueprintName = "CalculatorReplicaSnapshotTests"
+               ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E215DE1D2B018C2300670876"
+               BuildableName = "CalculatorReplicaSwiftUISnapshotTests.xctest"
+               BlueprintName = "CalculatorReplicaSwiftUISnapshotTests"
+               ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
