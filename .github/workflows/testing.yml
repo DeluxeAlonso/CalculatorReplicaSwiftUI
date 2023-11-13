@@ -15,3 +15,11 @@ jobs:
       run: bundle install
     - name: Run unit tests
       run: bundle exec fastlane tests
+  snapshot_test:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Bundle
+      run: bundle install
+    - name: Run snapshot tests
+      run: bundle exec fastlane snapshot_tests
