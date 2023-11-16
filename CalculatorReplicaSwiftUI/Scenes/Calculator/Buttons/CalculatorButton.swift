@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CalculatorButton: CalculatorButtonProtocol {
 
-    let title: String
+    let contentType: CalculatorButtonContentType
     let accessibilityLabel: String
     let gridSpace: Int
     let tintColor: Color
@@ -18,6 +18,15 @@ struct CalculatorButton: CalculatorButtonProtocol {
     let operation: CalculatorOperation?
 
     private(set) var icon: String?
+
+    var title: String? {
+        switch contentType {
+        case .title(let string):
+            return string
+        case .icon:
+            return nil
+        }
+    }
 
     var isPlainNumber: Bool {
         return operation == nil
@@ -37,7 +46,7 @@ struct CalculatorButton: CalculatorButtonProtocol {
          foregroundColor: Color,
          backgroundColor: Color,
          operation: CalculatorOperation?) {
-        self.title = title
+        self.contentType = .title(title)
         self.icon = icon
         self.accessibilityLabel = accessibilityLabel
         self.gridSpace = gridSpace
