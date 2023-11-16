@@ -11,4 +11,11 @@ platform :ios do
     	)
 	end
 
+	lane :snapshot_tests do
+  	run_tests(
+     	  devices: ["iPhone 14 Pro (16.4)"],
+      	  scheme: "CalculatorReplicaSwiftUISnapshotTests"
+    	)
+	end
+
 end
