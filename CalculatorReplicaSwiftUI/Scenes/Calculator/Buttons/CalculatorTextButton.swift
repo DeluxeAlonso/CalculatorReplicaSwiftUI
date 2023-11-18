@@ -9,11 +9,12 @@
 import SwiftUI
 
 struct CalculatorTextButton: View {
-    let button: CalculatorButtonProtocol
+    let text: String
+    let style: CalculatorButtonStyleProtocol
     
     var body: some View {
-        Text(button.title)
+        Text(text)
             .font(.system(size: 32.0))
-            .calculatorButtonStyle(for: button)
+            .calculatorButtonStyle(for: style)
     }
 }
