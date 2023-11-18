@@ -8,11 +8,13 @@
 
 import SwiftUI
 
-protocol CalculatorButtonProtocol: CalculatorButtonStyleProtocol {
+protocol CalculatorButtonProtocol {
     var contentType: CalculatorButtonContentType { get }
 
     var accessibilityLabel: String { get }
     var operation: CalculatorOperation? { get }
+
+    var style: CalculatorButtonStyleProtocol { get }
 
     /// Indicates if the calculator button is a plain number and not an operation.
     var isPlainNumber: Bool { get }
@@ -28,4 +30,10 @@ protocol CalculatorButtonStyleProtocol {
 enum CalculatorButtonContentType {
     case title(String)
     case icon(String)
+}
+
+struct CalculatorButtonStyle: CalculatorButtonStyleProtocol {
+    let gridSpace: Int
+    let tintColor: Color
+    let backgroundColor: Color
 }

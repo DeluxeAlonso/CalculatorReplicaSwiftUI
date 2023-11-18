@@ -12,9 +12,7 @@ struct CalculatorButton: CalculatorButtonProtocol {
 
     let contentType: CalculatorButtonContentType
     let accessibilityLabel: String
-    let gridSpace: Int
-    let tintColor: Color
-    let backgroundColor: Color
+    let style: CalculatorButtonStyleProtocol
     let operation: CalculatorOperation?
 
     private(set) var icon: String?
@@ -49,10 +47,10 @@ struct CalculatorButton: CalculatorButtonProtocol {
         self.contentType = .title(title)
         self.icon = icon
         self.accessibilityLabel = accessibilityLabel
-        self.gridSpace = gridSpace
-        self.tintColor = foregroundColor
-        self.backgroundColor = backgroundColor
         self.operation = operation
+        self.style = CalculatorButtonStyle(gridSpace: gridSpace,
+                                           tintColor: foregroundColor,
+                                           backgroundColor: backgroundColor)
     }
     
     init(representable: CalculatorButtonRepresentable,

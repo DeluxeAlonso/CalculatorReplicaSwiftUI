@@ -10,6 +10,8 @@ import SwiftUI
 @testable import Calculator
 
 final class CalculatorButtonProtocolMock: CalculatorButtonProtocol {
+    var contentType: CalculatorButtonContentType = .title("")
+
     var title: String = ""
 
     var icon: String?
