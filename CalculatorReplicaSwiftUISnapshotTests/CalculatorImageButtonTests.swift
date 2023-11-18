@@ -13,20 +13,18 @@ import XCTest
 final class CalculatorImageButtonTests: XCTestCase {
 
     func testCalculatorImageButton() {
-        let calculatorButton = CalculatorButtonProtocolMock()
-        calculatorButton.icon = "plus"
-        calculatorButton.gridSpace = 1
+        let style = CalculatorButtonStyleProtocolMock()
+        style.gridSpace = 1
 
-        let view = CalculatorImageButton(button: calculatorButton)
+        let view = CalculatorImageButton(imageName: "plus", style: style)
         assertSnapshot(of: view, as: .image)
     }
 
     func testCalculatorImageButtonExpandedGridSpace() {
-        let calculatorButton = CalculatorButtonProtocolMock()
-        calculatorButton.icon = "plus"
-        calculatorButton.gridSpace = 2
+        let style = CalculatorButtonStyleProtocolMock()
+        style.gridSpace = 2
 
-        let view = CalculatorImageButton(button: calculatorButton)
+        let view = CalculatorImageButton(imageName: "plus", style: style)
         assertSnapshot(of: view, as: .image)
     }
 
