@@ -9,7 +9,8 @@
 import SwiftUI
 
 protocol CalculatorButtonProtocol {
-    var contentType: CalculatorButtonContentType { get }
+    var title: String { get }
+    var icon: String? { get }
 
     var accessibilityLabel: String { get }
     var operation: CalculatorOperation? { get }
@@ -25,11 +26,6 @@ protocol CalculatorButtonStyleProtocol {
     var gridSpace: Int { get }
     var tintColor: Color { get }
     var backgroundColor: Color { get }
-}
-
-enum CalculatorButtonContentType {
-    case title(String)
-    case icon(String)
 }
 
 struct CalculatorButtonStyle: CalculatorButtonStyleProtocol {

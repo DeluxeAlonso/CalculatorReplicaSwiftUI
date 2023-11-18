@@ -10,21 +10,11 @@ import SwiftUI
 
 struct CalculatorButton: CalculatorButtonProtocol {
 
-    let contentType: CalculatorButtonContentType
+    let title: String
+    let icon: String?
     let accessibilityLabel: String
     let style: CalculatorButtonStyleProtocol
     let operation: CalculatorOperation?
-
-    private(set) var icon: String?
-
-    var title: String? {
-        switch contentType {
-        case .title(let string):
-            return string
-        case .icon:
-            return nil
-        }
-    }
 
     var isPlainNumber: Bool {
         return operation == nil
@@ -44,7 +34,7 @@ struct CalculatorButton: CalculatorButtonProtocol {
          foregroundColor: Color,
          backgroundColor: Color,
          operation: CalculatorOperation?) {
-        self.contentType = .title(title)
+        self.title = title
         self.icon = icon
         self.accessibilityLabel = accessibilityLabel
         self.operation = operation
