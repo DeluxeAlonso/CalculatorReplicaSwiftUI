@@ -23,10 +23,11 @@ struct CalculatorButtonView: View {
     }
     
     private func containedView() -> AnyView {
-        if case let .icon(iconName) = button.contentType {
+        switch button.contentType {
+        case .icon(let iconName):
             return CalculatorImageButton(imageName: iconName, style: button.style).erasedToAnyView()
-        } else {
-            return CalculatorTextButton(button: button).erasedToAnyView()
+        case .title(let title):
+            return CalculatorTextButton(text: title, style: button.style).erasedToAnyView()
         }
     }
 }
