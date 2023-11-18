@@ -9,10 +9,11 @@
 import SwiftUI
 
 struct CalculatorImageButton: View {
-    let button: CalculatorButtonProtocol
+    let imageName: String
+    let style: CalculatorButtonStyleProtocol
     
     var body: some View {
-        Image(systemName: button.icon!)
+        Image(systemName: imageName)
             .font(.system(size: 25.0, weight: .medium))
             .calculatorButtonStyle(for: button)
     }

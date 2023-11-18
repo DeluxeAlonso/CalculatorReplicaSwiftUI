@@ -9,7 +9,7 @@
 import SwiftUI
 
 extension View {
-    func calculatorButtonStyle(for button: CalculatorButtonProtocol) -> some View {
+    func calculatorButtonStyle(for button: CalculatorButtonStyleProtocol) -> some View {
         modifier(CalculatorButtonViewModifier(button: button))
     }
 }
