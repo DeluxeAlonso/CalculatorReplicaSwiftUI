@@ -6,6 +6,8 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
+import Combine
+
 class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     // MARK: - Dependencies
 
@@ -18,10 +20,15 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     private var isEnteringNumbers: Bool = false
 
     // MARK: - Computed properties
+
+    lazy private(set) var calculatorDisplayV2: CurrentValueSubject<(String, Bool), Never> = {
+        CurrentValueSubject<(String, Bool), Never>((calculatorDisplay, isEnteringNumbers))
+    }()
     
     var calculatorDisplay: String = "" {
         didSet {
-            delegate?.updateValue(calculatorDisplay, isEnteringNumbers: isEnteringNumbers)
+            //delegate?.updateValue(calculatorDisplay, isEnteringNumbers: isEnteringNumbers)
+            calculatorDisplayV2.value = (calculatorDisplay, isEnteringNumbers)
         }
     }
     

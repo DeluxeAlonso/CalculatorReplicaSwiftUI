@@ -6,10 +6,11 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import SwiftUI
+import Combine
 
 protocol CalculatorOperationHandlerProtocol {
     var calculatorDisplay: String { get set }
+    var calculatorDisplayV2: CurrentValueSubject<(String, Bool), Never> { get }
     
     var delegate: CalculatorEnvironmentObjectProtocol? { get set }
 
