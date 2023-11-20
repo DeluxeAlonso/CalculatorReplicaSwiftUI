@@ -9,8 +9,7 @@
 import Combine
 
 protocol CalculatorOperationHandlerProtocol {
-    var calculatorDisplay: String { get set }
-    var calculatorDisplayV2: CurrentValueSubject<(String, Bool), Never> { get }
+    var calculatorDisplay: CurrentValueSubject<(String, Bool), Never> { get }
 
     /**
      Handles the user's calculator input.

@@ -34,7 +34,7 @@ class CalculatorEnvironmentObject: ObservableObject {
         self.calculatorOperationHandler = calculatorOperationHandler
 
         self.calculatorOperationHandler
-            .calculatorDisplayV2
+            .calculatorDisplay
             .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] info in

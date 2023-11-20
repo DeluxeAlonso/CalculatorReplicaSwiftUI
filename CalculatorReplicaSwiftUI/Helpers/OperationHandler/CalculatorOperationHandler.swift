@@ -21,18 +21,15 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
     // MARK: - Computed properties
 
-    lazy private(set) var calculatorDisplayV2: CurrentValueSubject<(String, Bool), Never> = {
-        CurrentValueSubject<(String, Bool), Never>((calculatorDisplay, isEnteringNumbers))
+    lazy private(set) var calculatorDisplay: CurrentValueSubject<(String, Bool), Never> = {
+        CurrentValueSubject<(String, Bool), Never>((storedCalculatorDisplay, isEnteringNumbers))
     }()
     
-    var calculatorDisplay: String = "" {
+    var storedCalculatorDisplay: String = "" {
         didSet {
-            //delegate?.updateValue(calculatorDisplay, isEnteringNumbers: isEnteringNumbers)
-            calculatorDisplayV2.value = (calculatorDisplay, isEnteringNumbers)
+            calculatorDisplay.value = (storedCalculatorDisplay, isEnteringNumbers)
         }
     }
-    
-    weak var delegate: CalculatorEnvironmentObjectProtocol?
     
     // MARK: - Initializers
     
@@ -55,11 +52,11 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     func deleteLastSingleDigit() {
         guard isEnteringNumbers else { return }
 
-        let newCalculatorDisplay = String(calculatorDisplay.dropLast())
+        let newCalculatorDisplay = String(storedCalculatorDisplay.dropLast())
         if newCalculatorDisplay.isEmpty {
-            calculatorDisplay = CalculatorButtonRepresentable.zero.rawValue
+            storedCalculatorDisplay = CalculatorButtonRepresentable.zero.rawValue
         } else {
-            calculatorDisplay = newCalculatorDisplay
+            storedCalculatorDisplay = newCalculatorDisplay
         }
     }
     
@@ -67,21 +64,21 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     
     private func updateResultDisplay(_ calculatorButton: CalculatorButtonProtocol) {
         clearCalculatorDisplayIfNeeded()
-        guard calculatorValidator.shouldProcessCalculatorButton(calculatorButton, in: calculatorDisplay),
-            calculatorValidator.isEnteringSignificantNumber(calculatorButton, in: calculatorDisplay),
-            calculatorValidator.areDisplayCharactersInRange(for: calculatorDisplay, and: isEnteringNumbers) else {
+        guard calculatorValidator.shouldProcessCalculatorButton(calculatorButton, in: storedCalculatorDisplay),
+            calculatorValidator.isEnteringSignificantNumber(calculatorButton, in: storedCalculatorDisplay),
+            calculatorValidator.areDisplayCharactersInRange(for: storedCalculatorDisplay, and: isEnteringNumbers) else {
                 return
         }
         isEnteringNumbers = true
-        let newCalculatorDisplay = calculatorDisplay + calculatorButton.title
-        calculatorDisplay = calculatorTrimmer.getTrimmedCalculatorDisplay(newCalculatorDisplay)
+        let newCalculatorDisplay = storedCalculatorDisplay + calculatorButton.title
+        storedCalculatorDisplay = calculatorTrimmer.getTrimmedCalculatorDisplay(newCalculatorDisplay)
     }
     
     private func performOperation(_ calculatorButton: CalculatorButtonProtocol) {
         guard let operation = calculatorButton.operation else { return }
         // We set isEnteringNumbers to false when performing any operation except decimal.
         isEnteringNumbers = operation == .decimal
-        let resultValueUpdated = calculatorDisplay.toDouble()
+        let resultValueUpdated = storedCalculatorDisplay.toDouble()
         switch operation {
         case .clear:
             clearCalculator()
@@ -111,7 +108,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     private func updateDisplay(with resultValue: Double) {
         let isInteger = !String(resultValue).hasDecimal() && Double(Int.min)...Double(Int.max) ~= resultValue
         let valueToDisplay: CustomStringConvertible = isInteger ? Int(resultValue) : resultValue
-        calculatorDisplay = String(valueToDisplay.description)
+        storedCalculatorDisplay = String(valueToDisplay.description)
     }
     
     // MARK: - Clear methods
@@ -125,7 +122,7 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
     }
     
     private func clearCalculatorDisplay() {
-        calculatorDisplay = CalculatorButtonRepresentable.zero.rawValue
+        storedCalculatorDisplay = CalculatorButtonRepresentable.zero.rawValue
     }
     
     private func clearPendingBinaryOperation() {
