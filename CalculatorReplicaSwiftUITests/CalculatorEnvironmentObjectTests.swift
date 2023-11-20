@@ -11,8 +11,15 @@ import XCTest
 
 final class CalculatorEnvironmentObjectTests: XCTestCase {
 
+    private var calculatorEnvironmentObject: CalculatorEnvironmentObject!
+    private var resultFormatter = CalculatorResultFormatterMock()
+    private var operationHandler = CalculatorOperationHandlerMock()
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        calculatorEnvironmentObject = CalculatorEnvironmentObject(calculatorButtons: [],
+                                                                  resultFormatter: resultFormatter,
+                                                                  calculatorOperationHandler: operationHandler)
     }
 
     override func tearDownWithError() throws {
