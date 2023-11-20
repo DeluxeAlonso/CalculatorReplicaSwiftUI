@@ -32,7 +32,6 @@ class CalculatorEnvironmentObject: ObservableObject, CalculatorEnvironmentObject
         self.calculatorButtons = calculatorButtons
         self.resultFormatter = resultFormatter
         self.calculatorOperationHandler = calculatorOperationHandler
-        self.calculatorOperationHandler.delegate = self
 
         self.calculatorOperationHandler
             .calculatorDisplayV2
