@@ -36,7 +36,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("35", operationHandler.calculatorDisplay)
+        XCTAssertEqual("35", operationHandler.calculatorDisplay.value.0)
     }
     
     func testNumberWithDecimalEntered() {
@@ -50,7 +50,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("35.2", operationHandler.calculatorDisplay)
+        XCTAssertEqual("35.2", operationHandler.calculatorDisplay.value.0)
     }
     
     func testNumberWithDecimalWithZeroAtLastEntered() {
@@ -64,7 +64,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("35.0", operationHandler.calculatorDisplay)
+        XCTAssertEqual("35.0", operationHandler.calculatorDisplay.value.0)
     }
     
     func testNumberWithDecimalWithMultipleZeroAtLastEntered() {
@@ -80,7 +80,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("35.000", operationHandler.calculatorDisplay)
+        XCTAssertEqual("35.000", operationHandler.calculatorDisplay.value.0)
     }
     
     func testNumberWithDecimalWithMultipleLeadingZeroEntered() {
@@ -96,7 +96,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("35.0", operationHandler.calculatorDisplay)
+        XCTAssertEqual("35.0", operationHandler.calculatorDisplay.value.0)
     }
     
     func testNumberWithDecimalWithDecimalAtFirstEntered() {
@@ -112,7 +112,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("0.00350", operationHandler.calculatorDisplay)
+        XCTAssertEqual("0.00350", operationHandler.calculatorDisplay.value.0)
     }
     
     func testZeroNumberWithDecimalWithOnlyDecimalEntered() {
@@ -123,7 +123,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("0.", operationHandler.calculatorDisplay)
+        XCTAssertEqual("0.", operationHandler.calculatorDisplay.value.0)
     }
     
     func testNumberWithDecimalWithOnlyDecimalEntered() {
@@ -136,7 +136,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("10.", operationHandler.calculatorDisplay)
+        XCTAssertEqual("10.", operationHandler.calculatorDisplay.value.0)
     }
     
     func testNumberWithDecimalWithOffLimitEntered() {
@@ -147,7 +147,7 @@ class CalculatorIntegrationTests: XCTestCase {
             operationHandler.handleCalculatorButton(calculatorButton)
         }
         // Assert
-        XCTAssertEqual("999999999", operationHandler.calculatorDisplay)
+        XCTAssertEqual("999999999", operationHandler.calculatorDisplay.value.0)
     }
     
     func testNumberWithMultipleleadinZeroEntered() {
@@ -162,7 +162,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("0.00", operationHandler.calculatorDisplay)
+        XCTAssertEqual("0.00", operationHandler.calculatorDisplay.value.0)
     }
     
     func testSimpleBinaryOperation() {
@@ -176,7 +176,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("3", operationHandler.calculatorDisplay)
+        XCTAssertEqual("3", operationHandler.calculatorDisplay.value.0)
     }
     
     func testRecurrentBinaryOperation() {
@@ -192,7 +192,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("7", operationHandler.calculatorDisplay)
+        XCTAssertEqual("7", operationHandler.calculatorDisplay.value.0)
     }
     
     func testFractionalBinaryOperation() {
@@ -211,7 +211,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("2.05", operationHandler.calculatorDisplay)
+        XCTAssertEqual("2.05", operationHandler.calculatorDisplay.value.0)
     }
     
     func testFractionalRecurrentBinaryOperation() {
@@ -229,7 +229,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("3.5", operationHandler.calculatorDisplay)
+        XCTAssertEqual("3.5", operationHandler.calculatorDisplay.value.0)
     }
     
     func testSimpleUnaryOperation() {
@@ -241,7 +241,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("-1", operationHandler.calculatorDisplay)
+        XCTAssertEqual("-1", operationHandler.calculatorDisplay.value.0)
     }
     
     func testRecurrentUnaryOperation() {
@@ -254,7 +254,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("1", operationHandler.calculatorDisplay)
+        XCTAssertEqual("1", operationHandler.calculatorDisplay.value.0)
     }
     
     func testFractionalUnaryOperation() {
@@ -269,7 +269,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("-1.05", operationHandler.calculatorDisplay)
+        XCTAssertEqual("-1.05", operationHandler.calculatorDisplay.value.0)
     }
     
     func testFractionalRecurrentUnaryOperation() {
@@ -285,7 +285,7 @@ class CalculatorIntegrationTests: XCTestCase {
         // Act
         buttons.forEach { operationHandler.handleCalculatorButton($0) }
         // Assert
-        XCTAssertEqual("1.05", operationHandler.calculatorDisplay)
+        XCTAssertEqual("1.05", operationHandler.calculatorDisplay.value.0)
     }
 
 }
