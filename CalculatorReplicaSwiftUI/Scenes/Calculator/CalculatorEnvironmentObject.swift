@@ -9,7 +9,7 @@
 import Combine
 import Foundation
 
-class CalculatorEnvironmentObject: ObservableObject, CalculatorEnvironmentObjectProtocol {
+class CalculatorEnvironmentObject: ObservableObject {
 
     @UserDefaultsStorage("calculatorDisplay", defaultValue: "0")
     var formattedCalculatorDisplay: String {
@@ -56,7 +56,7 @@ class CalculatorEnvironmentObject: ObservableObject, CalculatorEnvironmentObject
     
     // MARK: - CalculatorEnvironmentObjectProtocol
     
-    func updateValue(_ value: String, isEnteringNumbers: Bool) {
+    private func updateValue(_ value: String, isEnteringNumbers: Bool) {
         if isEnteringNumbers {
             guard let formattedResult = resultFormatter.formatEnteredNumber(from: value) else { return }
             formattedCalculatorDisplay = formattedResult
