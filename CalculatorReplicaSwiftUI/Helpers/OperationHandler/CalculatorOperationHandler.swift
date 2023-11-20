@@ -18,18 +18,17 @@ class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
     private var pendingBinaryOperation: PendingBinaryOperation?
     private var isEnteringNumbers: Bool = false
+    private var storedCalculatorDisplay: String = "" {
+        didSet {
+            calculatorDisplay.value = (storedCalculatorDisplay, isEnteringNumbers)
+        }
+    }
 
     // MARK: - Computed properties
 
     lazy private(set) var calculatorDisplay: CurrentValueSubject<(String, Bool), Never> = {
         CurrentValueSubject<(String, Bool), Never>((storedCalculatorDisplay, isEnteringNumbers))
     }()
-    
-    var storedCalculatorDisplay: String = "" {
-        didSet {
-            calculatorDisplay.value = (storedCalculatorDisplay, isEnteringNumbers)
-        }
-    }
     
     // MARK: - Initializers
     
