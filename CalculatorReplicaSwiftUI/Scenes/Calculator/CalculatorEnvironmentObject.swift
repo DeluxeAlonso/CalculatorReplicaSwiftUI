@@ -43,6 +43,18 @@ class CalculatorEnvironmentObject: ObservableObject {
 
             }.store(in: &cancellables)
     }
+
+    // MARK: - Private
+
+    private func updateValue(_ value: String, isEnteringNumbers: Bool) {
+        if isEnteringNumbers {
+            guard let formattedResult = resultFormatter.formatEnteredNumber(from: value) else { return }
+            formattedCalculatorDisplay = formattedResult
+        } else {
+            guard let formattedResult = resultFormatter.formatResult(from: value) else { return }
+            formattedCalculatorDisplay = formattedResult
+        }
+    }
     
     // MARK: - Public
     
@@ -52,18 +64,6 @@ class CalculatorEnvironmentObject: ObservableObject {
 
     func deleteLastSingleDigit() {
         calculatorOperationHandler.deleteLastSingleDigit()
-    }
-    
-    // MARK: - CalculatorEnvironmentObjectProtocol
-    
-    private func updateValue(_ value: String, isEnteringNumbers: Bool) {
-        if isEnteringNumbers {
-            guard let formattedResult = resultFormatter.formatEnteredNumber(from: value) else { return }
-            formattedCalculatorDisplay = formattedResult
-        } else {
-            guard let formattedResult = resultFormatter.formatResult(from: value) else { return }
-            formattedCalculatorDisplay = formattedResult
-        }
     }
     
 }
