@@ -43,4 +43,26 @@ final class CalculatorEnvironmentObjectTests: XCTestCase {
         XCTAssertEqual(operationHandler.deleteLastSingleDigitCallCount, 1)
     }
 
+    func testUpdateValueIsEnteringValueTrue() {
+        // Arrange
+        let isEnteringValue = true
+        resultFormatter.formatEnteredNumberResult = "1"
+        // Act
+        operationHandler.calculatorDisplay.value = ("1", isEnteringValue)
+        // Assert
+        XCTAssertEqual(resultFormatter.formatEnteredNumberCallCount, 1)
+        XCTAssertEqual(calculatorEnvironmentObject.formattedCalculatorDisplay, "1")
+    }
+
+    func testUpdateValueIsEnteringValueFalse() {
+        // Arrange
+        let isEnteringValue = false
+        resultFormatter.formatResultResult = "1"
+        // Act
+        operationHandler.calculatorDisplay.value = ("1", isEnteringValue)
+        // Assert
+        XCTAssertEqual(resultFormatter.formatResultCallCount, 1)
+        XCTAssertEqual(calculatorEnvironmentObject.formattedCalculatorDisplay, "1")
+    }
+
 }

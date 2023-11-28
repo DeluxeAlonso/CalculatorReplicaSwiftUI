@@ -40,7 +40,6 @@ class CalculatorEnvironmentObject: ObservableObject {
             .sink { [weak self] info in
                 guard let self = self else { return }
                 self.updateValue(info.0, isEnteringNumbers: info.1)
-
             }.store(in: &cancellables)
     }
 
