@@ -38,8 +38,7 @@ class CalculatorEnvironmentObject: ObservableObject {
             .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] info in
-                guard let self = self else { return }
-                self.updateValue(info.0, isEnteringNumbers: info.1)
+                self?.updateValue(info.0, isEnteringNumbers: info.1)
             }.store(in: &cancellables)
     }
 
