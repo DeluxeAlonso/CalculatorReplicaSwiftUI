@@ -12,19 +12,19 @@ import Combine
 final class CalculatorResultFormatterMock: CalculatorResultFormatterProtocol {
     var formatResultResult: String?
     private(set) var formatResultCallCount = 0
-    private(set) var formatResultCall: ((String) -> Void)?
+    var formatResultCall: ((String) -> Void)?
     func formatResult(from calculatorDisplay: String) -> String? {
         formatResultCallCount += 1
-        formatResultCall(calculatorDisplay)
+        formatResultCall?(calculatorDisplay)
         return formatResultResult
     }
 
     var formatEnteredNumberResult: String?
     private(set) var formatEnteredNumberCallCount = 0
-    private(set) var formatEnteredNumberCall: ((String) -> Void)?
+    var formatEnteredNumberCall: ((String) -> Void)?
     func formatEnteredNumber(from calculatorDisplay: String) -> String? {
         formatEnteredNumberCallCount += 1
-        formatEnteredNumberCall(calculatorDisplay)
+        formatEnteredNumberCall?(calculatorDisplay)
         return formatEnteredNumberResult
     }
 }

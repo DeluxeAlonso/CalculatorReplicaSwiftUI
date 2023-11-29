@@ -46,23 +46,35 @@ final class CalculatorEnvironmentObjectTests: XCTestCase {
     func testUpdateValueIsEnteringValueTrue() {
         // Arrange
         let isEnteringValue = true
-        resultFormatter.formatEnteredNumberResult = "1"
+        resultFormatter.formatEnteredNumberResult = "11"
+        let expectation = expectation(description: "Entered number should be formatted")
         // Act
+        resultFormatter.formatEnteredNumberCall = { display in
+            XCTAssertEqual(display, "1")
+            expectation.fulfill()
+        }
         operationHandler.calculatorDisplay.value = ("1", isEnteringValue)
         // Assert
+        waitForExpectations(timeout: 1.0)
         XCTAssertEqual(resultFormatter.formatEnteredNumberCallCount, 1)
-        XCTAssertEqual(calculatorEnvironmentObject.formattedCalculatorDisplay, "1")
+        XCTAssertEqual(calculatorEnvironmentObject.formattedCalculatorDisplay, "11")
     }
 
     func testUpdateValueIsEnteringValueFalse() {
         // Arrange
         let isEnteringValue = false
-        resultFormatter.formatResultResult = "1"
+        resultFormatter.formatResultResult = "11"
+        let expectation = expectation(description: "Result should be formatted")
         // Act
+        resultFormatter.formatResultCall = { display in
+            XCTAssertEqual(display, "1")
+            expectation.fulfill()
+        }
         operationHandler.calculatorDisplay.value = ("1", isEnteringValue)
         // Assert
+        waitForExpectations(timeout: 1.0)
         XCTAssertEqual(resultFormatter.formatResultCallCount, 1)
-        XCTAssertEqual(calculatorEnvironmentObject.formattedCalculatorDisplay, "1")
+        XCTAssertEqual(calculatorEnvironmentObject.formattedCalculatorDisplay, "11")
     }
 
 }
