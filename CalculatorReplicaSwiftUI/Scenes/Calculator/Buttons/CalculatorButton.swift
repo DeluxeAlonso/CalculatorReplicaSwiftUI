@@ -20,8 +20,8 @@ struct CalculatorButton: CalculatorButtonProtocol {
     }
 
     var shouldShowOnResultDisplay: Bool {
-        guard let operation = operation else { return true }
-        return operation == .decimal
+        if isPlainNumber { return true }
+        return operation?.shouldShowOnResultDisplay ?? false
     }
     
     // MARK: - Initializers
