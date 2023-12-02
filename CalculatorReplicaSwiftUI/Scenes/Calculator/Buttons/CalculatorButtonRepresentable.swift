@@ -29,7 +29,7 @@ enum CalculatorButtonRepresentable: String {
     case equal = "="
     
     var character: Character {
-        return self.rawValue.first!
+        return rawValue.first ?? Character(rawValue)
     }
 
     var accessibilityLabel: String {
