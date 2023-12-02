@@ -9,7 +9,7 @@
 import Combine
 import Foundation
 
-class CalculatorEnvironmentObject: ObservableObject {
+final class CalculatorEnvironmentObject: ObservableObject {
 
     @UserDefaultsStorage("calculatorDisplay", defaultValue: "0")
     var formattedCalculatorDisplay: String {
