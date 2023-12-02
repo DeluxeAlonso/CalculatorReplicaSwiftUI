@@ -12,6 +12,15 @@ enum CalculatorOperation: Equatable {
     case equals
     case clear
     case decimal
+
+    var shouldShowOnResultDisplay: Bool {
+        switch self {
+        case .unaryOperation, .binaryOperation, .equals, .clear:
+            return false
+        case .decimal:
+            return true
+        }
+    }
     
     // MARK: - Equatable
     
