@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct CalculatorButton: CalculatorButtonProtocol {
-
     let title: String
     let icon: String?
     let accessibilityLabel: String
