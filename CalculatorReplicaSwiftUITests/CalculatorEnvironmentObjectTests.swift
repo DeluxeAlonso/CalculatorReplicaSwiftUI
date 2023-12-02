@@ -46,28 +46,27 @@ final class CalculatorEnvironmentObjectTests: XCTestCase {
     func testUpdateValueIsEnteringValueTrue() {
         // Arrange
         let isEnteringValue = true
+        calculatorEnvironmentObject.formattedCalculatorDisplay = "0"
         resultFormatter.formatEnteredNumberResult = "11"
         let expectation = expectation(description: "Entered number should be formatted")
-        let initialCalculatorDisplay = calculatorEnvironmentObject.formattedCalculatorDisplay
         // Act
         resultFormatter.formatEnteredNumberCall = { display in
-            XCTAssertEqual(display, "1")
+            XCTAssertEqual(display, "2")
             expectation.fulfill()
         }
-        operationHandler.calculatorDisplay.value = ("1", isEnteringValue)
+        operationHandler.calculatorDisplay.value = ("2", isEnteringValue)
         // Assert
         waitForExpectations(timeout: 1.0)
         XCTAssertEqual(resultFormatter.formatEnteredNumberCallCount, 1)
         XCTAssertEqual(calculatorEnvironmentObject.formattedCalculatorDisplay, "11")
-        XCTAssertNotEqual(calculatorEnvironmentObject.formattedCalculatorDisplay, initialCalculatorDisplay)
     }
 
     func testUpdateValueIsEnteringValueTrueNilFormatEnteredNumber() {
         // Arrange
         let isEnteringValue = true
+        calculatorEnvironmentObject.formattedCalculatorDisplay = "0"
         resultFormatter.formatEnteredNumberResult = nil
         let expectation = expectation(description: "Entered number should be formatted")
-        let initialCalculatorDisplay = calculatorEnvironmentObject.formattedCalculatorDisplay
         // Act
         resultFormatter.formatEnteredNumberCall = { display in
             XCTAssertEqual(display, "1")
@@ -77,7 +76,7 @@ final class CalculatorEnvironmentObjectTests: XCTestCase {
         // Assert
         waitForExpectations(timeout: 1.0)
         XCTAssertEqual(resultFormatter.formatEnteredNumberCallCount, 1)
-        XCTAssertEqual(calculatorEnvironmentObject.formattedCalculatorDisplay, initialCalculatorDisplay)
+        XCTAssertEqual(calculatorEnvironmentObject.formattedCalculatorDisplay, "0")
     }
 
     func testUpdateValueIsEnteringValueFalse() {
