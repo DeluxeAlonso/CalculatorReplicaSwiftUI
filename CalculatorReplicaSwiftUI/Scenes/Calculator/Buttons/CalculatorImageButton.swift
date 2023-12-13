@@ -15,6 +15,6 @@ struct CalculatorImageButton: View {
     var body: some View {
         Image(systemName: imageName)
             .font(.system(size: 25.0, weight: .medium))
-            .calculatorButtonStyle(for: style)
+            //.calculatorButtonStyle(for: style)
     }
 }
