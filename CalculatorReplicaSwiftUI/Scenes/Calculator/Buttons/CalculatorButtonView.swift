@@ -35,17 +35,6 @@ struct CalculatorButtonView: View {
 struct MyButtonStyle: ButtonStyle {
     let style: CalculatorButtonStyleProtocol
 
-    private var buttonSize: (width: CGFloat, height: CGFloat) {
-        let numberOfButtonsPerRow = Constant.numberOfButtonsPerRow
-        let screenWidth = UIScreen.main.bounds.width
-        let offset = style.gridSpace - 1
-
-        let height = (screenWidth - CGFloat((numberOfButtonsPerRow + 1) * Constant.spacing)) / CGFloat(numberOfButtonsPerRow)
-        let width = height * CGFloat(style.gridSpace) + CGFloat(Constant.spacing * offset)
-
-        return (width, height)
-    }
-
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .calculatorButtonStyle(for: style)
