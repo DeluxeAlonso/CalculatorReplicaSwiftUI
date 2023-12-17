@@ -30,3 +30,20 @@ struct CalculatorButtonView: View {
         }
     }
 }
+
+struct CustomButtonStyle: ButtonStyle {
+    let style: CalculatorButtonStyleProtocol
+
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .calculatorButtonStyle(for: style)
+            .opacity(configuration.isPressed ? 0.6 : 1.0)
+    }
+    
+    // MARK: - Constants
+
+    struct Constant {
+        static let spacing = 12
+        static let numberOfButtonsPerRow = 4
+    }
+}
