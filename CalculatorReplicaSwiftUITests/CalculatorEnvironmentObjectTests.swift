@@ -37,6 +37,30 @@ final class CalculatorEnvironmentObjectTests: XCTestCase {
         XCTAssertEqual(operationHandler.handleCalculatorButtonCallCount, 1)
     }
 
+    func testHandleCalculatorButtonWithIdentifier() {
+        // Arrange
+        calculatorEnvironmentObject = CalculatorEnvironmentObject(calculatorButtons: [[CalculatorButton(representable: .decimal)]],
+                                                                  resultFormatter: resultFormatter,
+                                                                  calculatorOperationHandler: operationHandler)
+        let calculatorButton = CalculatorButton(representable: .decimal)
+        // Act
+        calculatorEnvironmentObject.handleCalculatorButton(identifier: calculatorButton.identifier)
+        // Assert
+        XCTAssertEqual(operationHandler.handleCalculatorButtonCallCount, 1)
+    }
+
+    func testHandleCalculatorButtonWithInvalidIdentifier() {
+        // Arrange
+        calculatorEnvironmentObject = CalculatorEnvironmentObject(calculatorButtons: [[CalculatorButton(representable: .decimal)]],
+                                                                  resultFormatter: resultFormatter,
+                                                                  calculatorOperationHandler: operationHandler)
+        let calculatorButton = CalculatorButton(representable: .division)
+        // Act
+        calculatorEnvironmentObject.handleCalculatorButton(identifier: calculatorButton.identifier)
+        // Assert
+        XCTAssertEqual(operationHandler.handleCalculatorButtonCallCount, 0)
+    }
+
     func testDeleteLastSingleDigit() {
         // Act
         calculatorEnvironmentObject.deleteLastSingleDigit()
