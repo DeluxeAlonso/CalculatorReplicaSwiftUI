@@ -9,10 +9,13 @@
 import SwiftUI
 
 protocol CalculatorButtonProtocol {
+    var identifier: String { get }
     var title: String { get }
     var icon: String? { get }
 
     var accessibilityLabel: String { get }
+    var accessibilityIdentifier: String { get }
+
     var operation: CalculatorOperation? { get }
 
     var style: CalculatorButtonStyleProtocol { get }

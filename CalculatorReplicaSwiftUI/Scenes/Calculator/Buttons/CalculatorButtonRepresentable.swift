@@ -32,6 +32,31 @@ enum CalculatorButtonRepresentable: String {
         return rawValue.first ?? Character(rawValue)
     }
 
+    var identifier: String {
+        switch self {
+        case .one: return "one"
+        case .two: return "two"
+        case .three: return "three"
+        case .four: return "four"
+        case .five: return "five"
+        case .six: return "six"
+        case .seven: return "seven"
+        case .eight: return "eight"
+        case .nine: return "nine"
+        case .zero: return "zero"
+        case .decimal: return "decimal"
+        case .exponent: return "exponent"
+        case .clear: return  "clear"
+        case .sum: return "sum"
+        case .subtraction: return "subtraction"
+        case .multiplication: return "multiplication"
+        case .division: return "division"
+        case .percent: return "percent"
+        case .negative: return "negative"
+        case .equal: return "equal"
+        }
+    }
+
     var accessibilityLabel: String {
         switch self {
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:
