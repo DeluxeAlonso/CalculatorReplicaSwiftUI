@@ -9,11 +9,14 @@
 import SwiftUI
 
 struct CalculatorButton: CalculatorButtonProtocol {
+    let identifier: String
     let title: String
     let icon: String?
     let accessibilityLabel: String
     let style: CalculatorButtonStyleProtocol
     let operation: CalculatorOperation?
+
+    var accessibilityIdentifier: String { identifier }
 
     var isPlainNumber: Bool {
         return operation == nil
@@ -26,13 +29,15 @@ struct CalculatorButton: CalculatorButtonProtocol {
     
     // MARK: - Initializers
     
-    init(title: String,
+    init(identifier: String,
+         title: String,
          icon: String?,
          accessibilityLabel: String,
          gridSpace: Int,
          foregroundColor: Color,
          backgroundColor: Color,
          operation: CalculatorOperation?) {
+        self.identifier = identifier
         self.title = title
         self.icon = icon
         self.accessibilityLabel = accessibilityLabel
@@ -46,7 +51,8 @@ struct CalculatorButton: CalculatorButtonProtocol {
          gridSpace: Int = 1,
          foregroundColor: Color = Color(.white),
          backgroundColor: Color = Color(.darkGray)) {
-        self.init(title: representable.rawValue,
+        self.init(identifier: representable.identifier,
+                  title: representable.rawValue,
                   icon: representable.icon,
                   accessibilityLabel: representable.accessibilityLabel,
                   gridSpace: gridSpace,
