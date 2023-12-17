@@ -56,7 +56,6 @@ final class CalculatorEnvironmentObject: ObservableObject {
     
     // MARK: - Public
 
-    @available(*, deprecated, message: "Call handleCalculatorButton(identifier: String) instead")
     func handleCalculatorButton(_ calculatorButton: CalculatorButtonProtocol) {
         calculatorOperationHandler.handleCalculatorButton(calculatorButton)
     }
