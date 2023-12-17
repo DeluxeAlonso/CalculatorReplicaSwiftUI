@@ -20,7 +20,6 @@ struct CalculatorButtonView: View {
             containedView()
         })
         .accessibility(label: Text(button.accessibilityLabel))
-        .buttonStyle(CustomButtonStyle(style: button.style))
     }
     
     private func containedView() -> AnyView {
