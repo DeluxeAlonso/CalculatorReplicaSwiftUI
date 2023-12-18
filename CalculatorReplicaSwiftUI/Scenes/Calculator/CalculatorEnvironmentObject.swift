@@ -55,8 +55,15 @@ final class CalculatorEnvironmentObject: ObservableObject {
     }
     
     // MARK: - Public
-    
+
     func handleCalculatorButton(_ calculatorButton: CalculatorButtonProtocol) {
+        calculatorOperationHandler.handleCalculatorButton(calculatorButton)
+    }
+
+    func handleCalculatorButton(identifier: String) {
+        guard let calculatorButton = calculatorButtons.flatMap({ $0 }).first(where: { $0.identifier == identifier }) else {
+            return
+        }
         calculatorOperationHandler.handleCalculatorButton(calculatorButton)
     }
 
