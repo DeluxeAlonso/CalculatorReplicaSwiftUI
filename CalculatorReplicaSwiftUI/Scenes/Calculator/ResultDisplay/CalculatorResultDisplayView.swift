@@ -23,6 +23,7 @@ struct CalculatorResultDisplayView: View {
                     .foregroundColor(.white)
                     .lineLimit(1)
                     .minimumScaleFactor(0.6)
+                    .textSelection(.enabled)
             }
         }
         .contentShape(Rectangle())
