@@ -9,7 +9,7 @@
 import XCTest
 @testable import Calculator
 
-class StringExtensionTests: XCTestCase {
+final class StringExtensionTests: XCTestCase {
 
     func testIntegerDigitsCount() {
         // Arrange

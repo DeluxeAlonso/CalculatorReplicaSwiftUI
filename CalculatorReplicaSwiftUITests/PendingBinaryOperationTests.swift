@@ -9,7 +9,7 @@
 import XCTest
 @testable import Calculator
 
-class PendingBinaryOperationTests: XCTestCase {
+final class PendingBinaryOperationTests: XCTestCase {
 
     func testSimpleOperation() {
         // Arrange
