@@ -9,7 +9,7 @@
 import XCTest
 @testable import Calculator
 
-class CalculatorOperationValidatorTests: XCTestCase {
+final class CalculatorOperationValidatorTests: XCTestCase {
     
     private var validatorToTest: CalculatorOperationValidatorProtocol!
     private var mockCalculatorConfiguration: CalculatorConfigurationMock!

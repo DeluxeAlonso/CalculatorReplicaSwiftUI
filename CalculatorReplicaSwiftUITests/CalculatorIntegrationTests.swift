@@ -9,7 +9,7 @@
 import XCTest
 @testable import Calculator
 
-class CalculatorIntegrationTests: XCTestCase {
+final class CalculatorIntegrationTests: XCTestCase {
     
     private var operationHandler: CalculatorOperationHandlerProtocol!
 
