@@ -8,7 +8,7 @@
 
 struct DependencyInjectionFactory {
     static func createCalculatorConfiguration() -> CalculatorConfigurationProtocol {
-        return CalculatorConfiguration()
+        CalculatorConfiguration()
     }
     
     static func createCalculatorValidator() -> CalculatorOperationValidatorProtocol {
@@ -17,21 +17,21 @@ struct DependencyInjectionFactory {
     }
     
     static func createCalculatorTrimmer() -> CalculatorDisplayTrimmerProtocol {
-        return CalculatorDisplayTrimmer()
+        CalculatorDisplayTrimmer()
     }
     
     static func createCalculatorOperationHandler() -> CalculatorOperationHandlerProtocol {
-        return CalculatorOperationHadler(calculatorValidator: createCalculatorValidator(),
-                                         calculatorTrimmer: createCalculatorTrimmer())
+        CalculatorOperationHadler(calculatorValidator: createCalculatorValidator(),
+                                  calculatorTrimmer: createCalculatorTrimmer())
     }
     
     static func createCalculatorResultFormatter() -> CalculatorResultFormatterProtocol {
-        return CalculatorResultFormatter(calculatorConfiguration: createCalculatorConfiguration())
+        CalculatorResultFormatter(calculatorConfiguration: createCalculatorConfiguration())
     }
     
     static func createCalculatorEnvironmentObject() -> CalculatorEnvironmentObject {
-        return CalculatorEnvironmentObject(calculatorButtons: CalculatorBuilder.buildCalculatorButtons(),
-                                          resultFormatter: createCalculatorResultFormatter(),
-                                          calculatorOperationHandler: createCalculatorOperationHandler())
+        CalculatorEnvironmentObject(calculatorButtons: CalculatorBuilder.buildCalculatorButtons(),
+                                    resultFormatter: createCalculatorResultFormatter(),
+                                    calculatorOperationHandler: createCalculatorOperationHandler())
     }
 }
