@@ -10,7 +10,7 @@ import Foundation
 
 extension Decimal {
     var fractionalDigitsCount: Int {
-        return max(-exponent, 0)
+        max(-exponent, 0)
     }
     
     var integerDigitsCount: Int {
