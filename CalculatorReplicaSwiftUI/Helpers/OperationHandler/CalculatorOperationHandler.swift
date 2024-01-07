@@ -16,7 +16,7 @@ final class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
 
     // MARK: - Stored properties
 
-    private var pendingBinaryOperation: PendingBinaryOperation?
+    private var pendingBinaryOperation: PendingBinaryOperationProtocol?
     private var isEnteringNumbers: Bool = false
     private var storedCalculatorDisplay: String = "" {
         didSet {
