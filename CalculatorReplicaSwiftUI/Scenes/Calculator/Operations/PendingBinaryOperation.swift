@@ -6,7 +6,14 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-final class PendingBinaryOperation {
+protocol PendingBinaryOperationProtocol {
+    var hasOperand: Bool  { get }
+
+    func setOperand(_ secondOperand: Double)
+    func perform() -> Double
+}
+
+final class PendingBinaryOperation: PendingBinaryOperationProtocol {
     private let function: (Double, Double) -> Double
     private var accumulatedValue: Double
     private var operand: Double? = nil
