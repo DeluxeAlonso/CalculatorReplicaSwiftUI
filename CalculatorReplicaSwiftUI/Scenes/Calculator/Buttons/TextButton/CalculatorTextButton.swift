@@ -8,13 +8,6 @@
 
 import SwiftUI
 
-protocol CalculatorTextButtonProtocol {
-    var identifier: String { get }
-    var text: String { get }
-    var accessibilityLabel: String { get }
-    var style: CalculatorButtonStyleProtocol { get }
-}
-
 struct CalculatorTextButton: View {
     @EnvironmentObject var env: CalculatorEnvironmentObject
 
@@ -22,8 +15,7 @@ struct CalculatorTextButton: View {
 
     var body: some View {
         Button(action: {
-            env.handleCalculatorButton(identifier:
-                                        button.identifier)
+            env.handleCalculatorButton(identifier: button.identifier)
         }, label: {
             Text(button.text)
                 .font(.system(size: 32.0))
