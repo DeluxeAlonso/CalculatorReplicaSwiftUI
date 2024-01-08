@@ -1,5 +1,5 @@
 //
-//  CalculatorTextButton.swift
+//  CalculatorImageButtonLegacy.swift
 //  CalculatorReplicaSwiftUI
 //
 //  Created by Alonso on 5/1/20.
@@ -8,13 +8,13 @@
 
 import SwiftUI
 
-struct CalculatorTextButton: View {
-    let text: String
+struct CalculatorImageButtonLegacy: View {
+    let imageName: String
     let style: CalculatorButtonStyleProtocol
     
     var body: some View {
-        Text(text)
-            .font(.system(size: 32.0))
+        Image(systemName: imageName)
+            .font(.system(size: 25.0, weight: .medium))
             .calculatorButtonStyle(for: style)
     }
 }

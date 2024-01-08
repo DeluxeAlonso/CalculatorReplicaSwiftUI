@@ -1,5 +1,5 @@
 //
-//  CalculatorTextButtonTests.swift
+//  CalculatorTextButtonLegacyTests.swift
 //  CalculatorReplicaSwiftUISnapshotTests
 //
 //  Created by Alonso on 12/11/23.
@@ -10,13 +10,13 @@ import SnapshotTesting
 @testable import Calculator
 import XCTest
 
-final class CalculatorTextButtonTests: XCTestCase {
+final class CalculatorTextButtonLegacyTests: XCTestCase {
 
     func testCalculatorTextButton() {
         let style = CalculatorButtonStyleProtocolMock()
         style.gridSpace = 1
 
-        let view = CalculatorTextButton(text: "1", style: style)
+        let view = CalculatorTextButtonLegacy(text: "1", style: style)
         assertSnapshot(of: view, as: .image)
     }
 
@@ -24,7 +24,7 @@ final class CalculatorTextButtonTests: XCTestCase {
         let style = CalculatorButtonStyleProtocolMock()
         style.gridSpace = 2
 
-        let view = CalculatorTextButton(text: "1", style: style)
+        let view = CalculatorTextButtonLegacy(text: "1", style: style)
         assertSnapshot(of: view, as: .image)
     }
 
