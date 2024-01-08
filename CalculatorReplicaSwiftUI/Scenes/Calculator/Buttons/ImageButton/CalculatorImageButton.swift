@@ -25,8 +25,14 @@ struct CalculatorImageButton: View {
     }
 }
 
-//struct CalculatorImageButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CalculatorImageButton()
-//    }
-//}
+struct CalculatorImageButton_Previews: PreviewProvider {
+    static var previews: some View {
+        let calculatorImageButton = CalculatorImageButtonAdapter(identifier: "",
+                                                                 imageName: "plus",
+                                                                 accessibilityLabel: "",
+                                                                 style: CalculatorButtonStyle(gridSpace: 1,
+                                                                                              tintColor: .blue,
+                                                                                              backgroundColor: .black))
+        CalculatorImageButton(button: calculatorImageButton)
+    }
+}

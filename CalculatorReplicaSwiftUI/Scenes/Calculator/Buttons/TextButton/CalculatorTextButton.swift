@@ -24,9 +24,9 @@ struct CalculatorTextButton: View {
         .accessibility(label: Text(button.accessibilityLabel))
     }
 }
-//
-//struct CalculatorTextButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CalculatorTextButton(button: CalculatorButton(representable: .eight))
-//    }
-//}
+
+struct CalculatorTextButton_Previews: PreviewProvider {
+    static var previews: some View {
+        CalculatorTextButton(button: CalculatorTextButtonAdapter(CalculatorButton(representable: .eight)))
+    }
+}

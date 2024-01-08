@@ -14,6 +14,13 @@ struct CalculatorImageButtonAdapter: CalculatorImageButtonProtocol {
     let accessibilityLabel: String
     let style: CalculatorButtonStyleProtocol
 
+    init(identifier: String, imageName: String, accessibilityLabel: String, style: CalculatorButtonStyleProtocol) {
+        self.identifier = identifier
+        self.imageName = imageName
+        self.accessibilityLabel = accessibilityLabel
+        self.style = style
+    }
+
     init?(_ calculatorButton: CalculatorButtonProtocol) {
         guard let imageName = calculatorButton.icon else { return nil }
         self.identifier = calculatorButton.identifier

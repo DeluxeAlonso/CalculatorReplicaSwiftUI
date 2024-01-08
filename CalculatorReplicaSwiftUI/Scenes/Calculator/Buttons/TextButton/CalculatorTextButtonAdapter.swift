@@ -14,6 +14,13 @@ struct CalculatorTextButtonAdapter: CalculatorTextButtonProtocol {
     let accessibilityLabel: String
     let style: CalculatorButtonStyleProtocol
 
+    init(identifier: String, text: String, accessibilityLabel: String, style: CalculatorButtonStyleProtocol) {
+        self.identifier = identifier
+        self.text = text
+        self.accessibilityLabel = accessibilityLabel
+        self.style = style
+    }
+
     init(_ calculatorButton: CalculatorButtonProtocol) {
         self.identifier = calculatorButton.identifier
         self.text = calculatorButton.title
