@@ -11,7 +11,6 @@ import Foundation
 protocol CalculatorImageButtonProtocol {
     var identifier: String { get }
     var imageName: String { get }
-    var title: String { get }
     var accessibilityLabel: String { get }
     var style: CalculatorButtonStyleProtocol { get }
 }
