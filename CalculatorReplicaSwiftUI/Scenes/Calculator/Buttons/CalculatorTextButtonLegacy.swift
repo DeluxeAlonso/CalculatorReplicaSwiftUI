@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CalculatorTextButton: View {
+struct CalculatorTextButtonLegacy: View {
     let text: String
     let style: CalculatorButtonStyleProtocol
     

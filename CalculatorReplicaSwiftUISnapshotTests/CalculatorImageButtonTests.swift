@@ -16,7 +16,7 @@ final class CalculatorImageButtonTests: XCTestCase {
         let style = CalculatorButtonStyleProtocolMock()
         style.gridSpace = 1
 
-        let view = CalculatorImageButton(imageName: "plus", style: style)
+        let view = CalculatorImageButtonLegacy(imageName: "plus", style: style)
         assertSnapshot(of: view, as: .image)
     }
 
@@ -24,7 +24,7 @@ final class CalculatorImageButtonTests: XCTestCase {
         let style = CalculatorButtonStyleProtocolMock()
         style.gridSpace = 2
 
-        let view = CalculatorImageButton(imageName: "plus", style: style)
+        let view = CalculatorImageButtonLegacy(imageName: "plus", style: style)
         assertSnapshot(of: view, as: .image)
     }
 

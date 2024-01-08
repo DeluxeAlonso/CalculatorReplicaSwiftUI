@@ -16,7 +16,7 @@ final class CalculatorTextButtonTests: XCTestCase {
         let style = CalculatorButtonStyleProtocolMock()
         style.gridSpace = 1
 
-        let view = CalculatorTextButton(text: "1", style: style)
+        let view = CalculatorTextButtonLegacy(text: "1", style: style)
         assertSnapshot(of: view, as: .image)
     }
 
@@ -24,7 +24,7 @@ final class CalculatorTextButtonTests: XCTestCase {
         let style = CalculatorButtonStyleProtocolMock()
         style.gridSpace = 2
 
-        let view = CalculatorTextButton(text: "1", style: style)
+        let view = CalculatorTextButtonLegacy(text: "1", style: style)
         assertSnapshot(of: view, as: .image)
     }
 
