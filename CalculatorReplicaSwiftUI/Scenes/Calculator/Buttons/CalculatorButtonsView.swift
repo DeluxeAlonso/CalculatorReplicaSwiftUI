@@ -15,7 +15,7 @@ struct CalculatorButtonsView: View {
         ForEach(0...env.calculatorButtons.count - 1, id: \.self) { index in
             HStack(spacing: 12) {
                 ForEach(self.env.calculatorButtons[index], id: \.title) { button in
-                    CalculatorButtonView(button: button)
+                    CalculatorButtonViewLegacy(button: button)
                 }
             }
         }

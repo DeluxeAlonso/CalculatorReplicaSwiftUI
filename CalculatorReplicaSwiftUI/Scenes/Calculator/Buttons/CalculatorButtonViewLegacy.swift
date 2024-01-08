@@ -1,5 +1,5 @@
 //
-//  CalculatorButtonView.swift
+//  CalculatorButtonViewLegacy.swift
 //  CalculatorReplicaSwiftUI
 //
 //  Created by Alonso on 4/11/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CalculatorButtonView: View {
+struct CalculatorButtonViewLegacy: View {
     @EnvironmentObject var env: CalculatorEnvironmentObject
     
     let button: CalculatorButtonProtocol
