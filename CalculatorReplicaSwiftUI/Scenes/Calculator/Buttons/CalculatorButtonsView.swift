@@ -14,10 +14,18 @@ struct CalculatorButtonsView: View {
     var body: some View {
         ForEach(0...env.calculatorButtons.count - 1, id: \.self) { index in
             HStack(spacing: 12) {
-                ForEach(self.env.calculatorButtons[index], id: \.title) { button in
-                    CalculatorButtonViewLegacy(button: button)
+                ForEach(env.calculatorButtons[index], id: \.title) { button in
+                    containedView(button)
                 }
             }
         }
+    }
+
+    private func containedView(_ button: CalculatorButtonProtocol) -> AnyView {
+        if let calculatorImageButton = CalculatorImageButtonAdapter(button) {
+            return CalculatorImageButton(button: calculatorImageButton).erasedToAnyView()
+        }
+        let calculatorTextButton = CalculatorTextButtonAdapter(button)
+        return CalculatorTextButton(button: calculatorTextButton).erasedToAnyView()
     }
 }
