@@ -1,5 +1,5 @@
 //
-//  CalculatorTextButton.swift
+//  CalculatorImageButton.swift
 //  CalculatorReplicaSwiftUI
 //
 //  Created by Alonso on 7/01/24.
@@ -8,33 +8,33 @@
 
 import SwiftUI
 
-protocol CalculatorTextButtonProtocol {
+protocol CalculatorImageButtonProtocol {
     var identifier: String { get }
-    var text: String { get }
+    var imageName: String { get }
+    var title: String { get }
     var accessibilityLabel: String { get }
     var style: CalculatorButtonStyleProtocol { get }
 }
 
-struct CalculatorTextButton: View {
+struct CalculatorImageButton: View {
     @EnvironmentObject var env: CalculatorEnvironmentObject
 
-    let button: CalculatorTextButtonProtocol
+    let button: CalculatorImageButtonProtocol
 
     var body: some View {
         Button(action: {
-            env.handleCalculatorButton(identifier:
-                                        button.identifier)
+            env.handleCalculatorButton(identifier: button.identifier)
         }, label: {
-            Text(button.text)
-                .font(.system(size: 32.0))
+            Image(systemName: button.imageName)
+                .font(.system(size: 25.0, weight: .medium))
                 .calculatorButtonStyle(for: button.style)
         })
         .accessibility(label: Text(button.accessibilityLabel))
     }
 }
-//
-//struct CalculatorTextButton_Previews: PreviewProvider {
+
+//struct CalculatorImageButton_Previews: PreviewProvider {
 //    static var previews: some View {
-//        CalculatorTextButton(button: CalculatorButton(representable: .eight))
+//        CalculatorImageButton()
 //    }
 //}
