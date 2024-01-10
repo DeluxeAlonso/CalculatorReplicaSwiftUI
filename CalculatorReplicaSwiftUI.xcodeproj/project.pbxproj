@@ -25,6 +25,7 @@
 		E2608A542B4E619F00060A20 /* CalculatorImageButtonProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2608A532B4E619F00060A20 /* CalculatorImageButtonProtocolMock.swift */; };
 		E2608A562B4E61B800060A20 /* CalculatorButtonStyleProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2608A552B4E61B800060A20 /* CalculatorButtonStyleProtocolMock.swift */; };
 		E2608A582B4E634000060A20 /* CalculatorTextButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2608A572B4E634000060A20 /* CalculatorTextButtonTests.swift */; };
+		E2608A5A2B4E63B300060A20 /* CalculatorTextButtonProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2608A592B4E63B300060A20 /* CalculatorTextButtonProtocolMock.swift */; };
 		E263ED6A244AA99D0001C89B /* String+Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263ED69244AA99D0001C89B /* String+Digits.swift */; };
 		E263ED6C244ACE260001C89B /* Decimal+Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263ED6B244ACE260001C89B /* Decimal+Digits.swift */; };
 		E2654C6C244D5304005BA7EC /* CalculatorOperationValidatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2654C6B244D5304005BA7EC /* CalculatorOperationValidatorProtocol.swift */; };
@@ -113,6 +114,7 @@
 		E2608A532B4E619F00060A20 /* CalculatorImageButtonProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorImageButtonProtocolMock.swift; sourceTree = "<group>"; };
 		E2608A552B4E61B800060A20 /* CalculatorButtonStyleProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonStyleProtocolMock.swift; sourceTree = "<group>"; };
 		E2608A572B4E634000060A20 /* CalculatorTextButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTextButtonTests.swift; sourceTree = "<group>"; };
+		E2608A592B4E63B300060A20 /* CalculatorTextButtonProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTextButtonProtocolMock.swift; sourceTree = "<group>"; };
 		E263ED69244AA99D0001C89B /* String+Digits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Digits.swift"; sourceTree = "<group>"; };
 		E263ED6B244ACE260001C89B /* Decimal+Digits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Digits.swift"; sourceTree = "<group>"; };
 		E2654C6B244D5304005BA7EC /* CalculatorOperationValidatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperationValidatorProtocol.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				E215DDFE2B018B5B00670876 /* CalculatorButtonProtocolMock.swift */,
 				E2608A532B4E619F00060A20 /* CalculatorImageButtonProtocolMock.swift */,
 				E2608A552B4E61B800060A20 /* CalculatorButtonStyleProtocolMock.swift */,
+				E2608A592B4E63B300060A20 /* CalculatorTextButtonProtocolMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2608A5A2B4E63B300060A20 /* CalculatorTextButtonProtocolMock.swift in Sources */,
 				E215DE312B019BBC00670876 /* CalculatorTextButtonLegacyTests.swift in Sources */,
 				E215DE2E2B018DA100670876 /* CalculatorImageButtonLegacyTests.swift in Sources */,
 				E2608A582B4E634000060A20 /* CalculatorTextButtonTests.swift in Sources */,
