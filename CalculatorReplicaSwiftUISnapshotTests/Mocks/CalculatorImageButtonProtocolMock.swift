@@ -10,5 +10,11 @@ import SwiftUI
 @testable import Calculator
 
 final class CalculatorImageButtonProtocolMock: CalculatorImageButtonProtocol {
-    
+    var identifier: String = ""
+
+    var imageName: String = ""
+
+    var accessibilityLabel: String = ""
+
+    var style: CalculatorButtonStyleProtocol = CalculatorButtonStyleProtocolMock()
 }
