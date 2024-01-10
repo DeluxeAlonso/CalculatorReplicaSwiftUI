@@ -28,11 +28,3 @@ final class CalculatorButtonProtocolMock: CalculatorButtonProtocol {
 
     var shouldShowOnResultDisplay: Bool = true
 }
-
-final class CalculatorButtonStyleProtocolMock: CalculatorButtonStyleProtocol {
-    var gridSpace: Int = 0
-
-    var tintColor: Color = .primary
-
-    var backgroundColor: Color = .accentColor
-}
