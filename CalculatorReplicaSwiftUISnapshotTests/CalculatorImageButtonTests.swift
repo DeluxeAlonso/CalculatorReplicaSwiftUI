@@ -21,7 +21,7 @@ final class CalculatorImageButtonTests: XCTestCase {
         imageButton.imageName = "plus"
 
         let view = CalculatorImageButton(button: imageButton)
-        assertSnapshot(of: view, as: .image, record: true)
+        assertSnapshot(of: view, as: .image)
     }
 
     func testCalculatorImageButtonExpandedGridSpace() {
@@ -33,7 +33,7 @@ final class CalculatorImageButtonTests: XCTestCase {
         imageButton.imageName = "plus"
 
         let view = CalculatorImageButton(button: imageButton)
-        assertSnapshot(of: view, as: .image, record: true)
+        assertSnapshot(of: view, as: .image)
     }
 
 }
