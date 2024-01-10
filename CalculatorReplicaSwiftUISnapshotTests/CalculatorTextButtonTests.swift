@@ -21,7 +21,7 @@ final class CalculatorTextButtonTests: XCTestCase {
         textButton.text = "1"
 
         let view = CalculatorTextButton(button: textButton)
-        assertSnapshot(of: view, as: .image, record: true)
+        assertSnapshot(of: view, as: .image)
     }
 
     func testCalculatorTextButtonExpandedGridSpace() {
@@ -33,7 +33,7 @@ final class CalculatorTextButtonTests: XCTestCase {
         textButton.text = "1"
 
         let view = CalculatorTextButton(button: textButton)
-        assertSnapshot(of: view, as: .image, record: true)
+        assertSnapshot(of: view, as: .image)
     }
 
 }
