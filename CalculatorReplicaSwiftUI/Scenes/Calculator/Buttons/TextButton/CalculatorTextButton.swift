@@ -27,6 +27,12 @@ struct CalculatorTextButton: View {
 
 struct CalculatorTextButton_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorTextButton(button: CalculatorTextButtonAdapter(CalculatorButton(representable: .eight)))
+        Group {
+            CalculatorTextButton(button: CalculatorTextButtonAdapter(CalculatorButton(representable: .eight)))
+                .previewDisplayName("Compact grid space")
+
+            CalculatorTextButton(button: CalculatorTextButtonAdapter(CalculatorButton(representable: .eight, gridSpace: 2)))
+                .previewDisplayName("Expanded grid space")
+        }
     }
 }
