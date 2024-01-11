@@ -26,13 +26,22 @@ struct CalculatorImageButton: View {
 }
 
 struct CalculatorImageButton_Previews: PreviewProvider {
+    static func makePlusImageButton(gridSpace: Int) -> CalculatorImageButtonProtocol {
+        CalculatorImageButtonAdapter(identifier: "",
+                                     imageName: "plus",
+                                     accessibilityLabel: "",
+                                     style: CalculatorButtonStyle(gridSpace: gridSpace,
+                                                                  tintColor: .blue,
+                                                                  backgroundColor: .black))
+    }
+
     static var previews: some View {
-        let calculatorImageButton = CalculatorImageButtonAdapter(identifier: "",
-                                                                 imageName: "plus",
-                                                                 accessibilityLabel: "",
-                                                                 style: CalculatorButtonStyle(gridSpace: 1,
-                                                                                              tintColor: .blue,
-                                                                                              backgroundColor: .black))
-        CalculatorImageButton(button: calculatorImageButton)
+        Group {
+            CalculatorImageButton(button: makePlusImageButton(gridSpace: 1))
+                .previewDisplayName("Compact grid space")
+
+            CalculatorImageButton(button: makePlusImageButton(gridSpace: 2))
+                .previewDisplayName("Expanded grid space")
+        }
     }
 }
