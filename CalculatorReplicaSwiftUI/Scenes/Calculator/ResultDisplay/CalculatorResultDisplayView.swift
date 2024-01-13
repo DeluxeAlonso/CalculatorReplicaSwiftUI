@@ -58,5 +58,6 @@ struct CalculatorResultDisplayView_Previews: PreviewProvider {
         return CalculatorResultDisplayView()
             .environmentObject(calculatorEnvironmentObject)
             .background(Color.black)
+            .previewLayout(.fixed(width: 200, height: 80))
     }
 }
