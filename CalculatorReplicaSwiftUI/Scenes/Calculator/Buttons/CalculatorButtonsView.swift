@@ -15,13 +15,13 @@ struct CalculatorButtonsView: View {
         ForEach(0...env.calculatorButtons.count - 1, id: \.self) { index in
             HStack(spacing: 12) {
                 ForEach(env.calculatorButtons[index], id: \.title) { button in
-                    containedView(button)
+                    buttonView(button)
                 }
             }
         }
     }
 
-    private func containedView(_ button: CalculatorButtonProtocol) -> AnyView {
+    private func buttonView(_ button: CalculatorButtonProtocol) -> AnyView {
         if let calculatorImageButton = CalculatorImageButtonAdapter(button) {
             return CalculatorImageButton(button: calculatorImageButton).erasedToAnyView()
         }

@@ -50,3 +50,14 @@ struct CalculatorResultDisplayView: View {
         }
     }
 }
+
+struct CalculatorResultDisplayView_Previews: PreviewProvider {
+    static var previews: some View {
+        let calculatorEnvironmentObject = DependencyInjectionFactory.createCalculatorEnvironmentObject()
+        calculatorEnvironmentObject.formattedCalculatorDisplay = "0"
+        return CalculatorResultDisplayView()
+            .environmentObject(calculatorEnvironmentObject)
+            .background(Color.black)
+            .previewLayout(.fixed(width: 200, height: 80))
+    }
+}
