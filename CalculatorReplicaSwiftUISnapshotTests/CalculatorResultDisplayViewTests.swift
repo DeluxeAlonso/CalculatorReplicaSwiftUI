@@ -20,8 +20,8 @@ final class CalculatorResultDisplayViewTests: XCTestCase {
         let view = CalculatorResultDisplayView()
             .environmentObject(calculatorEnvironmentObject)
             .background(Color.black)
-            .previewLayout(.fixed(width: 200, height: 80))
-        assertSnapshot(of: view, as: .image, record: true)
+            .frame(width: 250, height: 100)
+        assertSnapshot(of: view, as: .image)
     }
 
 }
