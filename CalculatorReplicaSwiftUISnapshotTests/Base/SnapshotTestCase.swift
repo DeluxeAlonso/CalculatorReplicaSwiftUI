@@ -16,8 +16,11 @@ class SnapshotTestCase: XCTestCase {
         ProcessInfo.processInfo.environment["SNAPSHOTS_RECORD"] != nil
     }
 
-    func assertSnapshotImage(of view: some View) {
-        assertSnapshot(of: view, as: .image)
+    func assertSnapshotImage(of view: some View,
+                             file: StaticString = #file,
+                             testName: String = #function,
+                             line: UInt = #line) {
+        assertSnapshot(of: view, as: .image, record: shouldRecord, file: file, testName: testName, line: line)
     }
 
 }
