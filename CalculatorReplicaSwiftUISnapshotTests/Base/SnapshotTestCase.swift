@@ -20,7 +20,7 @@ class SnapshotTestCase: XCTestCase {
                              file: StaticString = #file,
                              testName: String = #function,
                              line: UInt = #line) {
-        assertSnapshot(of: view, as: .image, record: shouldRecord, file: file, testName: testName, line: line)
+        assertSnapshot(of: view.preferredColorScheme(.light), as: .image, record: shouldRecord, file: file, testName: testName, line: line)
     }
 
 }
