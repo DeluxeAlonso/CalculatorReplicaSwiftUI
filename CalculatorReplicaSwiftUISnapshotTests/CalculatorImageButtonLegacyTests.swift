@@ -6,18 +6,16 @@
 //  Copyright © 2023 Alonso. All rights reserved.
 //
 
-import SnapshotTesting
 @testable import Calculator
-import XCTest
 
-final class CalculatorImageButtonLegacyTests: XCTestCase {
+final class CalculatorImageButtonLegacyTests: SnapshotTestCase {
 
     func testCalculatorImageButton() {
         let style = CalculatorButtonStyleProtocolMock()
         style.gridSpace = 1
 
         let view = CalculatorImageButtonLegacy(imageName: "plus", style: style)
-        assertSnapshot(of: view, as: .image)
+        assertSnapshotImage(of: view)
     }
 
     func testCalculatorImageButtonExpandedGridSpace() {
@@ -25,7 +23,7 @@ final class CalculatorImageButtonLegacyTests: XCTestCase {
         style.gridSpace = 2
 
         let view = CalculatorImageButtonLegacy(imageName: "plus", style: style)
-        assertSnapshot(of: view, as: .image)
+        assertSnapshotImage(of: view)
     }
 
 }
