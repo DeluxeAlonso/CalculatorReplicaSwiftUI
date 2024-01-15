@@ -7,9 +7,7 @@
 //
 
 @testable import Calculator
-import SnapshotTesting
 import SwiftUI
-import XCTest
 
 final class CalculatorResultDisplayViewTests: SnapshotTestCase {
 
