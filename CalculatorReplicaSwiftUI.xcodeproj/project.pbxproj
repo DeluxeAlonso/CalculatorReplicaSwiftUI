@@ -158,6 +158,7 @@
 		E2CBA5172442C3D3008A3097 /* CalculatorButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonProtocol.swift; sourceTree = "<group>"; };
 		E2CBA51B2442C660008A3097 /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 		E2CBA51D2442C7D3008A3097 /* CalculatorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBuilder.swift; sourceTree = "<group>"; };
+		E2D4E6F02B54DF7900A7ED35 /* CalculatorReplicaSwiftUISnapshotTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CalculatorReplicaSwiftUISnapshotTests.xctestplan; sourceTree = "<group>"; };
 		E2DA4B062453BF2100B9D981 /* CalculatorButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonTests.swift; sourceTree = "<group>"; };
 		E2DA4B082453C25A00B9D981 /* PendingBinaryOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingBinaryOperationTests.swift; sourceTree = "<group>"; };
 		E2DA4B0A2453C76300B9D981 /* CalculatorIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorIntegrationTests.swift; sourceTree = "<group>"; };
@@ -380,6 +381,7 @@
 				E2DA4B0A2453C76300B9D981 /* CalculatorIntegrationTests.swift */,
 				E2CAA05F24555EBA00C4DBC9 /* StringExtensionTests.swift */,
 				E2B2EDB02B0BD4E500F0F2AA /* CalculatorEnvironmentObjectTests.swift */,
+				E2D4E6F02B54DF7900A7ED35 /* CalculatorReplicaSwiftUISnapshotTests.xctestplan */,
 			);
 			path = CalculatorReplicaSwiftUITests;
 			sourceTree = "<group>";

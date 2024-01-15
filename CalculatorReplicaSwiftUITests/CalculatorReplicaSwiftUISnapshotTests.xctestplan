@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "C8E9F8B2-2520-4ABB-9534-04EF53E84377",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "environmentVariableEntries" : [
+      {
+        "enabled" : false,
+        "key" : "SNAPSHOTS_RECORD",
+        "value" : ""
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CalculatorReplicaSwiftUI.xcodeproj",
+      "identifier" : "E2FBCEBF2441608600147B1B",
+      "name" : "CalculatorReplicaSwiftUI"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CalculatorReplicaSwiftUI.xcodeproj",
+        "identifier" : "E215DE1D2B018C2300670876",
+        "name" : "CalculatorReplicaSwiftUISnapshotTests"
+      }
+    }
+  ],
+  "version" : 1
+}
