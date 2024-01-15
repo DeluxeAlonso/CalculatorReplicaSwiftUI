@@ -7,10 +7,8 @@
 //
 
 @testable import Calculator
-import SnapshotTesting
-import XCTest
 
-final class CalculatorTextButtonTests: XCTestCase {
+final class CalculatorTextButtonTests: SnapshotTestCase {
 
     func testCalculatorTextButton() {
         let textButton = CalculatorTextButtonProtocolMock()
@@ -21,7 +19,7 @@ final class CalculatorTextButtonTests: XCTestCase {
         textButton.text = "1"
 
         let view = CalculatorTextButton(button: textButton)
-        assertSnapshot(of: view, as: .image)
+        assertSnapshotImage(of: view)
     }
 
     func testCalculatorTextButtonExpandedGridSpace() {
@@ -33,7 +31,7 @@ final class CalculatorTextButtonTests: XCTestCase {
         textButton.text = "1"
 
         let view = CalculatorTextButton(button: textButton)
-        assertSnapshot(of: view, as: .image)
+        assertSnapshotImage(of: view)
     }
 
 }
