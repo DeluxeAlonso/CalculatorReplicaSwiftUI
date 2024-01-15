@@ -11,7 +11,7 @@ import SnapshotTesting
 import SwiftUI
 import XCTest
 
-final class CalculatorResultDisplayViewTests: XCTestCase {
+final class CalculatorResultDisplayViewTests: SnapshotTestCase {
 
     func testResultDisplayView() {
         let calculatorEnvironmentObject = DependencyInjectionFactory.createCalculatorEnvironmentObject()
@@ -21,7 +21,7 @@ final class CalculatorResultDisplayViewTests: XCTestCase {
             .environmentObject(calculatorEnvironmentObject)
             .background(Color.black)
             .frame(width: 250, height: 100)
-        assertSnapshot(of: view, as: .image)
+        assertSnapshotImage(of: view)
     }
 
 }
