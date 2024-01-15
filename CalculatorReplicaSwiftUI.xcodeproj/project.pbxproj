@@ -207,6 +207,7 @@
 		E215DE1F2B018C2300670876 /* CalculatorReplicaSwiftUISnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2D4E6F02B54DF7900A7ED35 /* CalculatorReplicaSwiftUISnapshotTests.xctestplan */,
 				E29631392B53636C00190A1A /* Base */,
 				E215DE2C2B018CAE00670876 /* Mocks */,
 				E215DE2D2B018DA100670876 /* CalculatorImageButtonLegacyTests.swift */,
@@ -381,7 +382,6 @@
 				E2DA4B0A2453C76300B9D981 /* CalculatorIntegrationTests.swift */,
 				E2CAA05F24555EBA00C4DBC9 /* StringExtensionTests.swift */,
 				E2B2EDB02B0BD4E500F0F2AA /* CalculatorEnvironmentObjectTests.swift */,
-				E2D4E6F02B54DF7900A7ED35 /* CalculatorReplicaSwiftUISnapshotTests.xctestplan */,
 			);
 			path = CalculatorReplicaSwiftUITests;
 			sourceTree = "<group>";
