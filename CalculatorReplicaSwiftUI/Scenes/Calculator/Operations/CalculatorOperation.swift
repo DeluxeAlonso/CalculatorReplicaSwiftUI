@@ -6,9 +6,14 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
+struct BinaryOperation {
+    let function: (Double, Double) -> Double
+    let priority: Int
+}
+
 enum CalculatorOperation: Equatable {
     case unaryOperation((Double) -> Double)
-    case binaryOperation((Double, Double) -> Double, priority: Int)
+    case binaryOperation(BinaryOperation)
     case equals
     case clear
     case decimal

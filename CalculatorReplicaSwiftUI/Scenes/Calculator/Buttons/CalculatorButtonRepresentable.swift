@@ -95,13 +95,13 @@ enum CalculatorButtonRepresentable: String {
         case .clear:
             return .clear
         case .sum:
-            return .binaryOperation({ $0 + $1 }, priority: 1)
+            return .binaryOperation(BinaryOperation(function: { $0 + $1 }, priority: 1))
         case .subtraction:
-            return .binaryOperation({ $0 - $1 }, priority: 1)
+            return .binaryOperation(BinaryOperation(function: { $0 - $1 }, priority: 1))
         case .multiplication:
-            return .binaryOperation({ $0 * $1 }, priority: 2)
+            return .binaryOperation(BinaryOperation(function: { $0 * $1 }, priority: 2))
         case .division:
-            return .binaryOperation({ $0 / $1 }, priority: 2)
+            return .binaryOperation(BinaryOperation(function: { $0 / $1 }, priority: 2))
         case .percent:
             return .unaryOperation({ $0 * 0.01 })
         case .negative:

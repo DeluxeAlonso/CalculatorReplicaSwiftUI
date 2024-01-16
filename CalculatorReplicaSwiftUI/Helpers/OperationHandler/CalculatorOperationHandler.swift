@@ -83,17 +83,17 @@ final class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
             clearCalculator()
         case .unaryOperation(let function):
             updateDisplay(with: function(resultValueUpdated))
-        case .binaryOperation(let function, let priority):
+        case .binaryOperation(let operation):
             // We leverage operation priority to perform an equal operation automatically before an operation is performed.
             // Sum and minus have a priority of 1. In this scenario if we enter a one of these two three time, an equal
             // operation will be performed before executing the last operation.
-            if let pendingBinaryOperation, pendingBinaryOperation.operationPriority <= priority {
+            if let pendingBinaryOperation, pendingBinaryOperation.operationPriority <= operation.priority {
                 performOperation(.equals)
                 resultValueUpdated = storedCalculatorDisplay.toDouble()
             }
-            pendingBinaryOperation = PendingBinaryOperation(function: function,
+            pendingBinaryOperation = PendingBinaryOperation(function: operation.function,
                                                             firstOperand: resultValueUpdated,
-                                                            priority: priority)
+                                                            priority: operation.priority)
         case .decimal:
             break
         case .equals:
