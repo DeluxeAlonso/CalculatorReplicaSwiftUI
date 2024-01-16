@@ -32,9 +32,6 @@ final class CalculatorEnvironmentObject: ObservableObject {
         self.calculatorButtons = calculatorButtons
         self.resultFormatter = resultFormatter
         self.calculatorOperationHandler = calculatorOperationHandler
-
-        if formattedCalculatorDisplay != "0" { updateValue(formattedCalculatorDisplay, isEnteringNumbers: true) }
-
         self.calculatorOperationHandler
             .calculatorDisplay
             .dropFirst()

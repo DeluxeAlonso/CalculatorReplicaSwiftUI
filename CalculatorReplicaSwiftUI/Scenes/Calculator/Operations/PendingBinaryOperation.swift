@@ -8,6 +8,7 @@
 
 protocol PendingBinaryOperationProtocol {
     var hasOperand: Bool  { get }
+    var operationPriority: Int { get }
 
     func setOperand(_ secondOperand: Double)
     func perform() -> Double
