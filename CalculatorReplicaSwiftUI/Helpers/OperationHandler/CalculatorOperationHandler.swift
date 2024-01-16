@@ -83,9 +83,10 @@ final class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
             clearCalculator()
         case .unaryOperation(let function):
             updateDisplay(with: function(resultValueUpdated))
-        case .binaryOperation(let function):
+        case .binaryOperation(let function, let priority):
             pendingBinaryOperation = PendingBinaryOperation(function: function,
-                                                            firstOperand: resultValueUpdated)
+                                                            firstOperand: resultValueUpdated,
+                                                            priority: priority)
         case .decimal:
             break
         case .equals:
