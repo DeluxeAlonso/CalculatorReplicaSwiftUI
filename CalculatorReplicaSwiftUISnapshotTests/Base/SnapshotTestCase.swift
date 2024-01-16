@@ -17,11 +17,10 @@ class SnapshotTestCase: XCTestCase {
     }
 
     func assertSnapshotImage(of view: some View,
-                             with preferredColorScheme: ColorScheme = .light,
                              file: StaticString = #file,
                              testName: String = #function,
                              line: UInt = #line) {
-        assertSnapshot(of: view.preferredColorScheme(preferredColorScheme), as: .image, record: shouldRecord, file: file, testName: testName, line: line)
+        assertSnapshot(of: view, as: .image, record: shouldRecord, file: file, testName: testName, line: line)
     }
 
 }

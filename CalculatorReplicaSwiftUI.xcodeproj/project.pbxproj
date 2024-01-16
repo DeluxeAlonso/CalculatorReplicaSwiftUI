@@ -158,7 +158,7 @@
 		E2CBA5172442C3D3008A3097 /* CalculatorButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonProtocol.swift; sourceTree = "<group>"; };
 		E2CBA51B2442C660008A3097 /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 		E2CBA51D2442C7D3008A3097 /* CalculatorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBuilder.swift; sourceTree = "<group>"; };
-		E2D4E6F02B54DF7900A7ED35 /* CalculatorReplicaSwiftUISnapshotTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CalculatorReplicaSwiftUISnapshotTests.xctestplan; sourceTree = "<group>"; };
+		E2D4E6F02B54DF7900A7ED35 /* CalculatorReplicaSwiftUISnapshotTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CalculatorReplicaSwiftUISnapshotTestPlan.xctestplan; sourceTree = "<group>"; };
 		E2DA4B062453BF2100B9D981 /* CalculatorButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonTests.swift; sourceTree = "<group>"; };
 		E2DA4B082453C25A00B9D981 /* PendingBinaryOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingBinaryOperationTests.swift; sourceTree = "<group>"; };
 		E2DA4B0A2453C76300B9D981 /* CalculatorIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorIntegrationTests.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		E215DE1F2B018C2300670876 /* CalculatorReplicaSwiftUISnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
-				E2D4E6F02B54DF7900A7ED35 /* CalculatorReplicaSwiftUISnapshotTests.xctestplan */,
+				E2D4E6F02B54DF7900A7ED35 /* CalculatorReplicaSwiftUISnapshotTestPlan.xctestplan */,
 				E29631392B53636C00190A1A /* Base */,
 				E215DE2C2B018CAE00670876 /* Mocks */,
 				E215DE2D2B018DA100670876 /* CalculatorImageButtonLegacyTests.swift */,

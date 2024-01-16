@@ -7,10 +7,8 @@
 //
 
 @testable import Calculator
-import SnapshotTesting
-import XCTest
 
-final class CalculatorImageButtonTests: XCTestCase {
+final class CalculatorImageButtonTests: SnapshotTestCase {
 
     func testCalculatorImageButton() {
         let imageButton = CalculatorImageButtonProtocolMock()
@@ -21,7 +19,7 @@ final class CalculatorImageButtonTests: XCTestCase {
         imageButton.imageName = "plus"
 
         let view = CalculatorImageButton(button: imageButton)
-        assertSnapshot(of: view, as: .image)
+        assertSnapshotImage(of: view)
     }
 
     func testCalculatorImageButtonExpandedGridSpace() {
@@ -33,7 +31,7 @@ final class CalculatorImageButtonTests: XCTestCase {
         imageButton.imageName = "plus"
 
         let view = CalculatorImageButton(button: imageButton)
-        assertSnapshot(of: view, as: .image)
+        assertSnapshotImage(of: view)
     }
 
 }
