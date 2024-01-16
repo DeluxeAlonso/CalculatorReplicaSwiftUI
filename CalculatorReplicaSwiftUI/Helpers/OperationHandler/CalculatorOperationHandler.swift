@@ -89,14 +89,15 @@ final class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         case .decimal:
             break
         case .equals:
-            guard let newValue = performPendingBinaryOperation(with: resultValueUpdated) else {
+            guard let newValue = performPendingBinaryOperation(pendingBinaryOperation, with: resultValueUpdated) else {
                 return
             }
             updateDisplay(with: newValue)
         }
     }
     
-    private func performPendingBinaryOperation(with resultValue: Double) -> Double? {
+    private func performPendingBinaryOperation(_  pendingBinaryOperation: PendingBinaryOperationProtocol?,
+                                               with resultValue: Double) -> Double? {
         guard let pendingBinaryOperation = pendingBinaryOperation else { return nil }
         if !pendingBinaryOperation.hasOperand {
             pendingBinaryOperation.setOperand(resultValue)
