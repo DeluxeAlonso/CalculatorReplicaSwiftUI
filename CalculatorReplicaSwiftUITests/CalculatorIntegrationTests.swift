@@ -288,4 +288,18 @@ final class CalculatorIntegrationTests: XCTestCase {
         XCTAssertEqual("1.05", operationHandler.calculatorDisplay.value.0)
     }
 
+    func testStackedOnePriorityOperations() {
+        // Arrange
+        let buttons = [
+            CalculatorButton(representable: .five),
+            CalculatorButton(representable: .sum),
+            CalculatorButton(representable: .six),
+            CalculatorButton(representable: .subtraction)
+        ]
+        // Act
+        buttons.forEach { operationHandler.handleCalculatorButton($0) }
+        // Assert
+        XCTAssertEqual("11", operationHandler.calculatorDisplay.value.0)
+    }
+
 }
