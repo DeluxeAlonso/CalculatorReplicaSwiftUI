@@ -44,7 +44,7 @@ final class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         if calculatorButton.shouldShowOnResultDisplay {
             updateResultDisplay(calculatorButton)
         } else {
-            performOperation(calculatorButton)
+            performOperation(calculatorButton.operation)
         }
     }
 
@@ -73,30 +73,39 @@ final class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
         storedCalculatorDisplay = calculatorTrimmer.getTrimmedCalculatorDisplay(newCalculatorDisplay)
     }
     
-    private func performOperation(_ calculatorButton: CalculatorButtonProtocol) {
-        guard let operation = calculatorButton.operation else { return }
+    private func performOperation(_ operation: CalculatorOperation?) {
+        guard let operation else { return }
         // We set isEnteringNumbers to false when performing any operation except decimal.
         isEnteringNumbers = operation == .decimal
-        let resultValueUpdated = storedCalculatorDisplay.toDouble()
+        var resultValueUpdated = storedCalculatorDisplay.toDouble()
         switch operation {
         case .clear:
             clearCalculator()
         case .unaryOperation(let function):
             updateDisplay(with: function(resultValueUpdated))
-        case .binaryOperation(let function):
-            pendingBinaryOperation = PendingBinaryOperation(function: function,
-                                                            firstOperand: resultValueUpdated)
+        case .binaryOperation(let operation):
+            // We leverage operation priority to perform an equal operation automatically before an operation is performed.
+            // Sum and minus have a priority of 1. In this scenario if we enter a one of these two three time, an equal
+            // operation will be performed before executing the last operation.
+            if let pendingBinaryOperation, pendingBinaryOperation.operationPriority <= operation.priority {
+                performOperation(.equals)
+                resultValueUpdated = storedCalculatorDisplay.toDouble()
+            }
+            pendingBinaryOperation = PendingBinaryOperation(function: operation.function,
+                                                            firstOperand: resultValueUpdated,
+                                                            priority: operation.priority)
         case .decimal:
             break
         case .equals:
-            guard let newValue = performPendingBinaryOperation(with: resultValueUpdated) else {
+            guard let newValue = performPendingBinaryOperation(pendingBinaryOperation, with: resultValueUpdated) else {
                 return
             }
             updateDisplay(with: newValue)
         }
     }
     
-    private func performPendingBinaryOperation(with resultValue: Double) -> Double? {
+    private func performPendingBinaryOperation(_  pendingBinaryOperation: PendingBinaryOperationProtocol?,
+                                               with resultValue: Double) -> Double? {
         guard let pendingBinaryOperation = pendingBinaryOperation else { return nil }
         if !pendingBinaryOperation.hasOperand {
             pendingBinaryOperation.setOperand(resultValue)

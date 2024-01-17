@@ -8,6 +8,7 @@
 
 protocol PendingBinaryOperationProtocol {
     var hasOperand: Bool  { get }
+    var operationPriority: Int { get }
 
     func setOperand(_ secondOperand: Double)
     func perform() -> Double
@@ -17,10 +18,13 @@ final class PendingBinaryOperation: PendingBinaryOperationProtocol {
     private let function: (Double, Double) -> Double
     private var accumulatedValue: Double
     private var operand: Double? = nil
+
+    private(set) var operationPriority: Int
     
-    init(function: @escaping (Double, Double) -> Double, firstOperand: Double) {
+    init(function: @escaping (Double, Double) -> Double, firstOperand: Double, priority: Int) {
         self.function = function
         self.accumulatedValue = firstOperand
+        self.operationPriority = priority
     }
     
     var hasOperand: Bool {

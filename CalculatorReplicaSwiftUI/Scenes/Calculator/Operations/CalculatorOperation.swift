@@ -8,7 +8,7 @@
 
 enum CalculatorOperation: Equatable {
     case unaryOperation((Double) -> Double)
-    case binaryOperation((Double, Double) -> Double)
+    case binaryOperation(BinaryOperation)
     case equals
     case clear
     case decimal

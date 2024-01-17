@@ -32,7 +32,6 @@ final class CalculatorEnvironmentObject: ObservableObject {
         self.calculatorButtons = calculatorButtons
         self.resultFormatter = resultFormatter
         self.calculatorOperationHandler = calculatorOperationHandler
-
         self.calculatorOperationHandler
             .calculatorDisplay
             .dropFirst()

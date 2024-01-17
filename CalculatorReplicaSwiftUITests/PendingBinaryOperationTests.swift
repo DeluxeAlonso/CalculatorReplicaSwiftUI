@@ -13,7 +13,7 @@ final class PendingBinaryOperationTests: XCTestCase {
 
     func testSimpleOperation() {
         // Arrange
-        let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0)
+        let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0, priority: 1)
         // Act
         pendingBinaryOperation.setOperand(15.0)
         let resultValue = pendingBinaryOperation.perform()
@@ -23,7 +23,7 @@ final class PendingBinaryOperationTests: XCTestCase {
     
     func testRecurrentOperation() {
         // Arrange
-        let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0)
+        let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0, priority: 1)
         // Act
         pendingBinaryOperation.setOperand(15.0)
         _ = pendingBinaryOperation.perform()
@@ -35,7 +35,7 @@ final class PendingBinaryOperationTests: XCTestCase {
     
     func testNilOperand() {
         // Arrange
-        let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0)
+        let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0, priority: 1)
         // Act
         let resultValue = pendingBinaryOperation.perform()
         // Assert
@@ -44,7 +44,7 @@ final class PendingBinaryOperationTests: XCTestCase {
     
     func testHasOperandTrue() {
         // Arrange
-        let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0)
+        let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0, priority: 1)
         // Act
         pendingBinaryOperation.setOperand(15.0)
         let hasOperand = pendingBinaryOperation.hasOperand
@@ -54,7 +54,7 @@ final class PendingBinaryOperationTests: XCTestCase {
     
     func testHasOperandFalse() {
         // Arrange
-        let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0)
+        let pendingBinaryOperation = PendingBinaryOperation(function: { $0 + $1 }, firstOperand: 10.0, priority: 1)
         // Act
         let hasOperand = pendingBinaryOperation.hasOperand
         // Assert
