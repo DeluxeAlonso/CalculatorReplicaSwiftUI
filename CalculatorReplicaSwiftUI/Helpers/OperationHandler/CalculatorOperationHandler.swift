@@ -87,7 +87,7 @@ final class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
             // We leverage operation priority to perform an equal operation automatically before an operation is performed.
             // Sum and minus have a priority of 1. In this scenario if we enter a one of these two three times, an equal
             // operation will be performed before executing the last operation.
-            if let pendingBinaryOperation, pendingBinaryOperation.operationPriority <= operation.priority {
+            if let pendingBinaryOperation, pendingBinaryOperation.operationPriority >= operation.priority {
                 performOperation(.equals)
                 resultValueUpdated = storedCalculatorDisplay.toDouble()
             }
