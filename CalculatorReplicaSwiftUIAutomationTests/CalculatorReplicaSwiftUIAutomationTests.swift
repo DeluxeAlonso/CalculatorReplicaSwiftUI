@@ -11,7 +11,6 @@ import XCTest
 final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
 
     func testSum() throws {
-        // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
 
