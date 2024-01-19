@@ -24,6 +24,7 @@ struct CalculatorResultDisplayView: View {
                     .lineLimit(1)
                     .minimumScaleFactor(0.6)
                     .textSelection(.enabled)
+                    .accessibilityIdentifier("result_display_view_text")
             }
         }
         .contentShape(Rectangle())

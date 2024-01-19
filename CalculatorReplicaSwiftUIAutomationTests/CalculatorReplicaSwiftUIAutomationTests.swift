@@ -28,9 +28,13 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        app.buttons["9"].tap()
-        app.buttons["+"].tap()
-        app.buttons["5"].tap()
-        app.buttons["Equals"].tap()
+        app.buttons["nine"].tap()
+        app.buttons["sum"].tap()
+        app.buttons["five"].tap()
+        app.buttons["equal"].tap()
+
+        let resultDisplayText = app.staticTexts["result_display_view_text"]
+        XCTAssertNotNil(resultDisplayText)
+        XCTAssertEqual(resultDisplayText.description, "14")
     }
 }
