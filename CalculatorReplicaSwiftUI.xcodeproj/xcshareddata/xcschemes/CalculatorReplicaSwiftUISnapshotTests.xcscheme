@@ -28,6 +28,17 @@
                ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E228C6BE2B5A517B00A78834"
+               BuildableName = "CalculatorReplicaSwiftUIAutomationTests.xctest"
+               BlueprintName = "CalculatorReplicaSwiftUIAutomationTests"
+               ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -64,6 +75,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E2FBCEBF2441608600147B1B"
+            BuildableName = "Calculator.app"
+            BlueprintName = "CalculatorReplicaSwiftUI"
+            ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

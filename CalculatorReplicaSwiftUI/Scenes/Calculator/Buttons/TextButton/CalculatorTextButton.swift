@@ -21,6 +21,7 @@ struct CalculatorTextButton: View {
                 .font(.system(size: 32.0))
                 .calculatorButtonStyle(for: button.style)
         })
+        .accessibilityIdentifier(button.identifier)
         .accessibility(label: Text(button.accessibilityLabel))
     }
 }

@@ -55,6 +55,17 @@
                ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "YES"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E228C6BE2B5A517B00A78834"
+               BuildableName = "CalculatorReplicaSwiftUIAutomationTests.xctest"
+               BlueprintName = "CalculatorReplicaSwiftUIAutomationTests"
+               ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
