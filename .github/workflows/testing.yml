@@ -23,3 +23,11 @@ jobs:
       run: bundle install
     - name: Run snapshot tests
       run: bundle exec fastlane snapshot_tests
+  automation_test:
+    runs-on: macos-13
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Bundle
+      run: bundle install
+    - name: Run automation tests
+      run: bundle exec fastlane automation_tests
