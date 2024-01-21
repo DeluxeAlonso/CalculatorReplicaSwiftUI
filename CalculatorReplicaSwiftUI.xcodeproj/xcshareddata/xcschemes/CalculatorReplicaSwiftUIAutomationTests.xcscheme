@@ -7,7 +7,7 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
@@ -26,21 +26,17 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <TestPlans>
-         <TestPlanReference
-            reference = "container:CalculatorReplicaSwiftUISnapshotTests/CalculatorReplicaSwiftUISnapshotTestPlan.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-      </TestPlans>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E215DE1D2B018C2300670876"
-               BuildableName = "CalculatorReplicaSwiftUISnapshotTests.xctest"
-               BlueprintName = "CalculatorReplicaSwiftUISnapshotTests"
+               BlueprintIdentifier = "E228C6BE2B5A517B00A78834"
+               BuildableName = "CalculatorReplicaSwiftUIAutomationTests.xctest"
+               BlueprintName = "CalculatorReplicaSwiftUIAutomationTests"
                ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -66,13 +62,6 @@
             ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "SNAPSHOTS_RECORD"
-            value = ""
-            isEnabled = "NO">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -80,15 +69,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2FBCEBF2441608600147B1B"
-            BuildableName = "Calculator.app"
-            BlueprintName = "CalculatorReplicaSwiftUI"
-            ReferencedContainer = "container:CalculatorReplicaSwiftUI.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
