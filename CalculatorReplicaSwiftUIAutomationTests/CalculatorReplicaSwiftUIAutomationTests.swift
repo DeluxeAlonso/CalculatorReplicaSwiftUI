@@ -58,6 +58,23 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
         XCTAssertEqual(resultDisplayText.label, "14")
     }
 
+    func testRecurrentSum() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["nine"].tap()
+        app.buttons["sum"].tap()
+        app.buttons["five"].tap()
+        app.buttons["equal"].tap()
+
+        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
+        XCTAssertEqual(resultDisplayText.label, "14")
+        app.buttons["equal"].tap()
+        XCTAssertEqual(resultDisplayText.label, "19")
+        app.buttons["equal"].tap()
+        XCTAssertEqual(resultDisplayText.label, "24")
+    }
+
     func testSimpleSubtraction() throws {
         let app = XCUIApplication()
         app.launch()
@@ -71,6 +88,24 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
         let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
         XCTAssertNotNil(resultDisplayText)
         XCTAssertEqual(resultDisplayText.label, "5")
+    }
+
+    func testRecurrentSubtraction() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["one"].tap()
+        app.buttons["zero"].tap()
+        app.buttons["subtraction"].tap()
+        app.buttons["five"].tap()
+        app.buttons["equal"].tap()
+
+        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
+        XCTAssertEqual(resultDisplayText.label, "5")
+        app.buttons["equal"].tap()
+        XCTAssertEqual(resultDisplayText.label, "0")
+        app.buttons["equal"].tap()
+        XCTAssertEqual(resultDisplayText.label, "-5")
     }
 
     func testSimpleMultiplication() throws {
@@ -88,6 +123,24 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
         XCTAssertEqual(resultDisplayText.label, "50")
     }
 
+    func testRecurrentMultiplication() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["one"].tap()
+        app.buttons["zero"].tap()
+        app.buttons["multiplication"].tap()
+        app.buttons["five"].tap()
+        app.buttons["equal"].tap()
+
+        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
+        XCTAssertEqual(resultDisplayText.label, "50")
+        app.buttons["equal"].tap()
+        XCTAssertEqual(resultDisplayText.label, "250")
+        app.buttons["equal"].tap()
+        XCTAssertEqual(resultDisplayText.label, "1,250")
+    }
+
     func testSimpleDivision() throws {
         let app = XCUIApplication()
         app.launch()
@@ -101,6 +154,24 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
         let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
         XCTAssertNotNil(resultDisplayText)
         XCTAssertEqual(resultDisplayText.label, "2")
+    }
+
+    func testRecurrentDivision() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["one"].tap()
+        app.buttons["zero"].tap()
+        app.buttons["division"].tap()
+        app.buttons["five"].tap()
+        app.buttons["equal"].tap()
+
+        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
+        XCTAssertEqual(resultDisplayText.label, "2")
+        app.buttons["equal"].tap()
+        XCTAssertEqual(resultDisplayText.label, "0.4")
+        app.buttons["equal"].tap()
+        XCTAssertEqual(resultDisplayText.label, "0.08")
     }
 
 }
