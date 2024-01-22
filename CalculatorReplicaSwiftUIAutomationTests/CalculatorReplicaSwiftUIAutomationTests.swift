@@ -10,6 +10,40 @@ import XCTest
 
 final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
 
+    func testAddDecimalNumber() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["zero"].tap()
+        app.buttons["decimal"].tap()
+        app.buttons["five"].tap()
+        app.buttons["zero"].tap()
+
+        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
+        XCTAssertNotNil(resultDisplayText)
+        XCTAssertEqual(resultDisplayText.label, "0.50")
+    }
+
+    func testAddDecimalNumberWithMultipleDecimalTaps() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["zero"].tap()
+
+        app.buttons["decimal"].tap()
+        app.buttons["decimal"].tap()
+        app.buttons["decimal"].tap()
+
+        app.buttons["five"].tap()
+        app.buttons["zero"].tap()
+
+        app.buttons["decimal"].tap()
+
+        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
+        XCTAssertNotNil(resultDisplayText)
+        XCTAssertEqual(resultDisplayText.label, "0.50")
+    }
+
     func testSimpleSum() throws {
         let app = XCUIApplication()
         app.launch()
