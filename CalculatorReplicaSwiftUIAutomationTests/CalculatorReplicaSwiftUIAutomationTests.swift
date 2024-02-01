@@ -168,4 +168,18 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
         XCTAssertEqual(resultDisplayText.label, "0.08")
     }
 
+    func testNegativeOperation() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["one"].tap()
+        app.buttons["zero"].tap()
+        app.buttons["negative"].tap()
+
+        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
+        XCTAssertEqual(resultDisplayText.label, "-10")
+        app.buttons["negative"].tap()
+        XCTAssertEqual(resultDisplayText.label, "10")
+    }
+
 }
