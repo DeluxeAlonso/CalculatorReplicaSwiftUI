@@ -182,4 +182,18 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
         XCTAssertEqual(resultDisplayText.label, "10")
     }
 
+    func testPercentOperation() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["one"].tap()
+        app.buttons["zero"].tap()
+        app.buttons["percent"].tap()
+
+        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
+        XCTAssertEqual(resultDisplayText.label, "0.1")
+        app.buttons["percent"].tap()
+        XCTAssertEqual(resultDisplayText.label, "0.01")
+    }
+
 }
