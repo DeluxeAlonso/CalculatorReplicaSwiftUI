@@ -196,4 +196,16 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
         XCTAssertEqual(resultDisplayText.label, "0.001")
     }
 
+    func testClearOperation() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["one"].tap()
+        app.buttons["zero"].tap()
+        app.buttons["clear"].tap()
+
+        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
+        XCTAssertEqual(resultDisplayText.label, "0")
+    }
+
 }
