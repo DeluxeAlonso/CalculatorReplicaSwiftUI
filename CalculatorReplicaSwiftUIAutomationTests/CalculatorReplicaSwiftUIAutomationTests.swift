@@ -9,15 +9,15 @@
 @testable import Calculator
 import XCTest
 
-final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
+final class CalculatorReplicaSwiftUIAutomationTests: AutomationTestCase {
 
     private var pageModel: CalculatorPageModel!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        let app = XCUIApplication()
-        app.launch()
         pageModel = CalculatorPageModel(app: app)
+
+        launch()
     }
 
     override func tearDownWithError() throws {
@@ -178,6 +178,20 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
         pageModel.subtraction.tap()
 
         XCTAssertEqual(pageModel.resultDisplay.label, "11")
+    }
+
+    func testSwipeToDelete() {
+        pageModel.eight.tap()
+        pageModel.eight.tap()
+        pageModel.eight.tap()
+
+        XCTAssertEqual(pageModel.resultDisplay.label, "888")
+        pageModel.resultDisplay.swipeLeft()
+        XCTAssertEqual(pageModel.resultDisplay.label, "88")
+        pageModel.resultDisplay.swipeRight()
+        XCTAssertEqual(pageModel.resultDisplay.label, "8")
+        pageModel.resultDisplay.swipeLeft()
+        XCTAssertEqual(pageModel.resultDisplay.label, "0")
     }
 
 }
