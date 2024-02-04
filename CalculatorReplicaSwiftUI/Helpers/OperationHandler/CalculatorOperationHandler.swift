@@ -91,7 +91,7 @@ final class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
                 performOperation(.equals)
                 resultValueUpdated = storedCalculatorDisplay.toDouble()
             } else {
-                // Scenario where we receive a higher priority operation. We should create a pending operation that is applied to the second operand.
+                // TODO: Scenario where we receive a higher priority operation. We should create a pending operation that is applied to the second operand.
             }
             pendingBinaryOperation = PendingBinaryOperation(function: operation.function,
                                                             firstOperand: resultValueUpdated,
