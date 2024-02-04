@@ -10,7 +10,7 @@ import XCTest
 
 class AutomationTestCase: XCTestCase {
 
-    private var app: XCUIApplication!
+    var app: XCUIApplication!
 
     override func setUpWithError() throws {
         try super.setUpWithError()

@@ -9,15 +9,15 @@
 @testable import Calculator
 import XCTest
 
-final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
+final class CalculatorReplicaSwiftUIAutomationTests: AutomationTestCase {
 
     private var pageModel: CalculatorPageModel!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        let app = XCUIApplication()
-        app.launch()
         pageModel = CalculatorPageModel(app: app)
+
+        launch()
     }
 
     override func tearDownWithError() throws {
