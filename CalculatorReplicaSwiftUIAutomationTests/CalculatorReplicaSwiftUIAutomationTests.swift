@@ -6,219 +6,178 @@
 //  Copyright © 2024 Alonso. All rights reserved.
 //
 
+@testable import Calculator
 import XCTest
 
 final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
 
-    func testAddDecimalNumber() throws {
+    private var pageModel: CalculatorPageModel!
+
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         let app = XCUIApplication()
         app.launch()
+        pageModel = CalculatorPageModel(app: app)
+    }
 
-        app.buttons["zero"].tap()
-        app.buttons["decimal"].tap()
-        app.buttons["five"].tap()
-        app.buttons["zero"].tap()
+    override func tearDownWithError() throws {
+        pageModel = nil
+        try super.tearDownWithError()
+    }
 
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "0.50")
+    func testAddDecimalNumber() throws {
+        pageModel.zero.tap()
+        pageModel.decimal.tap()
+        pageModel.five.tap()
+        pageModel.zero.tap()
+
+        XCTAssertEqual(pageModel.resultDisplay.label, "0.50")
     }
 
     func testAddDecimalNumberWithMultipleDecimalTaps() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.zero.tap()
 
-        app.buttons["zero"].tap()
+        pageModel.decimal.tap()
+        pageModel.decimal.tap()
+        pageModel.decimal.tap()
 
-        app.buttons["decimal"].tap()
-        app.buttons["decimal"].tap()
-        app.buttons["decimal"].tap()
+        pageModel.five.tap()
+        pageModel.zero.tap()
 
-        app.buttons["five"].tap()
-        app.buttons["zero"].tap()
+        pageModel.decimal.tap()
 
-        app.buttons["decimal"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "0.50")
+        XCTAssertEqual(pageModel.resultDisplay.label, "0.50")
     }
 
     func testSimpleSum() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.nine.tap()
+        pageModel.sum.tap()
+        pageModel.five.tap()
+        pageModel.equal.tap()
 
-        app.buttons["nine"].tap()
-        app.buttons["sum"].tap()
-        app.buttons["five"].tap()
-        app.buttons["equal"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "14")
+        XCTAssertEqual(pageModel.resultDisplay.label, "14")
     }
 
     func testRecurrentSum() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.nine.tap()
+        pageModel.sum.tap()
+        pageModel.five.tap()
+        pageModel.equal.tap()
 
-        app.buttons["nine"].tap()
-        app.buttons["sum"].tap()
-        app.buttons["five"].tap()
-        app.buttons["equal"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "14")
-        app.buttons["equal"].tap()
-        XCTAssertEqual(resultDisplayText.label, "19")
-        app.buttons["equal"].tap()
-        XCTAssertEqual(resultDisplayText.label, "24")
+        XCTAssertEqual(pageModel.resultDisplay.label, "14")
+        pageModel.equal.tap()
+        XCTAssertEqual(pageModel.resultDisplay.label, "19")
+        pageModel.equal.tap()
+        XCTAssertEqual(pageModel.resultDisplay.label, "24")
     }
 
     func testSimpleSubtraction() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.one.tap()
+        pageModel.zero.tap()
+        pageModel.subtraction.tap()
+        pageModel.five.tap()
+        pageModel.equal.tap()
 
-        app.buttons["one"].tap()
-        app.buttons["zero"].tap()
-        app.buttons["subtraction"].tap()
-        app.buttons["five"].tap()
-        app.buttons["equal"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "5")
+        XCTAssertEqual(pageModel.resultDisplay.label, "5")
     }
 
     func testRecurrentSubtraction() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.one.tap()
+        pageModel.zero.tap()
+        pageModel.subtraction.tap()
+        pageModel.five.tap()
+        pageModel.equal.tap()
 
-        app.buttons["one"].tap()
-        app.buttons["zero"].tap()
-        app.buttons["subtraction"].tap()
-        app.buttons["five"].tap()
-        app.buttons["equal"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "5")
-        app.buttons["equal"].tap()
-        XCTAssertEqual(resultDisplayText.label, "0")
-        app.buttons["equal"].tap()
-        XCTAssertEqual(resultDisplayText.label, "-5")
+        XCTAssertEqual(pageModel.resultDisplay.label, "5")
+        pageModel.equal.tap()
+        XCTAssertEqual(pageModel.resultDisplay.label, "0")
+        pageModel.equal.tap()
+        XCTAssertEqual(pageModel.resultDisplay.label, "-5")
     }
 
     func testSimpleMultiplication() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.one.tap()
+        pageModel.zero.tap()
+        pageModel.multiplication.tap()
+        pageModel.five.tap()
+        pageModel.equal.tap()
 
-        app.buttons["one"].tap()
-        app.buttons["zero"].tap()
-        app.buttons["multiplication"].tap()
-        app.buttons["five"].tap()
-        app.buttons["equal"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "50")
+        XCTAssertEqual(pageModel.resultDisplay.label, "50")
     }
 
     func testRecurrentMultiplication() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.one.tap()
+        pageModel.zero.tap()
+        pageModel.multiplication.tap()
+        pageModel.five.tap()
+        pageModel.equal.tap()
 
-        app.buttons["one"].tap()
-        app.buttons["zero"].tap()
-        app.buttons["multiplication"].tap()
-        app.buttons["five"].tap()
-        app.buttons["equal"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "50")
-        app.buttons["equal"].tap()
-        XCTAssertEqual(resultDisplayText.label, "250")
-        app.buttons["equal"].tap()
-        XCTAssertEqual(resultDisplayText.label, "1,250")
+        XCTAssertEqual(pageModel.resultDisplay.label, "50")
+        pageModel.equal.tap()
+        XCTAssertEqual(pageModel.resultDisplay.label, "250")
+        pageModel.equal.tap()
+        XCTAssertEqual(pageModel.resultDisplay.label, "1,250")
     }
 
     func testSimpleDivision() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.one.tap()
+        pageModel.zero.tap()
+        pageModel.division.tap()
+        pageModel.five.tap()
+        pageModel.equal.tap()
 
-        app.buttons["one"].tap()
-        app.buttons["zero"].tap()
-        app.buttons["division"].tap()
-        app.buttons["five"].tap()
-        app.buttons["equal"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "2")
+        XCTAssertEqual(pageModel.resultDisplay.label, "2")
     }
 
     func testRecurrentDivision() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.one.tap()
+        pageModel.zero.tap()
+        pageModel.division.tap()
+        pageModel.five.tap()
+        pageModel.equal.tap()
 
-        app.buttons["one"].tap()
-        app.buttons["zero"].tap()
-        app.buttons["division"].tap()
-        app.buttons["five"].tap()
-        app.buttons["equal"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "2")
-        app.buttons["equal"].tap()
-        XCTAssertEqual(resultDisplayText.label, "0.4")
-        app.buttons["equal"].tap()
-        XCTAssertEqual(resultDisplayText.label, "0.08")
+        XCTAssertEqual(pageModel.resultDisplay.label, "2")
+        pageModel.equal.tap()
+        XCTAssertEqual(pageModel.resultDisplay.label, "0.4")
+        pageModel.equal.tap()
+        XCTAssertEqual(pageModel.resultDisplay.label, "0.08")
     }
 
     func testNegativeOperation() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.one.tap()
+        pageModel.zero.tap()
+        pageModel.negative.tap()
 
-        app.buttons["one"].tap()
-        app.buttons["zero"].tap()
-        app.buttons["negative"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "-10")
-        app.buttons["negative"].tap()
-        XCTAssertEqual(resultDisplayText.label, "10")
+        XCTAssertEqual(pageModel.resultDisplay.label, "-10")
+        pageModel.negative.tap()
+        XCTAssertEqual(pageModel.resultDisplay.label, "10")
     }
 
     func testPercentOperation() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.one.tap()
+        pageModel.zero.tap()
+        pageModel.percent.tap()
 
-        app.buttons["one"].tap()
-        app.buttons["zero"].tap()
-        app.buttons["percent"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "0.1")
-        app.buttons["percent"].tap()
-        XCTAssertEqual(resultDisplayText.label, "0.001")
+        XCTAssertEqual(pageModel.resultDisplay.label, "0.1")
+        pageModel.percent.tap()
+        XCTAssertEqual(pageModel.resultDisplay.label, "0.001")
     }
 
     func testClearOperation() throws {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.one.tap()
+        pageModel.zero.tap()
+        pageModel.clear.tap()
 
-        app.buttons["one"].tap()
-        app.buttons["zero"].tap()
-        app.buttons["clear"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "0")
+        XCTAssertEqual(pageModel.resultDisplay.label, "0")
     }
 
     func testStackedOnePriorityOperations() {
-        let app = XCUIApplication()
-        app.launch()
+        pageModel.five.tap()
+        pageModel.sum.tap()
+        pageModel.six.tap()
+        pageModel.subtraction.tap()
 
-        app.buttons["five"].tap()
-        app.buttons["sum"].tap()
-        app.buttons["six"].tap()
-        app.buttons["subtraction"].tap()
-
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "11")
+        XCTAssertEqual(pageModel.resultDisplay.label, "11")
     }
 
 }
