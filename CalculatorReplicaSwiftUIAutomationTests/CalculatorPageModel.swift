@@ -8,7 +8,16 @@
 
 import XCTest
 import Foundation
+@testable import Calculator
 
-struct CalculatorPageModel {
+final class CalculatorPageModel {
     let app: XCUIApplication
+
+    init(app: XCUIApplication) {
+        self.app = app
+    }
+
+    subscript(representable: CalculatorButtonRepresentable) -> XCUIElement {
+        app.buttons[representable.identifier]
+    }
 }

@@ -16,7 +16,7 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        app = XCUIApplication()
+        let app = XCUIApplication()
         app.launch()
         pageModel = CalculatorPageModel(app: app)
     }
