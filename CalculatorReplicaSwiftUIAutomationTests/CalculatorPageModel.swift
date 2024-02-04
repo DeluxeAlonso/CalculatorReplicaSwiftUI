@@ -6,5 +6,9 @@
 //  Copyright © 2024 Alonso. All rights reserved.
 //
 
+import XCTest
 import Foundation
 
+struct CalculatorPageModel {
+    let app: XCUIApplication
+}

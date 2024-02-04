@@ -12,7 +12,11 @@ import XCTest
 extension XCUIElementQuery {
 
     subscript(representable: CalculatorButtonRepresentable) -> XCUIElement {
-        self[representable.identifier]
+        self[representable.accessibilityLabel]
+    }
+
+    func callAsFunction(_ representable: CalculatorButtonRepresentable) -> XCUIElement {
+        self[representable.accessibilityLabel]
     }
 
 }
