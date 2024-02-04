@@ -6,4 +6,13 @@
 //  Copyright © 2024 Alonso. All rights reserved.
 //
 
-import Foundation
+@testable import Calculator
+import XCTest
+
+extension XCUIElementQuery {
+
+    subscript(representable: CalculatorButtonRepresentable) -> XCUIElement {
+        self[representable.identifier]
+    }
+
+}
