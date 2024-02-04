@@ -16,8 +16,6 @@ final class CalculatorPageModel {
         self.app = app
     }
 
-    // MARK: - Buttons
-
     var one: XCUIElement { app.buttons["one"] }
     var two: XCUIElement { app.buttons["two"] }
     var three: XCUIElement { app.buttons["three"] }

@@ -180,4 +180,18 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
         XCTAssertEqual(pageModel.resultDisplay.label, "11")
     }
 
+    func testSwipeToDelete() {
+        pageModel.eight.tap()
+        pageModel.eight.tap()
+        pageModel.eight.tap()
+
+        XCTAssertEqual(pageModel.resultDisplay.label, "888")
+        pageModel.resultDisplay.swipeLeft()
+        XCTAssertEqual(pageModel.resultDisplay.label, "88")
+        pageModel.resultDisplay.swipeRight()
+        XCTAssertEqual(pageModel.resultDisplay.label, "8")
+        pageModel.resultDisplay.swipeLeft()
+        XCTAssertEqual(pageModel.resultDisplay.label, "0")
+    }
+
 }
