@@ -8,16 +8,36 @@
 
 import XCTest
 import Foundation
-@testable import Calculator
 
 final class CalculatorPageModel {
-    let app: XCUIApplication
+    private let app: XCUIApplication
 
     init(app: XCUIApplication) {
         self.app = app
     }
 
-    subscript(representable: CalculatorButtonRepresentable) -> XCUIElement {
-        app.buttons[representable.identifier]
-    }
+    // MARK: - Buttons
+
+    var one: XCUIElement { app.buttons["one"] }
+    var two: XCUIElement { app.buttons["two"] }
+    var three: XCUIElement { app.buttons["three"] }
+    var four: XCUIElement { app.buttons["four"] }
+    var five: XCUIElement { app.buttons["five"] }
+    var six: XCUIElement { app.buttons["six"] }
+    var seven: XCUIElement { app.buttons["seven"] }
+    var eight: XCUIElement { app.buttons["eight"] }
+    var nine: XCUIElement { app.buttons["nine"] }
+    var zero: XCUIElement { app.buttons["zero"] }
+    var decimal: XCUIElement { app.buttons["decimal"] }
+    var exponent: XCUIElement { app.buttons["exponent"] }
+    var clear: XCUIElement { app.buttons[ "clear"] }
+    var sum: XCUIElement { app.buttons["sum"] }
+    var subtraction: XCUIElement { app.buttons["subtraction"] }
+    var multiplication: XCUIElement { app.buttons["multiplication"] }
+    var division: XCUIElement { app.buttons["division"] }
+    var percent: XCUIElement { app.buttons["percent"] }
+    var negative: XCUIElement { app.buttons["negative"] }
+    var equal: XCUIElement { app.buttons["equal"] }
+
+    var resultDisplay: XCUIElement { app.staticTexts["result_display_view_text"].firstMatch }
 }

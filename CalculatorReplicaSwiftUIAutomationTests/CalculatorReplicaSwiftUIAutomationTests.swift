@@ -28,13 +28,12 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testAddDecimalNumber() throws {
-        app.buttons["zero"].tap()
-        app.buttons["decimal"].tap()
-        app.buttons["five"].tap()
-        app.buttons["zero"].tap()
+        pageModel.zero.tap()
+        pageModel.decimal.tap()
+        pageModel.five.tap()
+        pageModel.zero.tap()
 
-        let resultDisplayText = app.staticTexts["result_display_view_text"].firstMatch
-        XCTAssertEqual(resultDisplayText.label, "0.50")
+        XCTAssertEqual(pageModel.resultDisplay.label, "0.50")
     }
 
     func testAddDecimalNumberWithMultipleDecimalTaps() throws {
