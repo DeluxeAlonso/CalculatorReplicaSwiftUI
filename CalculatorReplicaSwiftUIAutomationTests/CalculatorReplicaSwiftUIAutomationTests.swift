@@ -11,10 +11,20 @@ import XCTest
 
 final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
 
-    func testAddDecimalNumber() throws {
-        let app = XCUIApplication()
-        app.launch()
+    private var app: XCUIApplication!
 
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        app = XCUIApplication()
+        app.launch()
+    }
+
+    override func tearDownWithError() throws {
+        app = nil
+        try super.tearDownWithError()
+    }
+
+    func testAddDecimalNumber() throws {
         app.buttons[.zero].tap()
         app.buttons[.decimal].tap()
         app.buttons[.five].tap()
@@ -25,9 +35,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testAddDecimalNumberWithMultipleDecimalTaps() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.zero].tap()
 
         app.buttons[.decimal].tap()
@@ -44,9 +51,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testSimpleSum() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.nine].tap()
         app.buttons[.sum].tap()
         app.buttons[.five].tap()
@@ -57,9 +61,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testRecurrentSum() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.nine].tap()
         app.buttons[.sum].tap()
         app.buttons[.five].tap()
@@ -74,9 +75,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testSimpleSubtraction() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.one].tap()
         app.buttons[.zero].tap()
         app.buttons[.subtraction].tap()
@@ -88,9 +86,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testRecurrentSubtraction() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.one].tap()
         app.buttons[.zero].tap()
         app.buttons[.subtraction].tap()
@@ -106,9 +101,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testSimpleMultiplication() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.one].tap()
         app.buttons[.zero].tap()
         app.buttons[.multiplication].tap()
@@ -120,9 +112,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testRecurrentMultiplication() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.one].tap()
         app.buttons[.zero].tap()
         app.buttons[.multiplication].tap()
@@ -138,9 +127,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testSimpleDivision() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.one].tap()
         app.buttons[.zero].tap()
         app.buttons[.division].tap()
@@ -152,9 +138,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testRecurrentDivision() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.one].tap()
         app.buttons[.zero].tap()
         app.buttons[.division].tap()
@@ -170,9 +153,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testNegativeOperation() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.one].tap()
         app.buttons[.zero].tap()
         app.buttons[.negative].tap()
@@ -184,9 +164,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testPercentOperation() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.one].tap()
         app.buttons[.zero].tap()
         app.buttons[.percent].tap()
@@ -198,9 +175,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testClearOperation() throws {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.one].tap()
         app.buttons[.zero].tap()
         app.buttons[.clear].tap()
@@ -210,9 +184,6 @@ final class CalculatorReplicaSwiftUIAutomationTests: XCTestCase {
     }
 
     func testStackedOnePriorityOperations() {
-        let app = XCUIApplication()
-        app.launch()
-
         app.buttons[.five].tap()
         app.buttons[.sum].tap()
         app.buttons[.six].tap()
