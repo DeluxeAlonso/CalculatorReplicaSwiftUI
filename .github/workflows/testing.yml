@@ -18,6 +18,8 @@ jobs:
   snapshot_test:
     runs-on: macos-13
     steps:
+    - uses: actions/checkout@v2
+    - name: Xcode Setup
     - uses: maxim-lobanov/setup-xcode@v1
       with:
         xcode-version: '14.3.1'
