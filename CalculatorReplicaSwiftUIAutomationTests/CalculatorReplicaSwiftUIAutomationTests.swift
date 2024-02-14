@@ -166,8 +166,9 @@ final class CalculatorReplicaSwiftUIAutomationTests: AutomationTestCase {
     func testClearOperation() throws {
         pageModel.one.tap()
         pageModel.zero.tap()
-        pageModel.clear.tap()
 
+        XCTAssertEqual(pageModel.resultDisplay.label, "10")
+        pageModel.clear.tap()
         XCTAssertEqual(pageModel.resultDisplay.label, "0")
     }
 
