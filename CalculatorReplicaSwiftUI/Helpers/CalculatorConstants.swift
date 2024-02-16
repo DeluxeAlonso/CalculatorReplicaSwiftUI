@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alonso. All rights reserved.
 //
 
-import Foundation
-
 struct CalculatorConstants {
     static let nonSignificantCharacters: [Character] = [
         CalculatorButtonRepresentable.zero.rawValue.first!,
