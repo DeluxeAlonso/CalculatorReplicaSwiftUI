@@ -11,9 +11,7 @@
 		E201FACC24421E6200AE6F4C /* CalculatorButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E201FACB24421E6200AE6F4C /* CalculatorButtonsView.swift */; };
 		E215DE292B018C9C00670876 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = E215DE282B018C9C00670876 /* InlineSnapshotTesting */; };
 		E215DE2B2B018C9C00670876 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = E215DE2A2B018C9C00670876 /* SnapshotTesting */; };
-		E215DE2E2B018DA100670876 /* CalculatorImageButtonLegacyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215DE2D2B018DA100670876 /* CalculatorImageButtonLegacyTests.swift */; };
 		E215DE2F2B018EBF00670876 /* CalculatorButtonProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215DDFE2B018B5B00670876 /* CalculatorButtonProtocolMock.swift */; };
-		E215DE312B019BBC00670876 /* CalculatorTextButtonLegacyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215DE302B019BBC00670876 /* CalculatorTextButtonLegacyTests.swift */; };
 		E228C6C22B5A517B00A78834 /* CalculatorReplicaSwiftUIAutomationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228C6C12B5A517B00A78834 /* CalculatorReplicaSwiftUIAutomationTests.swift */; };
 		E239F23D245F91A600097C39 /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239F23C245F91A600097C39 /* View+Modifiers.swift */; };
 		E23B8407249079D700F3ED68 /* View+TypeErasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23B8406249079D700F3ED68 /* View+TypeErasure.swift */; };
@@ -111,8 +109,6 @@
 		E201FACB24421E6200AE6F4C /* CalculatorButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonsView.swift; sourceTree = "<group>"; };
 		E215DDFE2B018B5B00670876 /* CalculatorButtonProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonProtocolMock.swift; sourceTree = "<group>"; };
 		E215DE1E2B018C2300670876 /* CalculatorReplicaSwiftUISnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorReplicaSwiftUISnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E215DE2D2B018DA100670876 /* CalculatorImageButtonLegacyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorImageButtonLegacyTests.swift; sourceTree = "<group>"; };
-		E215DE302B019BBC00670876 /* CalculatorTextButtonLegacyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTextButtonLegacyTests.swift; sourceTree = "<group>"; };
 		E228C6BF2B5A517B00A78834 /* CalculatorReplicaSwiftUIAutomationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorReplicaSwiftUIAutomationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E228C6C12B5A517B00A78834 /* CalculatorReplicaSwiftUIAutomationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorReplicaSwiftUIAutomationTests.swift; sourceTree = "<group>"; };
 		E239F23C245F91A600097C39 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
@@ -227,8 +223,6 @@
 				E2D4E6F02B54DF7900A7ED35 /* CalculatorReplicaSwiftUISnapshotTestPlan.xctestplan */,
 				E29631392B53636C00190A1A /* Base */,
 				E215DE2C2B018CAE00670876 /* Mocks */,
-				E215DE2D2B018DA100670876 /* CalculatorImageButtonLegacyTests.swift */,
-				E215DE302B019BBC00670876 /* CalculatorTextButtonLegacyTests.swift */,
 				E2608A512B4E60CB00060A20 /* CalculatorImageButtonTests.swift */,
 				E2608A572B4E634000060A20 /* CalculatorTextButtonTests.swift */,
 				E29631372B53492200190A1A /* CalculatorResultDisplayViewTests.swift */,
@@ -708,8 +702,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2608A5A2B4E63B300060A20 /* CalculatorTextButtonProtocolMock.swift in Sources */,
-				E215DE312B019BBC00670876 /* CalculatorTextButtonLegacyTests.swift in Sources */,
-				E215DE2E2B018DA100670876 /* CalculatorImageButtonLegacyTests.swift in Sources */,
 				E296313B2B53638400190A1A /* SnapshotTestCase.swift in Sources */,
 				E2608A582B4E634000060A20 /* CalculatorTextButtonTests.swift in Sources */,
 				E29631382B53492200190A1A /* CalculatorResultDisplayViewTests.swift in Sources */,
