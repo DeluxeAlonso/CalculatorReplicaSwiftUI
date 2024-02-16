@@ -45,6 +45,7 @@
 		E29631382B53492200190A1A /* CalculatorResultDisplayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29631372B53492200190A1A /* CalculatorResultDisplayViewTests.swift */; };
 		E296313B2B53638400190A1A /* SnapshotTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E296313A2B53638400190A1A /* SnapshotTestCase.swift */; };
 		E2AC65BD2B566F1200F47015 /* BinaryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC65BC2B566F1200F47015 /* BinaryOperation.swift */; };
+		E2ADB4632B7F27A70061D250 /* CalculatorConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADB4622B7F27A70061D250 /* CalculatorConstantsTests.swift */; };
 		E2B2EDB12B0BD4E500F0F2AA /* CalculatorEnvironmentObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2EDB02B0BD4E500F0F2AA /* CalculatorEnvironmentObjectTests.swift */; };
 		E2B2EDB32B0BD5DE00F0F2AA /* CalculatorOperationHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2EDB22B0BD5DE00F0F2AA /* CalculatorOperationHandlerMock.swift */; };
 		E2B2EDB52B0BFE5900F0F2AA /* CalculatorResultFormatterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2EDB42B0BFE5900F0F2AA /* CalculatorResultFormatterMock.swift */; };
@@ -145,6 +146,7 @@
 		E29631372B53492200190A1A /* CalculatorResultDisplayViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorResultDisplayViewTests.swift; sourceTree = "<group>"; };
 		E296313A2B53638400190A1A /* SnapshotTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTestCase.swift; sourceTree = "<group>"; };
 		E2AC65BC2B566F1200F47015 /* BinaryOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOperation.swift; sourceTree = "<group>"; };
+		E2ADB4622B7F27A70061D250 /* CalculatorConstantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorConstantsTests.swift; sourceTree = "<group>"; };
 		E2B2EDB02B0BD4E500F0F2AA /* CalculatorEnvironmentObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorEnvironmentObjectTests.swift; sourceTree = "<group>"; };
 		E2B2EDB22B0BD5DE00F0F2AA /* CalculatorOperationHandlerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperationHandlerMock.swift; sourceTree = "<group>"; };
 		E2B2EDB42B0BFE5900F0F2AA /* CalculatorResultFormatterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorResultFormatterMock.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				E2DA4B0A2453C76300B9D981 /* CalculatorIntegrationTests.swift */,
 				E2CAA05F24555EBA00C4DBC9 /* StringExtensionTests.swift */,
 				E2B2EDB02B0BD4E500F0F2AA /* CalculatorEnvironmentObjectTests.swift */,
+				E2ADB4622B7F27A70061D250 /* CalculatorConstantsTests.swift */,
 			);
 			path = CalculatorReplicaSwiftUITests;
 			sourceTree = "<group>";
@@ -726,6 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2ADB4632B7F27A70061D250 /* CalculatorConstantsTests.swift in Sources */,
 				E2B2EDB12B0BD4E500F0F2AA /* CalculatorEnvironmentObjectTests.swift in Sources */,
 				E2CAA059245533F800C4DBC9 /* CalculatorConfigurationMock.swift in Sources */,
 				E2DA4B072453BF2100B9D981 /* CalculatorButtonTests.swift in Sources */,
