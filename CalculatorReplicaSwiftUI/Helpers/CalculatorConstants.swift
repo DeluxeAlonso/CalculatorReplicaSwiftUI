@@ -8,7 +8,7 @@
 
 struct CalculatorConstants {
     static let nonSignificantCharacters: [Character] = [
-        CalculatorButtonRepresentable.zero.rawValue.first!,
-        CalculatorButtonRepresentable.decimal.rawValue.first!
-    ]
+        CalculatorButtonRepresentable.zero.rawValue.first,
+        CalculatorButtonRepresentable.decimal.rawValue.first
+    ].compactMap { $0 }
 }
