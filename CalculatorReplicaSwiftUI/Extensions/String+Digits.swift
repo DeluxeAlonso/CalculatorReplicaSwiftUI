@@ -31,7 +31,7 @@ extension String {
             return fractionDigitsCount() > 0
         }
     }
-    
+
     func extractLastCharactersOf(_ character: Character) -> Self {
         var array: [String] = []
         var mutableString = self
