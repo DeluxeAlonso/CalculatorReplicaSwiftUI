@@ -36,7 +36,7 @@ extension String {
         extractLastCharactersOf(buttonRepresentable.character)
     }
 
-    private func extractLastCharactersOf(_ character: Character) -> Self {
+    func extractLastCharactersOf(_ character: Character) -> Self {
         var array: [String] = []
         var mutableString = self
         while let lastCharacter = mutableString.popLast(), lastCharacter == character {
@@ -50,7 +50,7 @@ extension String {
         extractLastCharactersOf(buttonRepresentables.compactMap { $0.character }, withCutCharacter: cutButtonRepresentable?.character)
     }
     
-    private func extractLastCharactersOf(_ characters: [Character], withCutCharacter cutCharacter: Character? = nil) -> Self {
+    func extractLastCharactersOf(_ characters: [Character], withCutCharacter cutCharacter: Character? = nil) -> Self {
         var array: [String] = []
         var mutableString = self
         while let lastCharacter = mutableString.popLast(), characters.contains(lastCharacter) {
@@ -65,7 +65,7 @@ extension String {
         return String(drop { $0 == buttonRepresentable.character })
     }
     
-    private func trimLeadingOcurrencesOf(_ character: Character) -> Self {
+    func trimLeadingOcurrencesOf(_ character: Character) -> Self {
         return String(drop { $0 == character })
     }
     
