@@ -33,7 +33,7 @@ struct CalculatorOperationValidator: CalculatorOperationValidatorProtocol {
     func isEnteringSignificantNumber(_ calculatorButton: CalculatorButtonProtocol,
                                      in calculatorDisplay: String) -> Bool {
         guard calculatorButton.title == CalculatorButtonRepresentable.zero.rawValue else { return true }
-        let numberOfZeros = calculatorDisplay.extractLastCharactersOf(CalculatorButtonRepresentable.zero.character).count
+        let numberOfZeros = calculatorDisplay.extractLastCharactersOf(.zero).count
         return !(numberOfZeros == calculatorDisplay.count && numberOfZeros > 0)
     }
 }
