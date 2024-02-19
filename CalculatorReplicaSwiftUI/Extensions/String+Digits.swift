@@ -32,7 +32,11 @@ extension String {
         }
     }
 
-    func extractLastCharactersOf(_ character: Character) -> Self {
+    func extractLastCharactersOf(_ buttonRepresentable: CalculatorButtonRepresentable) -> Self {
+        extractLastCharactersOf(buttonRepresentable.character)
+    }
+
+    private func extractLastCharactersOf(_ character: Character) -> Self {
         var array: [String] = []
         var mutableString = self
         while let lastCharacter = mutableString.popLast(), lastCharacter == character {
@@ -40,8 +44,13 @@ extension String {
         }
         return array.joined()
     }
+
+    func extractLastCharactersOf(_ buttonRepresentables: [CalculatorButtonRepresentable],
+                                 withCutCharacter cutButtonRepresentable: CalculatorButtonRepresentable? = nil) -> Self {
+        extractLastCharactersOf(buttonRepresentables.compactMap { $0.character }, withCutCharacter: cutButtonRepresentable?.character)
+    }
     
-    func extractLastCharactersOf(_ characters: [Character], withCutCharacter cutCharacter: Character? = nil) -> Self {
+    private func extractLastCharactersOf(_ characters: [Character], withCutCharacter cutCharacter: Character? = nil) -> Self {
         var array: [String] = []
         var mutableString = self
         while let lastCharacter = mutableString.popLast(), characters.contains(lastCharacter) {
@@ -51,8 +60,12 @@ extension String {
         }
         return array.joined()
     }
+
+    func trimLeadingOcurrencesOf(_ buttonRepresentable: CalculatorButtonRepresentable) -> Self {
+        return String(drop { $0 == buttonRepresentable.character })
+    }
     
-    func trimLeadingOcurrencesOf(_ character: Character) -> Self {
+    private func trimLeadingOcurrencesOf(_ character: Character) -> Self {
         return String(drop { $0 == character })
     }
     
