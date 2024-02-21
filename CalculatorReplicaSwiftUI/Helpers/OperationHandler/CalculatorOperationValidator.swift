@@ -15,6 +15,8 @@ struct CalculatorOperationValidator: CalculatorOperationValidatorProtocol {
         self.calculatorConfiguration = calculatorConfiguration
     }
 
+    // MARK: - CalculatorOperationValidatorProtocol
+
     func shouldProcessCalculatorButton(_ calculatorButton: CalculatorButtonProtocol,
                                        in calculatorDisplay: String) -> Bool {
         guard calculatorButton.shouldShowOnResultDisplay else { return false }

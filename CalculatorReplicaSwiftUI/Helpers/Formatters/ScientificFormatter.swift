@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ScientificFormatter: NumberFormatter {
+final class ScientificFormatter: NumberFormatter {
     override init() {
         super.init()
         numberStyle = .scientific

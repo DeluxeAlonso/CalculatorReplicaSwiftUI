@@ -10,7 +10,6 @@ import Combine
 import Foundation
 
 final class CalculatorEnvironmentObject: ObservableObject {
-
     @UserDefaultsStorage("calculatorDisplay", defaultValue: "0")
     var formattedCalculatorDisplay: String {
         willSet {
@@ -69,5 +68,4 @@ final class CalculatorEnvironmentObject: ObservableObject {
     func deleteLastSingleDigit() {
         calculatorOperationHandler.deleteLastSingleDigit()
     }
-    
 }
