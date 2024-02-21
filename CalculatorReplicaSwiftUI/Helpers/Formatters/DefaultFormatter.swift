@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DefaultFormatter: NumberFormatter {
+final class DefaultFormatter: NumberFormatter {
     override init() {
         super.init()
         numberStyle = .none

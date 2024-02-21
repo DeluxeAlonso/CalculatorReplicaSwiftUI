@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DecimalFormatter: NumberFormatter {
+final class DecimalFormatter: NumberFormatter {
     override init() {
         super.init()
         numberStyle = .decimal
