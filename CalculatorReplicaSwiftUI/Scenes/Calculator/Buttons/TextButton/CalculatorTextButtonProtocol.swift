@@ -6,8 +6,6 @@
 //  Copyright © 2024 Alonso. All rights reserved.
 //
 
-import Foundation
-
 protocol CalculatorTextButtonProtocol {
     var identifier: String { get }
     var text: String { get }

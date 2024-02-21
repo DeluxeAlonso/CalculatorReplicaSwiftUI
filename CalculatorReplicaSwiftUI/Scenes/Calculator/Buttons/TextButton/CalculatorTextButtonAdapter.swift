@@ -6,8 +6,6 @@
 //  Copyright © 2024 Alonso. All rights reserved.
 //
 
-import Foundation
-
 struct CalculatorTextButtonAdapter: CalculatorTextButtonProtocol {
     let identifier: String
     let text: String
