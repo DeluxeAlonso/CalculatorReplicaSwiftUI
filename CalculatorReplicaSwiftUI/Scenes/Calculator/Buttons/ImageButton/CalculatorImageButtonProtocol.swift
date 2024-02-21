@@ -6,8 +6,6 @@
 //  Copyright © 2024 Alonso. All rights reserved.
 //
 
-import Foundation
-
 protocol CalculatorImageButtonProtocol {
     var identifier: String { get }
     var imageName: String { get }

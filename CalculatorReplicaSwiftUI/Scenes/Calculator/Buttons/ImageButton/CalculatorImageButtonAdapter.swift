@@ -6,8 +6,6 @@
 //  Copyright © 2024 Alonso. All rights reserved.
 //
 
-import Foundation
-
 struct CalculatorImageButtonAdapter: CalculatorImageButtonProtocol {
     let identifier: String
     let imageName: String
