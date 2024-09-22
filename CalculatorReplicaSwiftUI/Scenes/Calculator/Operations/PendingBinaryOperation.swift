@@ -28,7 +28,7 @@ final class PendingBinaryOperation: PendingBinaryOperationProtocol {
     }
     
     var hasOperand: Bool {
-        return operand != nil
+        operand != nil
     }
     
     func setOperand(_ secondOperand: Double) {
