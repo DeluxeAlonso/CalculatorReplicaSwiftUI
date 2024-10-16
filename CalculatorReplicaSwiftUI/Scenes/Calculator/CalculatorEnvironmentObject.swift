@@ -8,10 +8,11 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 final class CalculatorEnvironmentObject: ObservableObject {
-    @UserDefaultsStorage("calculatorDisplay", defaultValue: "0")
-    var formattedCalculatorDisplay: String {
+    @AppStorage("calculatorDisplay")
+    var formattedCalculatorDisplay: String = "0" {
         willSet {
             objectWillChange.send()
         }
