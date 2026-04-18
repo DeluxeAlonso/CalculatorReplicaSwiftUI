@@ -18,7 +18,7 @@ final class CalculatorIntegrationTests: XCTestCase {
         let calculatorConfiguration = CalculatorConfiguration()
         let calculatorValidator = CalculatorOperationValidator(calculatorConfiguration: calculatorConfiguration)
         let calculatorTrimmer = CalculatorDisplayTrimmer()
-        operationHandler = CalculatorOperationHadler(calculatorValidator: calculatorValidator,
+        operationHandler = CalculatorOperationHandler(calculatorValidator: calculatorValidator,
                                                      calculatorTrimmer: calculatorTrimmer)
     }
 

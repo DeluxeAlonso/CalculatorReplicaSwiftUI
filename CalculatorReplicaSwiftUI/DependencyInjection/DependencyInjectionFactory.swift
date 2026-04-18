@@ -21,7 +21,7 @@ struct DependencyInjectionFactory {
     }
     
     static func createCalculatorOperationHandler() -> CalculatorOperationHandlerProtocol {
-        CalculatorOperationHadler(calculatorValidator: createCalculatorValidator(),
+        CalculatorOperationHandler(calculatorValidator: createCalculatorValidator(),
                                   calculatorTrimmer: createCalculatorTrimmer())
     }
     

@@ -8,7 +8,7 @@
 
 import Combine
 
-final class CalculatorOperationHadler: CalculatorOperationHandlerProtocol {
+final class CalculatorOperationHandler: CalculatorOperationHandlerProtocol {
     // MARK: - Dependencies
 
     private let calculatorValidator: CalculatorOperationValidatorProtocol
